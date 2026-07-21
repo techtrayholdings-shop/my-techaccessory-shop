@@ -14,7 +14,7 @@
             background-position: center; 
             background-attachment: fixed; 
             background-repeat: no-repeat; 
-        } /* FIXED: Re-added missing closing curly bracket here to fix the code freeze */
+        } 
         
         /* Tabs Container Styling */
         .tab-container { display: flex; justify-content: center; gap: 10px; margin: 25px 0; flex-wrap: wrap; }
@@ -111,7 +111,7 @@
             Current Selected Items: None
         </div>
 
-        <!-- Delivery Selector Wrapper Layout -->
+        <!-- NEW: Delivery Selector Wrapper Layout -->
         <div id="delivery-box" class="delivery-section">
             <label for="delivery-method">Select Fulfillment / Shipping Method:</label>
             <select id="delivery-method" class="delivery-select" onchange="updateCartDisplay()">
@@ -157,6 +157,7 @@
         let currentOrder = [];
         let itemsCost = 0;
 
+        // NEW: Refactored calculation method to handle delivery logic
         function updateCartDisplay() {
             if (currentOrder.length === 0) {
                 document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
@@ -181,6 +182,7 @@
             currentOrder.push(itemName);
             itemsCost += itemPrice;
             
+            // Show configuration modules
             document.getElementById('whatsapp-btn').style.display = 'block';
             document.getElementById('clear-btn').style.display = 'block';
             document.getElementById('delivery-box').style.display = 'block';
@@ -194,7 +196,9 @@
                 currentOrder = [];
                 itemsCost = 0;
                 
+                // Reset select option back to default
                 document.getElementById('delivery-method').selectedIndex = 0;
+                
                 updateCartDisplay();
                 
-                document.getElementById('whatsapp-btn').style.display = 'none';
+                // Hide dynamic view blocks 
