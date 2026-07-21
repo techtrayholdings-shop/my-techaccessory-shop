@@ -46,14 +46,6 @@
         button.clear-btn { background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; display: none; font-size: 0.9em; width: 100%; }
         button.clear-btn:hover { background: #c0392b; }
         .btn-group { display: flex; flex-direction: column; gap: 10px; }
-
-        /* NEW: Utility scaling class to make sure graphic icons don't break textual alignment heights */
-        .cart-icon {
-            height: 20px;
-            width: auto;
-            vertical-align: middle;
-            margin-right: 6px;
-        }
     </style>
 </head>
 <body>
@@ -166,7 +158,6 @@
             }
         }
 
-        // FIXED: Re-engineered text interpolation to serve rich HTML image source values cleanly
         function updateCartDisplay() {
             if (currentOrder.length === 0) {
                 document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
@@ -180,12 +171,11 @@
             
             let totalCost = itemsCost + deliveryFee;
 
-            // FIXED: Swapped out emojis for high-definition asset links ('cart-icon.png', etc.)
             document.getElementById('cart-summary').innerHTML = 
-                `<img src="cart-icon.png" class="cart-icon" alt="Cart"> <strong>Items:</strong> ${currentOrder.join(', ')} <br> ` +
-                `<img src="subtotal-icon.png" class="cart-icon" alt="Subtotal"> <strong>Items Subtotal:</strong> R${itemsCost.toFixed(2)} <br>` +
-                `<img src="delivery-icon.png" class="cart-icon" alt="Delivery"> <strong>Method:</strong> ${deliveryText} <br>` +
-                `<img src="total-icon.png" class="cart-icon" alt="Grand Total"> <strong>Grand Total:</strong> R${totalCost.toFixed(2)}`;
+                `🛒 Items: ${currentOrder.join(', ')} <br> ` +
+                `💵 Items Subtotal: R${itemsCost.toFixed(2)} <br>` +
+                `🚚 Method: ${deliveryText} <br>` +
+                `💰 Grand Total: R${totalCost.toFixed(2)}`;
         }
 
         function addToCart(itemName, itemPrice) {
@@ -193,5 +183,20 @@
             itemsCost += parseFloat(itemPrice);
             
             document.getElementById('whatsapp-btn').style.display = 'block';
+            document.getElementById('clear-btn').style.display = 'block';
+            document.getElementById('delivery-box').style.display = 'block';
+            
+            updateCartDisplay();
+            alert(`${itemName} added to your summary below!`);
+        }
+
+        function emptyCart() {
+            if (confirm("Are you sure you want to clear your selected items?")) {
+                currentOrder = [];
+                itemsCost = 0;
+                
+                document.getElementById('delivery-method').selectedIndex = 0;
+                document.getElementById('cart-summary').innerHTML = "Current Selected Items: None"; // FIXED: Correctly closed text string sequence layout
+            }
         }
 </script>
