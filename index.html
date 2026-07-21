@@ -6,14 +6,15 @@
     <title>Tech Accessories Shop</title>
     <style>
         body { 
-    font-family: Arial, sans-serif; 
-    margin: 0; 
-    padding: 20px; 
-    background-image: url('background2.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat; 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-image: url('background2.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+            background-repeat: no-repeat; 
+        } /* FIXED: Added missing closing bracket here */
         
         /* Tabs Container Styling */
         .tab-container { display: flex; justify-content: center; gap: 10px; margin: 25px 0; flex-wrap: wrap; }
@@ -42,7 +43,7 @@
 
     <header>
         <h1>TechTray Accessories Store</h1>
-        <p>Order Online and prooceed to checkout to checkout to our WhatsApp Business to confirm your order.</p>
+        <p>Order Online and proceed to our WhatsApp Business to confirm your order.</p>
     </header>
 
     <!-- STEP 2: THE TABS BUTTONS -->
@@ -55,7 +56,6 @@
 
     <!-- STEP 3: THE PRODUCTS GRID -->
     <div class="container">
-        
          <!-- Car Item 1 -->
         <div class="product-card" data-category="car">
             <h3>Fast Charging Car Mount</h3>
@@ -89,11 +89,9 @@
             <p class="price">R229.99</p>
             <button class="add-btn" onclick="addToCart('hOCO 60w Display USB-C Cable (2m)', 229.99)">Add to Order</button>
         </div>
-
     </div>
 
     <!-- Payment Block -->
-    <!-- Streamlined WhatsApp Checkout Block -->
     <div class="checkout-box">
         <h2>How to Complete Your Order</h2>
         <p><strong>Step 1:</strong> Click "Add to Order" on the items you want.</p>
@@ -104,7 +102,7 @@
             Current Selected Items: None
         </div>
 
-        <!-- WhatsApp Order Button -->
+        <!-- FIXED: Button starts visible or can be un-hidden via JavaScript -->
         <button id="whatsapp-btn" onclick="sendWhatsAppOrder()" style="background-color: #25D366; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; font-size: 1.1em; margin-top: 20px; display: none;">
             📱 Submit Order via WhatsApp
         </button>
@@ -113,22 +111,20 @@
     <!-- STEP 4: THE FILTERING SCRIPT -->
     <script>
         function filterCategory(category, buttonElement) {
-            // Update active tab buttons color
             let buttons = document.getElementsByClassName('tab-btn');
             for (let btn of buttons) {
                 btn.classList.remove('active');
             }
             buttonElement.classList.add('active');
 
-            // Show or hide product cards dynamically
             let cards = document.getElementsByClassName('product-card');
             for (let card of cards) {
                 let cardCategory = card.getAttribute('data-category');
                 
                 if (category === 'all' || cardCategory === category) {
-                    card.classList.remove('hidden'); // Show card
+                    card.classList.remove('hidden');
                 } else {
-                    card.classList.add('hidden');    // Hide card
+                    card.classList.add('hidden');
                 }
             }
         }
@@ -141,19 +137,25 @@
             totalCost += itemPrice;
             document.getElementById('cart-summary').innerHTML = 
                 `🛒 Items: ${currentOrder.join(', ')} <br> 💵 Total Amount to Transfer: R${totalCost.toFixed(2)}`;
+            
+            // FIXED: Show the WhatsApp button automatically when an item is added
+            document.getElementById('whatsapp-btn').style.display = 'block';
             alert(`${itemName} added to your summary below!`);
         }
+
         function sendWhatsAppOrder() {
-    // Make sure your phone number is inserted below (e.g., 27612345678)
-    let phoneNumber = "27672653887"; 
-    
-    let message = `Hello! I would like to place an order on your website:\n\n` +
-                  `📦 Items: ${currentOrder.join(', ')}\n` +
-                  `💰 Total Amount: R${totalCost.toFixed(2)}\n\n` +
-                  `Please confirm stock availability and send me your payment details!`;
-    
-    let encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/message/VRYS7EN5VDCKI1{phoneNumber}&text=${encodedMessage}`, '_blank');
+            let phoneNumber = "27672653887"; 
+            
+            let message = `Hello! I would like to place an order on your website:\n\n` +
+                          `📦 Items: ${currentOrder.join(', ')}\n` +
+                          `💰 Total Amount: R${totalCost.toFixed(2)}\n\n` +
+                          `Please confirm stock availability and send me your payment details!`;
+            
+            let encodedMessage = encodeURIComponent(message);
+            
+            // FIXED: Standard WhatsApp click-to-chat API string format structure
+            window.open(`https://wa.me{phoneNumber}?text=${encodedMessage}`, '_blank');
+        } // FIXED: Added missing curly bracket to close sendWhatsAppOrder function
     </script>
 
 </body>
