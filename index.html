@@ -61,8 +61,9 @@
             <h3>Hoco Fast Charging Car Mount</h3>
             <img src="car-mount.jpg" alt="Car Mount">
             <p class="status">Status: In Stock</p>
+            <!-- CHANGED TO R-->
             <p class="price">R279.99</p>
-            <button class="add-btn" onclick="addToCart('Fast Charging Car Mount', 15.00)">Add to Order</button>
+            <button class="add-btn" onclick="addToCart('Hoco Fast Charging Car Mount', 279.99)">Add to Order</button>
         </div>
 
         <!-- Car Item 2 -->
@@ -70,8 +71,9 @@
             <h3>Hoco Dual USB Car Charger</h3>
             <img src="car-charger.jpg" alt="Car Charger">
             <p class="status">Status: Special Order</p>
+            <!-- CHANGED TO R-->
             <p class="price">R249.99</p>
-            <button class="add-btn" onclick="addToCart('Dual USB Car Charger', 10.00)">Request Special Order</button>
+            <button class="add-btn" onclick="addToCart('Hoco Dual USB Car Charger', 249.99)">Request Special Order</button>
         </div>
 
         <!-- Audio Item 1 -->
@@ -79,8 +81,9 @@
             <h3>Hoco Wireless Headphones</h3>
             <img src="headphones3.png" alt="Headphones">
             <p class="status">Status: Special Order</p>
+            <!-- CHANGED TO R-->
             <p class="price">R529.99</p>
-            <button class="add-btn" onclick="addToCart('Wireless Studio Headphones', 45.00)">Request Special Order</button>
+            <button class="add-btn" onclick="addToCart('Hoco Wireless Headphones', 529.99)">Request Special Order</button>
         </div>
 
         <!-- Home & Power Item 1 -->
@@ -88,8 +91,9 @@
             <h3>Hoco 60W Display USB-C Cable (2m)</h3>
             <img src="cable.jpg" alt="USB Cable">
             <p class="status">Status: In Stock</p>
+            <!-- CHANGED TO R-->
             <p class="price">R279.99</p>
-            <button class="add-btn" onclick="addToCart('Braided USB-C Cable', 8.00)">Add to Order</button>
+            <button class="add-btn" onclick="addToCart('Hoco 60W Display USB-C Cable (2m)', 279.99)">Add to Order</button>
         </div>
 
     </div>
@@ -140,8 +144,8 @@
             currentOrder.push(itemName);
             totalCost += itemPrice;
             document.getElementById('cart-summary').innerHTML = 
-                `🛒 Items: R{currentOrder.join(', ')} <br> 💵 Total Amount to Transfer: RR{totalCost.toFixed(2)}`;
-            alert(`R{itemName} added to your summary below!`);
+                `🛒 Items: ${currentOrder.join(', ')} <br> 💵 Total Amount to Transfer: R${totalCost.toFixed(2)}`;
+            alert(`${itemName} added to your summary below!`);
         }
     </script>
 
