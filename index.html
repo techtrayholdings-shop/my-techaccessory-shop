@@ -143,6 +143,17 @@
                 `🛒 Items: ${currentOrder.join(', ')} <br> 💵 Total Amount to Transfer: R${totalCost.toFixed(2)}`;
             alert(`${itemName} added to your summary below!`);
         }
+        function sendWhatsAppOrder() {
+    // Make sure your phone number is inserted below (e.g., 27612345678)
+    let phoneNumber = "27672653887"; 
+    
+    let message = `Hello! I would like to place an order on your website:\n\n` +
+                  `📦 Items: ${currentOrder.join(', ')}\n` +
+                  `💰 Total Amount: R${totalCost.toFixed(2)}\n\n` +
+                  `Please confirm stock availability and send me your payment details!`;
+    
+    let encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/message/VRYS7EN5VDCKI1{phoneNumber}&text=${encodedMessage}`, '_blank');
     </script>
 
 </body>
