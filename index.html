@@ -26,7 +26,7 @@
         .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; min-height: 300px; }
         
         /* Product Card & Filtering Animations */
-        .product-card { background: white; padding: 15px; border-radius: 8px; width: 250px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: block; position: relative; }
+        .product-card { background: white; padding: 15px; border-radius: 8px; width: 250px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: block; }
         .product-card.hidden { display: none; }
         
         .product-card h3 { margin: 0 0 10px 0; font-size: 1.2em; color: #2c3e50; }
@@ -37,26 +37,15 @@
         button.add-btn { background: #3498db; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; }
         button.add-btn:hover { background: #2980b9; }
         
-        /* Checkout Box & Input Layout Styling */
+        /* Checkout Box & Delivery Layout Styling */
         .checkout-box { background: #fff; padding: 20px; margin-top: 30px; border-radius: 8px; border-left: 5px solid #2ecc71; }
         .delivery-section { margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 6px; border: 1px solid #eaeded; display: none; }
         .delivery-section label { font-weight: bold; display: block; margin-bottom: 8px; color: #2c3e50; }
         .delivery-select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; background: #fff; cursor: pointer; }
         
-        /* NEW: Customer input fields design */
-        .customer-input { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; background: #fff; margin-bottom: 15px; box-sizing: border-box; }
-        .customer-input:focus { border-color: #3498db; outline: none; }
-        
         button.clear-btn { background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; display: none; font-size: 0.9em; width: 100%; }
         button.clear-btn:hover { background: #c0392b; }
         .btn-group { display: flex; flex-direction: column; gap: 10px; }
-
-        .cart-icon {
-            height: 20px;
-            width: auto;
-            vertical-align: middle;
-            margin-right: 6px;
-        }
     </style>
 </head>
 <body>
@@ -115,20 +104,11 @@
     <div class="checkout-box">
         <h2>How to Complete Your Order</h2>
         <p><strong>Step 1:</strong> Click "Add to Order" on the items you want.</p>
-        <p><strong>Step 2:</strong> Fill in your details and select your shipping method below.</p>
+        <p><strong>Step 2:</strong> Select your preferred fulfillment/delivery method below.</p>
         <p><strong>Step 3:</strong> Click the green button below to submit your order summary to us on WhatsApp.</p>
         
         <div id="cart-summary" style="margin-top: 15px; font-weight: bold; color: #2c3e50; line-height: 1.6;">
             Current Selected Items: None
-        </div>
-
-        <!-- NEW: Customer Details Input Form fields section -->
-        <div id="customer-box" class="delivery-section">
-            <label for="customer-name">Your Full Name:</label>
-            <input type="text" id="customer-name" class="customer-input" placeholder="e.g. Thabo Khumalo">
-
-            <label for="customer-address">Delivery Address / Paxi Shop Code:</label>
-            <input type="text" id="customer-address" class="customer-input" placeholder="e.g. P1234 Pep Store or Street Address, City">
         </div>
 
         <!-- Delivery Selector Module -->
@@ -138,14 +118,6 @@
                 <option value="pickup" data-fee="0">🏃‍♂️ Local Pickup / Collection (Free - R0.00)</option>
                 <option value="paxi" data-fee="60">📦 Paxi - Pep to Pep (R60.00)</option>
                 <option value="courier" data-fee="100">🚚 Standard Door to Door Courier (R100.00)</option>
-            </select>
-        </div>
-
-        <!-- WhatsApp Channel/Number Selector Module -->
-        <div id="agent-box" class="delivery-section">
-            <label for="whatsapp-number">Send Order Enquiry To:</label>
-            <select id="whatsapp-number" class="delivery-select">
-                <option value="27672653887" data-link="https://wa.me">📱 TechTray Main Sales Line (067 265 3887)</option>
             </select>
         </div>
 
@@ -194,5 +166,37 @@
 
             let deliveryDropdown = document.getElementById('delivery-method');
             let selectedOption = deliveryDropdown.options[deliveryDropdown.selectedIndex];
+            let deliveryFee = parseFloat(selectedOption.getAttribute('data-fee')) || 0;
+            let deliveryText = selectedOption.text;
+            
+            let totalCost = itemsCost + deliveryFee;
+
+            document.getElementById('cart-summary').innerHTML = 
+                `🛒 Items: ${currentOrder.join(', ')} <br> ` +
+                `💵 Items Subtotal: R${itemsCost.toFixed(2)} <br>` +
+                `🚚 Method: ${deliveryText} <br>` +
+                `💰 Grand Total: R${totalCost.toFixed(2)}`;
         }
-    </script>
+
+        function addToCart(itemName, itemPrice) {
+            currentOrder.push(itemName);
+            itemsCost += parseFloat(itemPrice);
+            
+            document.getElementById('whatsapp-btn').style.display = 'block';
+            document.getElementById('clear-btn').style.display = 'block';
+            document.getElementById('delivery-box').style.display = 'block';
+            
+            updateCartDisplay();
+            alert(`${itemName} added to your summary below!`);
+        }
+
+        function emptyCart() {
+            if (confirm("Are you sure you want to clear your selected items?")) {
+                currentOrder = [];
+                itemsCost = 0;
+                
+                document.getElementById('delivery-method').selectedIndex = 0;
+                document.getElementById('cart-summary').innerHTML = "Current Selected Items: None"; // FIXED: Correctly closed text string sequence layout
+            }
+        }
+</script>
