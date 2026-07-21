@@ -162,21 +162,20 @@
             if (currentOrder.length === 0) {
                 document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
                 return;
-            }
-}
+            
             let deliveryDropdown = document.getElementById('delivery-method');
             let selectedOption = deliveryDropdown.options[deliveryDropdown.selectedIndex];
             let deliveryFee = parseFloat(selectedOption.getAttribute('data-fee')) || 0;
             let deliveryText = selectedOption.text;
-            
+            }
             let totalCost = itemsCost + deliveryFee;
-
+}
             document.getElementById('cart-summary').innerHTML = 
                 `🛒 Items: ${currentOrder.join(', ')} <br> ` +
                 `💵 Items Subtotal: R${itemsCost.toFixed(2)} <br>` +
                 `🚚 Method: ${deliveryText} <br>` +
                 `💰 Grand Total: R${totalCost.toFixed(2)}`;
-    
+    }
         function addToCart(itemName, itemPrice) {
             currentOrder.push(itemName);
             itemsCost += parseFloat(itemPrice);
@@ -187,18 +186,16 @@
             
             updateCartDisplay();
             alert(`${itemName} added to your summary below!`);
-        }
-}
+    }
         function emptyCart() {
             if (confirm("Are you sure you want to clear your selected items?")) {
                 currentOrder = [];
                 itemsCost = 0;
-                
+                }
                 document.getElementById('delivery-method').selectedIndex = 0;
                 document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
                 
                 document.getElementById('whatsapp-btn').style.display = 'none';
-            }
-        }
+    }
 </body>
 </html>
