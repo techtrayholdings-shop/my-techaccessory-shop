@@ -14,7 +14,7 @@
             background-position: center; 
             background-attachment: fixed; 
             background-repeat: no-repeat; 
-        } /* FIXED: Closed body selector bracket */
+        } 
         
         /* Tabs Container Styling */
         .tab-container { display: flex; justify-content: center; gap: 10px; margin: 25px 0; flex-wrap: wrap; }
@@ -37,6 +37,11 @@
         button.add-btn { background: #3498db; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; }
         button.add-btn:hover { background: #2980b9; }
         .checkout-box { background: #fff; padding: 20px; margin-top: 30px; border-radius: 8px; border-left: 5px solid #2ecc71; }
+
+        /* NEW: Added design rules for the Clear button action */
+        button.clear-btn { background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; display: none; font-size: 0.9em; }
+        button.clear-btn:hover { background: #c0392b; }
+        .btn-group { display: flex; flex-direction: column; gap: 10px; }
     </style>
 </head>
 <body>
@@ -102,10 +107,18 @@
             Current Selected Items: None
         </div>
 
-        <!-- WhatsApp Order Button -->
-        <button id="whatsapp-btn" onclick="sendWhatsAppOrder()" style="background-color: #25D366; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; font-size: 1.1em; margin-top: 20px; display: none;">
-            📱 Submit Order via WhatsApp
-        </button>
+        <!-- NEW: Action Group wrappers for the order management system buttons -->
+        <div class="btn-group">
+            <!-- NEW: Clear Cart Utility Button -->
+            <button id="clear-btn" class="clear-btn" onclick="emptyCart()">
+                🗑️ Empty Cart / Reset Order
+            </button>
+
+            <!-- WhatsApp Order Button -->
+            <button id="whatsapp-btn" onclick="sendWhatsAppOrder()" style="background-color: #25D366; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; font-size: 1.1em; margin-top: 10px; display: none;">
+                📱 Submit Order via WhatsApp
+            </button>
+        </div>
     </div>
 
     <!-- STEP 4: THE FILTERING SCRIPT -->
@@ -138,13 +151,26 @@
             document.getElementById('cart-summary').innerHTML = 
                 `🛒 Items: ${currentOrder.join(', ')} <br> 💵 Total Amount to Transfer: R${totalCost.toFixed(2)}`;
             
-            // Automatically un-hide the checkout button when user acts
+            // Show both the checkout button and empty cart button when items exist
             document.getElementById('whatsapp-btn').style.display = 'block';
+            document.getElementById('clear-btn').style.display = 'block';
             alert(`${itemName} added to your summary below!`);
         }
 
+        // NEW: Handles state changes when removing selections entirely
+        function emptyCart() {
+            if(confirm("Are you sure you want to clear your selected items?")) {
+                currentOrder = [];
+                totalCost = 0;
+                document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
+                
+                // Hide action tracking states cleanly
+                document.getElementById('whatsapp-btn').style.display = 'none';
+                document.getElementById('clear-btn').style.display = 'none';
+            }
+        }
+
         function sendWhatsAppOrder() {
-            // FIXED: Embedded your exact WhatsApp business message short link layout
             let businessLink = "https://wa.me"; 
             
             let message = `Hello! I would like to place an order on your website:\n\n` +
@@ -153,8 +179,6 @@
                           `Please confirm stock availability and send me your payment details!`;
             
             let encodedMessage = encodeURIComponent(message);
-            
-            // FIXED: Handled parameters seamlessly with standard query rules
             window.open(`${businessLink}?text=${encodedMessage}`, '_blank');
         } 
     </script>
