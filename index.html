@@ -3,46 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTray Accessories Store</title>
     <title>Tech Accessories Shop</title>
     <style>
+        /* Modern CSS Reset & Variable Setup */
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #10b981;
+            --danger: #ef4444;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-card: #ffffff;
+            --radius-lg: 16px;
+            --radius-md: 8px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05);
+        }
+
         body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             font-family: Arial, sans-serif; 
             margin: 0; 
+            padding: 40px 20px; 
+            color: var(--text-main);
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        } 
+
+        /* Elegant Header Design */
+        header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+        header p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        /* Modern Segmented Tab Bar */
+        .tab-container { 
+            display: inline-flex; 
+            justify-content: center; 
+            gap: 6px; 
+            margin: 0 auto 40px auto; 
+            flex-wrap: wrap; 
+            background: #edd;
+            background-color: #e2e8f0;
+            padding: 6px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+        .tab-btn { 
+            background: transparent; 
+            color: #475569; 
+            border: none; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            border-radius: 25px; 
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab-btn:hover { color: #0f172a; background-color: rgba(255,255,255,0.5); }
+        .tab-btn.active { background-color: #ffffff; color: var(--primary); box-shadow: var(--shadow-sm); }
+
+        /* Centering wrap for structural items */
+        .center-wrap { text-align: center; width: 100%; }
+
+        /* Premium E-commerce Grid */
+        .container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            min-height: 300px; 
+        }
+        
+        /* High-End Product Cards */
+        .product-card { 
+            background: var(--bg-card); 
             padding: 20px; 
+            border-radius: var(--radius-lg); 
+            box-shadow: var(--shadow-md); 
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f1f5f9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .product-card.hidden { display: none !important; }
             background-image: url('background2.jpg'); 
             background-size: cover; 
             background-position: center; 
             background-attachment: fixed; 
             background-repeat: no-repeat; 
         } 
-        
+
+        /* Card Typography & Layout */
+        .product-card h3 { margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 700; color: #0f172a; line-height: 1.4; }
+        .product-card img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: contain; 
+            margin-bottom: 16px; 
+            background: #f8fafc; 
+            border-radius: var(--radius-md); 
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.03);
+        }
         /* Tabs Container Styling */
         .tab-container { display: flex; justify-content: center; gap: 10px; margin: 25px 0; flex-wrap: wrap; }
         .tab-btn { background-color: #e0e0e0; color: #333; border: none; padding: 12px 24px; cursor: pointer; font-size: 1em; font-weight: bold; border-radius: 25px; transition: all 0.3s; }
         .tab-btn:hover { background-color: #d0d0d0; }
         .tab-btn.active { background-color: #3498db; color: white; }
 
+        /* Status & Badges System */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            align-self: flex-start;
+        }
+        .status-badge.in-stock { background-color: #d1fae5; color: #065f46; }
+        .status-badge.special-order { background-color: #fef3c7; color: #92400e; }
+
+        /* Bottom Row Alignments */
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .price { color: var(--text-main); font-weight: 800; font-size: 1.4rem; margin: 0; letter-spacing: -0.02em; }
         /* Grid Framework */
         .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; min-height: 300px; }
-        
+
+        button.add-btn { 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            padding: 12px; 
+            width: 100%; 
+            cursor: pointer; 
+            border-radius: var(--radius-md); 
+            font-weight: 600; 
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+        button.add-btn:hover { background: var(--primary-hover); }
         /* Product Card & Filtering Animations */
         .product-card { background: white; padding: 15px; border-radius: 8px; width: 250px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: block; }
         .product-card.hidden { display: none; }
-        
+
+        /* Polished Checkout Application Panel */
+        .checkout-box { 
+            background: var(--bg-card); 
+            padding: 30px; 
+            margin: 50px auto 0 auto; 
+            max-width: 650px;
+            border-radius: var(--radius-lg); 
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #f1f5f9;
+        }
+        .checkout-box h2 { font-size: 1.6rem; font-weight: 800; margin-top: 0; color: #0f172a; }
+        .checkout-steps { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
         .product-card h3 { margin: 0 0 10px 0; font-size: 1.2em; color: #2c3e50; }
         .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 10px; background: #fafafa; border-radius: 4px; }
         .price { color: #2ecc71; font-weight: bold; font-size: 1.2em; margin: 10px 0; }
         .status { font-size: 0.9em; color: #7f8c8d; margin-bottom: 10px; }
-        
+
+        /* Modern Select & Form Elements */
+        .delivery-section { margin: 24px 0; display: none; }
+        .delivery-section label { font-weight: 600; display: block; margin-bottom: 8px; font-size: 0.95rem; color: #334155; }
+        .delivery-select { 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: var(--radius-md); 
+            border: 1px solid #cbd5e1; 
+            font-size: 1rem; 
+            background: #ffffff; 
+            cursor: pointer; 
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .delivery-select:focus { border-color: var(--primary); }
         button.add-btn { background: #3498db; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; }
         button.add-btn:hover { background: #2980b9; }
-        
+
+        /* Cart Summary Modern Display Elements */
+        .summary-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+        .summary-item { display: flex; align-items: center; font-size: 1rem; color: #334155; }
         /* Checkout Box & Delivery Layout Styling */
         .checkout-box { background: #fff; padding: 20px; margin-top: 30px; border-radius: 8px; border-left: 5px solid #2ecc71; }
         .delivery-section { margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 6px; border: 1px solid #eaeded; display: none; }
         .delivery-section label { font-weight: bold; display: block; margin-bottom: 8px; color: #2c3e50; }
         .delivery-select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; background: #fff; cursor: pointer; }
-        
+
+        /* Button Utility Configurations */
+        .btn-group { display: flex; flex-direction: column; gap: 12px; }
+        button.whatsapp-btn { 
+            background-color: var(--success); 
+            color: white; 
+            border: none; 
+            padding: 16px; 
+            width: 100%; 
+            cursor: pointer; 
+            border-radius: var(--radius-md); 
+            font-weight: 700; 
+            font-size: 1.05rem; 
+            display: none;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+        button.whatsapp-btn:hover { background-color: #059669; }
+        button.clear-btn { background: transparent; color: #64748b; border: 1px solid #cbd5e1; padding: 10px; cursor: pointer; border-radius: var(--radius-md); font-weight: 600; display: none; font-size: 0.9rem; transition: all 0.2s; }
+        button.clear-btn:hover { background: #f1f5f9; color: var(--danger); border-color: var(--danger); }
+
+        .cart-icon { height: 20px; width: auto; vertical-align: middle; margin-right: 10px; }
         button.clear-btn { background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; display: none; font-size: 0.9em; width: 100%; }
         button.clear-btn:hover { background: #c0392b; }
         .btn-group { display: flex; flex-direction: column; gap: 10px; }
@@ -51,10 +260,20 @@
 <body>
 
     <header>
+        <h1>TechTray Accessories</h1>
+        <p>Browse our catalog, build your order, and submit instantly to our WhatsApp Business line to confirm availability and payment.</p>
         <h1>TechTray Accessories Store</h1>
         <p>Order Online and proceed to our WhatsApp Business to confirm your order.</p>
     </header>
 
+    <!-- STEP 2: THE SEGMENTED TABS -->
+    <div class="center-wrap">
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">✨ All Products</button>
+            <button class="tab-btn" onclick="filterCategory('car', this)">🚗 Car</button>
+            <button class="tab-btn" onclick="filterCategory('audio', this)">🎧 Audio</button>
+            <button class="tab-btn" onclick="filterCategory('home-power', this)">🔌 Power</button>
+        </div>
     <!-- STEP 2: THE TABS BUTTONS -->
     <div class="tab-container">
         <button class="tab-btn active" onclick="filterCategory('all', this)">✨ All Products</button>
@@ -63,11 +282,18 @@
         <button class="tab-btn" onclick="filterCategory('home-power', this)">🔌 Android & iPhone Charging Cables</button>
     </div>
 
+    <!-- STEP 3: THE PRODUCTS GRID Layout -->
     <!-- STEP 3: THE PRODUCTS GRID -->
     <div class="container">
          <!-- Car Item 1 -->
         <div class="product-card" data-category="car">
+            <span class="status-badge in-stock">In Stock</span>
+            <img src="car-mount.jpg" alt="Fast Charging Car Mount">
             <h3>Fast Charging Car Mount</h3>
+            <div class="card-footer">
+                <p class="price">R249.99</p>
+                <button class="add-btn" onclick="addToCart('Fast Charging Car Mount', 249.99)">Add to Order</button>
+            </div>
             <img src="car-mount.jpg" alt="car">
             <p class="status">Status: In Stock</p>
             <p class="price">R249.99</p>
@@ -75,6 +301,8 @@
         </div>
          <!-- Car Item 2 -->
         <div class="product-card" data-category="car">
+            <span class="status-badge special-order">Special Order</span>
+            <img src="car-charger.jpg" alt="Hoco Dual USB Car Charger">
             <h3>Hoco Dual USB Car Charger</h3>
             <img src="car-charger.jpg" alt="car">
             <p class="status">Status: Special Order</p>
@@ -157,25 +385,27 @@
                 }
             }
         }
-    </script>
+
         function updateCartDisplay() {
             if (currentOrder.length === 0) {
                 document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
                 return;
-            
+            }
+
             let deliveryDropdown = document.getElementById('delivery-method');
             let selectedOption = deliveryDropdown.options[deliveryDropdown.selectedIndex];
             let deliveryFee = parseFloat(selectedOption.getAttribute('data-fee')) || 0;
             let deliveryText = selectedOption.text;
-            }
+            
             let totalCost = itemsCost + deliveryFee;
-}
+
             document.getElementById('cart-summary').innerHTML = 
                 `🛒 Items: ${currentOrder.join(', ')} <br> ` +
                 `💵 Items Subtotal: R${itemsCost.toFixed(2)} <br>` +
                 `🚚 Method: ${deliveryText} <br>` +
                 `💰 Grand Total: R${totalCost.toFixed(2)}`;
-    }
+        }
+
         function addToCart(itemName, itemPrice) {
             currentOrder.push(itemName);
             itemsCost += parseFloat(itemPrice);
@@ -186,16 +416,17 @@
             
             updateCartDisplay();
             alert(`${itemName} added to your summary below!`);
-    }
+        }
+
         function emptyCart() {
             if (confirm("Are you sure you want to clear your selected items?")) {
                 currentOrder = [];
                 itemsCost = 0;
-                }
+                
                 document.getElementById('delivery-method').selectedIndex = 0;
                 document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
                 
                 document.getElementById('whatsapp-btn').style.display = 'none';
-    }
-</body>
-</html>
+            }
+        }
+</head>
