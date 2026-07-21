@@ -36,9 +36,15 @@
         
         button.add-btn { background: #3498db; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; }
         button.add-btn:hover { background: #2980b9; }
+        
+        /* Checkout Box & Delivery Layout Styling */
         .checkout-box { background: #fff; padding: 20px; margin-top: 30px; border-radius: 8px; border-left: 5px solid #2ecc71; }
-
-        /* NEW: Added design rules for the Clear button action */
+        
+        /* Form Field Configurations */
+        .form-section { margin: 15px 0; padding: 15px; background: #f9f9f9; border-radius: 6px; border: 1px solid #eaeded; display: none; }
+        .form-section label { font-weight: bold; display: block; margin-bottom: 8px; color: #2c3e50; }
+        .form-select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; background: #fff; cursor: pointer; }
+        
         button.clear-btn { background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; display: none; font-size: 0.9em; }
         button.clear-btn:hover { background: #c0392b; }
         .btn-group { display: flex; flex-direction: column; gap: 10px; }
@@ -100,16 +106,33 @@
     <div class="checkout-box">
         <h2>How to Complete Your Order</h2>
         <p><strong>Step 1:</strong> Click "Add to Order" on the items you want.</p>
-        <p><strong>Step 2:</strong> Click the green button below to submit your order summary to us on WhatsApp.</p>
-        <p><strong>Step 3:</strong> We will instantly confirm supplier stock and send you banking details to complete your payment!</p>
+        <p><strong>Step 2:</strong> Configure your fulfillment settings below.</p>
+        <p><strong>Step 3:</strong> Click the green button below to submit your order summary to us on WhatsApp.</p>
         
         <div id="cart-summary" style="margin-top: 15px; font-weight: bold; color: #2c3e50;">
             Current Selected Items: None
         </div>
 
-        <!-- NEW: Action Group wrappers for the order management system buttons -->
+        <!-- Delivery Selector Module -->
+        <div id="delivery-box" class="form-section">
+            <label for="delivery-method">Select Fulfillment / Shipping Method:</label>
+            <select id="delivery-method" class="form-select" onchange="updateCartDisplay()">
+                <option value="pickup" data-fee="0">🏃‍♂️ Local Pickup / Collection (Free - R0.00)</option>
+                <option value="paxi" data-fee="60">📦 Paxi - Pep to Pep (R60.00)</option>
+                <option value="courier" data-fee="100">🚚 Standard Door to Door Courier (R100.00)</option>
+            </select>
+        </div>
+
+        <!-- WhatsApp Channel/Number Selector Module -->
+        <div id="agent-box" class="form-section">
+            <label for="whatsapp-number">Send Order To:</label>
+            <select id="whatsapp-number" class="form-select">
+                <!-- FIXED: Reconfigured to only host your single verified business details -->
+                <option value="27672653887" data-link="https://wa.me">📱 TechTray Main Sales Line (067 265 3887)</option>
+            </select>
+        </div>
+
         <div class="btn-group">
-            <!-- NEW: Clear Cart Utility Button -->
             <button id="clear-btn" class="clear-btn" onclick="emptyCart()">
                 🗑️ Empty Cart / Reset Order
             </button>
@@ -143,45 +166,35 @@
         }
 
         let currentOrder = [];
-        let totalCost = 0;
+        let itemsCost = 0;
+
+        function updateCartDisplay() {
+            if (currentOrder.length === 0) {
+                document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
+                return;
+            }
+
+            let deliveryDropdown = document.getElementById('delivery-method');
+            let selectedOption = deliveryDropdown.options[deliveryDropdown.selectedIndex];
+            let deliveryFee = parseFloat(selectedOption.getAttribute('data-fee'));
+            let deliveryText = selectedOption.text;
+            
+            let totalCost = itemsCost + deliveryFee;
+
+            document.getElementById('cart-summary').innerHTML = 
+                `🛒 Items: ${currentOrder.join(', ')} <br> ` +
+                `💵 Items Subtotal: R${itemsCost.toFixed(2)} <br>` +
+                `🚚 Method: ${deliveryText} <br>` +
+                `💰 Grand Total: R${totalCost.toFixed(2)}`;
+        }
 
         function addToCart(itemName, itemPrice) {
             currentOrder.push(itemName);
-            totalCost += itemPrice;
-            document.getElementById('cart-summary').innerHTML = 
-                `🛒 Items: ${currentOrder.join(', ')} <br> 💵 Total Amount to Transfer: R${totalCost.toFixed(2)}`;
+            itemsCost += itemPrice;
             
-            // Show both the checkout button and empty cart button when items exist
             document.getElementById('whatsapp-btn').style.display = 'block';
             document.getElementById('clear-btn').style.display = 'block';
-            alert(`${itemName} added to your summary below!`);
-        }
-
-        // NEW: Handles state changes when removing selections entirely
-        function emptyCart() {
-            if(confirm("Are you sure you want to clear your selected items?")) {
-                currentOrder = [];
-                totalCost = 0;
-                document.getElementById('cart-summary').innerHTML = "Current Selected Items: None";
-                
-                // Hide action tracking states cleanly
-                document.getElementById('whatsapp-btn').style.display = 'none';
-                document.getElementById('clear-btn').style.display = 'none';
-            }
-        }
-
-        function sendWhatsAppOrder() {
-            let businessLink = "https://wa.me"; 
+            document.getElementById('delivery-box').style.display = 'block';
+            document.getElementById('agent-box').style.display = 'block';
             
-            let message = `Hello! I would like to place an order on your website:\n\n` +
-                          `📦 Items: ${currentOrder.join(', ')}\n` +
-                          `💰 Total Amount: R${totalCost.toFixed(2)}\n\n` +
-                          `Please confirm stock availability and send me your payment details!`;
-            
-            let encodedMessage = encodeURIComponent(message);
-            window.open(`${businessLink}?text=${encodedMessage}`, '_blank');
-        } 
-    </script>
-
-</body>
-</html>
+            updateCartDisplay();
