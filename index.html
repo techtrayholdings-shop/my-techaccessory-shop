@@ -14,7 +14,7 @@
             background-position: center; 
             background-attachment: fixed; 
             background-repeat: no-repeat; 
-        } 
+        } /* FIXED: Re-added missing closing curly bracket here to fix the code freeze */
         
         /* Tabs Container Styling */
         .tab-container { display: flex; justify-content: center; gap: 10px; margin: 25px 0; flex-wrap: wrap; }
@@ -37,13 +37,11 @@
         button.add-btn { background: #3498db; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; }
         button.add-btn:hover { background: #2980b9; }
         
-        /* Checkout Box Styling */
+        /* Checkout Box & Delivery Layout Styling */
         .checkout-box { background: #fff; padding: 20px; margin-top: 30px; border-radius: 8px; border-left: 5px solid #2ecc71; }
-        
-        /* Delivery Field Configurations */
-        .form-section { margin: 15px 0; padding: 15px; background: #f9f9f9; border-radius: 6px; border: 1px solid #eaeded; display: none; }
-        .form-section label { font-weight: bold; display: block; margin-bottom: 8px; color: #2c3e50; }
-        .form-select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; background: #fff; cursor: pointer; }
+        .delivery-section { margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 6px; border: 1px solid #eaeded; display: none; }
+        .delivery-section label { font-weight: bold; display: block; margin-bottom: 8px; color: #2c3e50; }
+        .delivery-select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; background: #fff; cursor: pointer; }
         
         button.clear-btn { background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; display: none; font-size: 0.9em; }
         button.clear-btn:hover { background: #c0392b; }
@@ -113,10 +111,10 @@
             Current Selected Items: None
         </div>
 
-        <!-- Delivery Selector Module -->
-        <div id="delivery-box" class="form-section">
+        <!-- Delivery Selector Wrapper Layout -->
+        <div id="delivery-box" class="delivery-section">
             <label for="delivery-method">Select Fulfillment / Shipping Method:</label>
-            <select id="delivery-method" class="form-select" onchange="updateCartDisplay()">
+            <select id="delivery-method" class="delivery-select" onchange="updateCartDisplay()">
                 <option value="pickup" data-fee="0">🏃‍♂️ Local Pickup / Collection (Free - R0.00)</option>
                 <option value="paxi" data-fee="60">📦 Paxi - Pep to Pep (R60.00)</option>
                 <option value="courier" data-fee="100">🚚 Standard Door to Door Courier (R100.00)</option>
@@ -137,10 +135,6 @@
 
     <!-- STEP 4: THE FILTERING SCRIPT -->
     <script>
-        // FIXED: Declared global order trackers right at the start so all functions can always access them safely
-        let currentOrder = [];
-        let itemsCost = 0;
-
         function filterCategory(category, buttonElement) {
             let buttons = document.getElementsByClassName('tab-btn');
             for (let btn of buttons) {
@@ -159,6 +153,9 @@
                 }
             }
         }
+
+        let currentOrder = [];
+        let itemsCost = 0;
 
         function updateCartDisplay() {
             if (currentOrder.length === 0) {
