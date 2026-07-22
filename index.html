@@ -1,3 +1,4 @@
+Can you make the categories respond to the products here is the code: 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,7 +160,6 @@ margin-top:40px;
 <h2>Premium HOCO Accessories</h2>
 
 <p>Quality Products • Affordable Prices • Fast WhatsApp Ordering</p>
-    
 
 <a class="btn" href="https://wa.me/27662653887">Order on WhatsApp</a>
 
@@ -169,15 +169,15 @@ margin-top:40px;
 
     <div class="tab-container">
         <nav class="navbar">
-        <button class="tab-btn active" onclick="filterCategory('all', this)">🏠 Home</button>
-        <button class="tab-btn" onclick="filterCategory('audio', this)">🎧 Audio</button>
-        <button class="tab-btn" onclick="filterCategory('power', this)">🔋 Power</button>
-        <button class="tab-btn" onclick="filterCategory('car', this)">🚗 Car</button>
-        <button class="tab-btn active" onclick="filterCategory('cables', this)">🔌 Cables</button>
-        <button class="tab-btn" onclick="filterCategory('protection', this)">🛡️ Protection</button>
-        <button class="tab-btn" onclick="filterCategory('personal', this)">✂️ Personal Care</button>
-        <button class="tab-btn" onclick="filterCategory('cart', this)">🛒 Cart</button>
-        <button class="tab-btn active" onclick="filterCategory('contact', this)">📞 Contact</button>
+        <button class="tab-btn active" onclick="filterCategory('#', this)">🏠 Home</button>
+        <button class="tab-btn" onclick="filterCategory('#audio', this)">🎧 Audio</button>
+        <button class="tab-btn" onclick="filterCategory('#power', this)">🔋 Power</button>
+        <button class="tab-btn" onclick="filterCategory('#car', this)">🚗 Car</button>
+        <button class="tab-btn active" onclick="filterCategory('#cables', this)">🔌 Cables</button>
+        <button class="tab-btn" onclick="filterCategory('#protection', this)">🛡️ Protection</button>
+        <button class="tab-btn" onclick="filterCategory('#personal', this)">✂️ Personal Care</button>
+        <button class="tab-btn" onclick="filterCategory('#cart', this)">🛒 Cart</button>
+        <button class="tab-btn active" onclick="filterCategory('#contact', this)">📞 Contact</button>
             </nav>
     </div>
 
@@ -185,93 +185,94 @@ margin-top:40px;
     
 </section>
 
-<div class="container">
-    
-<div class="product-card" data-category="#audio">
+<div class="products">
+
+<div class="card" data-category="#audio">
 <img src="EW72.png" alt="EW72">
 <h3>HOCO EW72 Wireless Earbuds</h3>
 <p class="price">R399.00</p>
-<button onclick="addToCart('HOCO EW72 Wireless Earbuds',399.99)">Add to Order</button>
+<button onclick="addToCart('HOCO EW72 Wireless Earbuds',399.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#audio">
+<div class="card" data-category="#audio">
 <img src="EW05.jpeg" alt="EW05">
 <h3>HOCO EW05 Wireless Earbuds</h3>
 <p class="price">R479.99</p>
-<button onclick="addToCart('HOCO EW05 Wireless Earbuds',479.99)">Add to Order</button>
+<button onclick="addToCart('HOCO EW05 Wireless Earbuds',479.99)">Add to Cart</button>
+    <button class="add-btn" onclick="addToCart('HOCO EW05 Wireless Earbuds',479.99)">Add to Order</button>
 </div>
 
-<div class="product-card" data-category="#audio">
+<div class="card" data-category="#audio">
 <img src="EW97.jpeg" alt="EW97">
 <h3>HOCO EW97 Wireless Earbuds</h3>
 <p class="price">R449.99</p>
 <button onclick="addToCart('HOCO EW97 Wireless Earbuds',449.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#audio">
+<div class="card" data-category="#audio">
 <img src="HC17.jpg" alt="HC17">
 <h3>HOCO HC17 Bluetooth Speaker</h3>
 <p class="price">R379.99</p>
 <button onclick="addToCart('HOCO HC17 Bluetooth Speaker',379.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#audio">
+<div class="card" data-category="#audio">
 <img src="HC22.png" alt="HC22">
 <h3>HOCO HC22 Bluetooth Speaker</h3>
 <p class="price">R399.99</p>
 <button onclick="addToCart('HOCO HC22 Bluetooth Speaker',399.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#audio">
+<div class="card" data-category="#audio">
 <img src="HC1.jpeg" alt="HC1">
 <h3>HOCO HC1 Bluetooth Speaker</h3>
 <p class="price">R399.99</p>
 <button onclick="addToCart('HOCO HC1 Bluetooth Speaker',399.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#power">
+<div class="card" data-category="#power">
 <img src="N34.png" alt="N34">
 <h3>HOCO N34 Fast Charger</h3>
 <p class="price">R379.99</p>
 <button onclick="addToCart('HOCO N34 Fast Charger',379.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#car">
+<div class="card" data-category="#car">
 <img src="CA102.jpeg" alt="CA102">
 <h3>HOCO CA102 Car Holder</h3>
 <p class="price">R149.99</p>
 <button onclick="addToCart('HOCO CA102 Car Holder',149.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#car">
+<div class="card" data-category="#car">
 <img src="E73.jpeg" alt="E73">
 <h3>HOCO E73 Bluetooth Adapter</h3>
 <p class="price">R289.99</p>
 <button onclick="addToCart('HOCO E73 Bluetooth Adapter',289.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#cable">
+<div class="card" data-category="#cable">
 <img src="X88.png" alt="X88">
 <h3>HOCO X88 USB-C Cable</h3>
 <p class="price">R159.99</p>
 <button onclick="addToCart('HOCO X88 USB-C Cable',159.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#power">
+<div class="card" data-category="#power">
 <img src="J101A.jpeg" alt="J101A">
 <h3>HOCO J101A 20,000mAh Power Bank</h3>
 <p class="price">R649.99</p>
 <button onclick="addToCart('HOCO J101A 20,000mAh Power Bank',649.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#protection">
+<div class="card" data-category="#protection">
 <img src="G100-5.jpeg" alt="G100-5">
 <h3>HOCO G100-5 Flexible Film (20 PCS)</h3>
 <p class="price">R1649.99</p>
 <button onclick="addToCart('HOCO G100-5 Flexible Film (20 PCS)',1649.99)">Add to Cart</button>
 </div>
 
-<div class="product-card" data-category="#personal">
+<div class="card" data-category="#personal">
 <img src="HP25.jpeg" alt="Audio">
 <h3>HOCO HP25 Hair Clipper</h3>
 <p class="price">R349.99</p>
