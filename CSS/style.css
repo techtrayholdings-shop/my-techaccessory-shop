@@ -234,3 +234,32 @@ nav{
 }
 
 }
+/* Navigation Actions */
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+#search{
+    padding:10px 15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    width:220px;
+}
+
+.cart-icon{
+    text-decoration:none;
+    font-weight:bold;
+    color:#081B4B;
+    font-size:18px;
+}
+
+#cart-count{
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    padding:3px 8px;
+    font-size:12px;
+}
