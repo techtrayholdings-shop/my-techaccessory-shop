@@ -358,3 +358,61 @@ nav{
     transform:translateY(-10px);
     box-shadow:0 20px 35px rgba(0,0,0,.15);
 }
+/* NAVBAR */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:#081B4B;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo a{
+    color:white;
+    text-decoration:none;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#FFC107;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#FFC107;
+}
+
+.nav-icons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.nav-icons input{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+}
+
+.nav-icons a{
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+}
