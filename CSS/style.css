@@ -416,3 +416,13 @@ nav{
     text-decoration:none;
     font-size:20px;
 }
+/* TOP BAR */
+
+.top-bar{
+    background:#081B4B;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-size:14px;
+    font-weight:500;
+}
