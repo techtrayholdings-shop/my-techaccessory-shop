@@ -4,50 +4,78 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TechTray Holdings | Premium Electronics & Accessories</title>
 
+    <meta name="description"
+          content="Shop premium electronics, HOCO accessories, earbuds, chargers, power banks and more.">
+
     <link rel="stylesheet" href="CSS/style.css">
+
     <link rel="stylesheet" href="CSS/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- ================= TOP BAR ================= -->
+<!-- ================= TOP BAR ================= -->
 
-    <div class="top-bar">
+<div class="top-bar">
 
-        🚚 Free Delivery on Orders Over R800
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        📱 WhatsApp: +27 66 265 3887
+    <div class="container">
+
+        <div class="top-left">
+
+            🚚 Free Delivery on Orders Over R800
+
+        </div>
+
+        <div class="top-right">
+
+            📱 WhatsApp: +27 66 265 3887
+
+        </div>
 
     </div>
 
-    <!-- ================= NAVIGATION ================= -->
+</div>
 
-    <header class="navbar">
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container">
 
         <div class="logo">
 
             <a href="index.html">
 
-                <strong>TechTray</strong>
+                <span class="logo-main">TechTray</span>
 
-                <span>Holdings</span>
+                <span class="logo-sub">Holdings</span>
 
             </a>
 
         </div>
 
-        <nav class="nav-links">
+        <nav class="navigation">
 
-            <a href="index.html">Home</a>
+            <a class="active" href="index.html">Home</a>
 
             <a href="shop.html">Shop</a>
 
-            <a href="about.html">About Us</a>
+            <a href="about.html">About</a>
 
             <a href="contact.html">Contact</a>
 
@@ -55,186 +83,118 @@
 
         </nav>
 
-        <div class="nav-icons">
+        <div class="header-right">
 
             <input
-                type="text"
                 id="search"
+                type="text"
                 placeholder="Search products...">
 
-            <a href="cart.html">
+            <a href="cart.html" class="cart-button">
 
-                🛒 <span id="cart-count">0</span>
+                🛒
 
-            </a>
+                <span id="cart-count">
 
-        </div>
+                    0
 
-    </header>
-
-    <!-- ================= HERO BANNER ================= -->
-
-    <section class="hero-banner">
-
-        <img
-            src="images/banners/hero-banner.png"
-            alt="TechTray Hero Banner">
-
-    </section>
-
-    <!-- ================= CATEGORIES ================= -->
-
-    <section class="categories">
-
-        <h2>Shop by Category</h2>
-
-        <div class="category-grid">
-
-            <a href="shop.html?category=Audio" class="category-card">
-
-                <span>🎧</span>
-
-                <h3>Audio</h3>
-
-                <p>Wireless Earbuds & Speakers</p>
-
-            </a>
-
-            <a href="shop.html?category=Power" class="category-card">
-
-                <span>🔋</span>
-
-                <h3>Power Banks</h3>
-
-                <p>Fast Charging</p>
-
-            </a>
-
-            <a href="shop.html?category=Chargers" class="category-card">
-
-                <span>⚡</span>
-
-                <h3>Chargers</h3>
-
-                <p>Wall & Car Chargers</p>
-
-            </a>
-
-            <a href="shop.html?category=Cables" class="category-card">
-
-                <span>🔌</span>
-
-                <h3>Cables</h3>
-
-                <p>USB-C & Lightning</p>
+                </span>
 
             </a>
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- ================= FEATURED PRODUCTS ================= -->
+</header>
 
-    <section class="featured">
+<!-- ================= HERO ================= -->
 
-        <h2>Featured Products</h2>
+<section class="hero">
 
-        <div id="product-list" class="products"></div>
+    <div class="container hero-grid">
 
-    </section>
+        <div class="hero-content">
 
-    <!-- ================= WHY CHOOSE US ================= -->
+            <span class="hero-tag">
 
-    <section class="why-us">
+                PREMIUM ELECTRONICS
 
-        <h2>Why Choose TechTray?</h2>
+            </span>
 
-        <div class="features">
+            <h1>
 
-            <div class="feature-card">
+                Tech That Fits
+                <span>Your Lifestyle</span>
 
-                <h3>🚚 Fast Delivery</h3>
+            </h1>
 
-                <p>Nationwide delivery across South Africa.</p>
+            <p>
+
+                Shop genuine HOCO products,
+                premium earbuds,
+                fast chargers,
+                power banks,
+                smart accessories
+                and much more.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="shop.html" class="btn btn-primary">
+
+                    Shop Now
+
+                </a>
+
+                <a href="https://wa.me/27662653887"
+                   class="btn btn-secondary">
+
+                    WhatsApp Us
+
+                </a>
 
             </div>
 
-            <div class="feature-card">
+            <div class="hero-stats">
 
-                <h3>🔒 Secure Payments</h3>
+                <div>
 
-                <p>Safe and secure shopping experience.</p>
+                    <h3>100+</h3>
 
-            </div>
+                    <p>Products</p>
 
-            <div class="feature-card">
+                </div>
 
-                <h3>⭐ Genuine Products</h3>
+                <div>
 
-                <p>Premium HOCO electronics and accessories.</p>
+                    <h3>Fast</h3>
 
-            </div>
+                    <p>Delivery</p>
 
-            <div class="feature-card">
+                </div>
 
-                <h3>💬 WhatsApp Support</h3>
+                <div>
 
-                <p>Quick assistance before and after your purchase.</p>
+                    <h3>100%</h3>
+
+                    <p>Genuine</p>
+
+                </div>
 
             </div>
 
         </div>
 
-    </section>
+        <div class="hero-image">
 
-    <!-- ================= NEWSLETTER ================= -->
+            <img
+                src="images/banners/hero-banner.png"
+                alt="TechTray Holdings">
 
-    <section class="newsletter">
+        </div>
 
-        <h2>Stay Updated</h2>
+    </div>
 
-        <p>Receive exclusive deals and new product launches.</p>
-
-        <form>
-
-            <input
-                type="email"
-                placeholder="Enter your email address">
-
-            <button type="submit">
-
-                Subscribe
-
-            </button>
-
-        </form>
-
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <h2>TechTray Holdings</h2>
-
-        <p>Premium Electronics & Accessories</p>
-
-        <p>📍 South Africa</p>
-
-        <p>📱 WhatsApp: +27 66 265 3887</p>
-
-        <p>✉ info@techtray.co.za</p>
-
-        <p>&copy; 2026 TechTray Holdings. All Rights Reserved.</p>
-
-    </footer>
-
-    <!-- ================= JAVASCRIPT ================= -->
-
-    <script src="JS/products.js"></script>
-    <script src="JS/app.js"></script>
-
-</body>
-
-</html>
+</section>
