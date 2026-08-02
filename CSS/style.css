@@ -4,6 +4,31 @@
 ==================================================*/
 
 /* RESET */
+:root{
+
+    --primary:#19A8E6;
+
+    --primary-dark:#0A3D62;
+
+    --secondary:#0F172A;
+
+    --silver:#C0C6CF;
+
+    --white:#FFFFFF;
+
+    --light:#F8FAFC;
+
+    --text:#1F2937;
+
+    --border:#E5E7EB;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --radius:14px;
+
+    --transition:.3s ease;
+
+}
 
 *{
     margin:0;
