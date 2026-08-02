@@ -134,6 +134,136 @@ const products = [
         "Adjustable Headband",
         "Comfort Ear Cushions"
     ]
+},
+
+{
+    id: 6,
+    name: "HOCO E73 Wireless Neckband",
+    brand: "HOCO",
+    category: "Audio",
+    price: 299,
+    oldPrice: 349,
+    stock: 20,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 42,
+    badge: "NEW",
+    image: "images/products/E73.jpeg",
+    gallery: [
+        "images/products/E73.jpeg"
+    ],
+    description: "Bluetooth wireless neckband earphones with comfortable fit.",
+    specifications: [
+        "Bluetooth 5.3",
+        "Magnetic Earbuds",
+        "Long Battery Life"
+    ]
+},
+
+{
+    id: 7,
+    name: "HOCO HC22 Fast Charger",
+    brand: "HOCO",
+    category: "Chargers",
+    price: 199,
+    oldPrice: 249,
+    stock: 30,
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.8,
+    reviews: 73,
+    badge: "BEST",
+    image: "images/products/HC22.png",
+    gallery: [
+        "images/products/HC22.png"
+    ],
+    description: "20W USB-C fast charger for smartphones.",
+    specifications: [
+        "20W Output",
+        "USB-C",
+        "Fast Charging"
+    ]
+},
+
+{
+    id: 8,
+    name: "HOCO CA102 Charging Cable",
+    brand: "HOCO",
+    category: "Cables",
+    price: 99,
+    oldPrice: 129,
+    stock: 50,
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.6,
+    reviews: 39,
+    badge: "",
+    image: "images/products/CA102.jpeg",
+    gallery: [
+        "images/products/CA102.jpeg"
+    ],
+    description: "Durable fast charging USB cable.",
+    specifications: [
+        "Fast Charge",
+        "Data Transfer",
+        "1m Length"
+    ]
+},
+
+{
+    id: 9,
+    name: "HOCO J160A Magnetic Power Bank",
+    brand: "HOCO",
+    category: "Power Banks",
+    price: 699,
+    oldPrice: 799,
+    stock: 18,
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    rating: 4.9,
+    reviews: 95,
+    badge: "BEST",
+    image: "images/products/J160A-BeStill-Magnetic.png",
+    gallery: [
+        "images/products/J160A-BeStill-Magnetic.png"
+    ],
+    description: "10000mAh magnetic wireless power bank.",
+    specifications: [
+        "10000mAh",
+        "MagSafe Compatible",
+        "USB-C Fast Charging"
+    ]
+},
+
+{
+    id: 10,
+    name: "HOCO Car Charger",
+    brand: "HOCO",
+    category: "Car Accessories",
+    price: 249,
+    oldPrice: 299,
+    stock: 25,
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.7,
+    reviews: 34,
+    badge: "",
+    image: "images/products/car-charger.jpg",
+    gallery: [
+        "images/products/car-charger.jpg"
+    ],
+    description: "Dual USB fast charging car adapter.",
+    specifications: [
+        "Dual USB",
+        "Fast Charge",
+        "Universal Compatibility"
+    ]
 }
 
 ];
