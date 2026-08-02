@@ -236,3 +236,19 @@ function showNotification(message){
     },2500);
 
 }
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+const menuToggle = document.getElementById("menu-toggle");
+const navigation = document.getElementById("navigation");
+
+if (menuToggle && navigation) {
+
+    menuToggle.addEventListener("click", () => {
+
+        navigation.classList.toggle("show");
+
+    });
+
+}
