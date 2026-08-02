@@ -445,24 +445,48 @@ NAVIGATION
 ==========================*/
 
 .navigation{
+
     display:flex;
+
     gap:35px;
+
+    align-items:center;
+
 }
 
 .navigation a{
+
     font-weight:600;
+
     transition:.3s;
+
     color:#081b4b;
+
 }
 
 .navigation a:hover{
+
     color:#f7b500;
+
 }
 
 .navigation .active{
+
     color:#f7b500;
+
 }
 
+/* Hide hamburger on desktop */
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+}
 /*==========================
 HEADER RIGHT
 ==========================*/
