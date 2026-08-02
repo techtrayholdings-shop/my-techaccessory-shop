@@ -63,21 +63,52 @@ a{
     margin:auto;
 }
 
-/*==========================
-TOP BAR
-==========================*/
+/* ================= TOP BAR ================= */
 
 .top-bar{
-    background:#081b4b;
-    color:#fff;
-    padding:10px 0;
+
+    background: linear-gradient(90deg,var(--primary-dark),var(--primary));
+
+    color: var(--white);
+
     font-size:14px;
+
+    padding:10px 0;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
 }
 
-.top-bar .container{
+.top-bar-content{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.top-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:500;
+
+}
+
+.top-item span{
+
+    opacity:.95;
+
 }
 
 /*==========================
