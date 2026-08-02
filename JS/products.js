@@ -19,9 +19,9 @@ const products = [
     rating: 4.9,
     reviews: 128,
     badge: "NEW",
-    image: "images/products/EW95.jpg",
+    image: "images/products/EW95.jpeg",
     gallery: [
-        "images/products/EW95.jpg"
+        "images/products/EW95.jpeg"
     ],
     description: "Bluetooth 5.4 ANC wireless earbuds with charging case.",
     specifications: [
