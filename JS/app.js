@@ -63,11 +63,17 @@ function displayProducts(productArray) {
 
         <p>${product.description}</p>
 
-        <div class="price">
+<div class="product-rating">
+    ⭐ ${product.rating} (${product.reviews} Reviews)
+</div>
 
-            R${product.price}
+<div class="price">
+    R${product.price}
+</div>
 
-        </div>
+<div class="stock">
+    ✅ ${product.stock} In Stock
+</div>
 
         <div class="product-buttons">
 

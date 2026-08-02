@@ -1960,3 +1960,141 @@ right:30px;
     font-size:28px;
     cursor:pointer;
 }
+/* ==========================================
+   PREMIUM PRODUCT CARDS
+========================================== */
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.product{
+    position:relative;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s ease;
+    border:1px solid #ececec;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 45px rgba(0,0,0,.15);
+}
+
+.product-image{
+    height:260px;
+    background:#f7f9fc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.product-image img{
+    max-width:100%;
+    max-height:220px;
+    object-fit:contain;
+    transition:.4s;
+}
+
+.product:hover img{
+    transform:scale(1.08);
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-title{
+    text-decoration:none;
+    color:#081b4b;
+    font-size:20px;
+    font-weight:700;
+}
+
+.product-title:hover{
+    color:#19A8E6;
+}
+
+.product-rating{
+    margin:10px 0;
+    color:#f7b500;
+    font-size:15px;
+}
+
+.price{
+    font-size:28px;
+    color:#081b4b;
+    font-weight:800;
+    margin:15px 0;
+}
+
+.product-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:20px;
+}
+
+.product-buttons button,
+.view-btn{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    cursor:pointer;
+    font-weight:700;
+    text-decoration:none;
+    text-align:center;
+    transition:.3s;
+}
+
+.product-buttons button{
+    background:#19A8E6;
+    color:white;
+}
+
+.product-buttons button:hover{
+    background:#081b4b;
+}
+
+.view-btn{
+    background:#f4f6fb;
+    color:#081b4b;
+}
+
+.view-btn:hover{
+    background:#f7b500;
+    color:white;
+}
+
+.badge{
+    position:absolute;
+    top:18px;
+    left:18px;
+    color:white;
+    padding:8px 14px;
+    border-radius:40px;
+    font-size:12px;
+    font-weight:bold;
+    z-index:10;
+}
+
+.badge.new{
+    background:#19A8E6;
+}
+
+.badge.best{
+    background:#f7b500;
+}
+
+.stock{
+    color:#27ae60;
+    font-weight:600;
+    margin-top:10px;
+}
