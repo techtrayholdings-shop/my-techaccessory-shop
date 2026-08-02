@@ -29,49 +29,63 @@ function displayProducts(productArray) {
 
         <div class="product">
 
-            ${badge}
+    ${badge}
 
-            <a href="product.html?id=${product.id}" class="product-link">
+    <a href="product.html?id=${product.id}" class="product-link">
 
-                <img src="${product.image}" alt="${product.name}">
+        <div class="product-image">
+
+            <img src="${product.image}" alt="${product.name}">
+
+        </div>
+
+    </a>
+
+    <div class="product-info">
+
+        <h3>
+
+            <a href="product.html?id=${product.id}" class="product-title">
+
+                ${product.name}
 
             </a>
 
-            <div class="product-info">
+        </h3>
 
-                <h3>
+        <div class="product-rating">
 
-                    <a href="product.html?id=${product.id}" class="product-title">
-
-                        ${product.name}
-
-                    </a>
-
-                </h3>
-
-                <p>${product.description}</p>
-
-                <div class="price">R${product.price}</div>
-
-                <div class="product-buttons">
-
-                    <button onclick="addToCart(${product.id})">
-
-                        Add to Cart
-
-                    </button>
-
-                    <a href="product.html?id=${product.id}" class="view-btn">
-
-                        View Details
-
-                    </a>
-
-                </div>
-
-            </div>
+            ⭐⭐⭐⭐⭐ <span>(4.9)</span>
 
         </div>
+
+        <p>${product.description}</p>
+
+        <div class="price">
+
+            R${product.price}
+
+        </div>
+
+        <div class="product-buttons">
+
+            <a href="product.html?id=${product.id}" class="view-btn">
+
+                👁 View Details
+
+            </a>
+
+            <button onclick="addToCart(${product.id})">
+
+                🛒 Add to Cart
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
         `;
     });
