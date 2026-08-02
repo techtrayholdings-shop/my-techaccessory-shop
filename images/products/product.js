@@ -305,3 +305,114 @@ const products = [
     }
 
 ];
+,
+
+{
+    id: 8,
+    name: "HOCO Car Mount",
+    category: "Car Accessories",
+    price: 199,
+    image: "images/products/car-mount.jpg",
+    description: "Universal dashboard and windshield phone holder.",
+    badge: ""
+},
+
+{
+    id: 9,
+    name: "HOCO E73 Wireless Neckband",
+    category: "Audio",
+    price: 299,
+    image: "images/products/E73.jpeg",
+    description: "Comfortable Bluetooth neckband earphones.",
+    badge: "NEW"
+},
+
+{
+    id: 10,
+    name: "HOCO EW05 Wireless Earbuds",
+    category: "Audio",
+    price: 399,
+    image: "images/products/EW05.jpeg",
+    description: "True wireless earbuds with charging case.",
+    badge: ""
+},
+
+{
+    id: 11,
+    name: "HOCO EW72 Wireless Earbuds",
+    category: "Audio",
+    price: 449,
+    image: "images/products/EW72.png",
+    description: "Premium Bluetooth earbuds with deep bass.",
+    badge: "BEST"
+},
+
+{
+    id: 12,
+    name: "HOCO G100-5 Bluetooth Speaker",
+    category: "Bluetooth Speakers",
+    price: 599,
+    image: "images/products/G100-5.jpeg",
+    description: "Portable Bluetooth speaker with rich sound.",
+    badge: "NEW"
+},
+
+{
+    id: 13,
+    name: "HOCO HC1 Charger",
+    category: "Chargers",
+    price: 149,
+    image: "images/products/HC1.jpeg",
+    description: "Compact USB wall charger.",
+    badge: ""
+},
+
+{
+    id: 14,
+    name: "HOCO HC17 Fast Charger",
+    category: "Chargers",
+    price: 179,
+    image: "images/products/HC17.jpg",
+    description: "Fast charging wall adapter.",
+    badge: ""
+},
+
+{
+    id: 15,
+    name: "HOCO J101A Power Bank",
+    category: "Power Banks",
+    price: 499,
+    image: "images/products/J101A.jpeg",
+    description: "10000mAh portable power bank.",
+    badge: "BEST"
+},
+
+{
+    id: 16,
+    name: "HOCO J115 Power Bank",
+    category: "Power Banks",
+    price: 799,
+    image: "images/products/j115.jpeg",
+    description: "High-capacity fast charging power bank.",
+    badge: "NEW"
+},
+
+{
+    id: 17,
+    name: "HOCO N34 Charger",
+    category: "Chargers",
+    price: 249,
+    image: "images/products/N34.png",
+    description: "Dual-port fast charger.",
+    badge: ""
+},
+
+{
+    id: 18,
+    name: "HOCO X88 Smart Watch",
+    category: "Smart Watches",
+    price: 999,
+    image: "images/products/X88.png",
+    description: "Smart watch with fitness tracking and notifications.",
+    badge: "BEST"
+}
