@@ -1,8 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shop | TechTray Holdings</title>
+
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
 <div id="header"></div>
 
-<!-- Your page-specific content goes here -->
+<!-- SHOP HERO -->
+
+<section class="shop-hero">
+
+    <div class="container">
+
+        <h1>TechTray Shop</h1>
+
+        <p>
+
+            Browse our premium collection of electronics,
+            accessories and smart technology.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- SHOP CONTENT -->
+
+<section class="shop-layout">
+
+<div class="container shop-container">
+
+<!-- LEFT SIDEBAR -->
+
+<aside class="shop-sidebar">
+
+<h3>Categories</h3>
+
+<ul>
+
+<li><button class="filter-btn active" data-category="All">All Products</button></li>
+
+<li><button class="filter-btn" data-category="Audio">🎧 Audio</button></li>
+
+<li><button class="filter-btn" data-category="Chargers">⚡ Chargers</button></li>
+
+<li><button class="filter-btn" data-category="Power Banks">🔋 Power Banks</button></li>
+
+<li><button class="filter-btn" data-category="Cables">🔌 Cables</button></li>
+
+<li><button class="filter-btn" data-category="Phone Accessories">📱 Phone Accessories</button></li>
+
+<li><button class="filter-btn" data-category="Smart Watches">⌚ Smart Watches</button></li>
+
+<li><button class="filter-btn" data-category="Gaming Accessories">🎮 Gaming</button></li>
+
+<li><button class="filter-btn" data-category="Computer Accessories">💻 Computer</button></li>
+
+</ul>
+
+</aside>
+
+<!-- PRODUCTS -->
+
+<div class="shop-products">
+
+<div class="shop-toolbar">
+
+<input
+id="search"
+type="text"
+placeholder="Search products...">
+
+<select id="sort-products">
+
+<option value="default">Sort Products</option>
+
+<option value="low-high">Price: Low to High</option>
+
+<option value="high-low">Price: High to Low</option>
+
+<option value="az">A - Z</option>
+
+<option value="za">Z - A</option>
+
+</select>
+
+</div>
+
+<div id="product-list" class="products-grid"></div>
+
+</div>
+
+</div>
+
+</section>
 
 <div id="footer"></div>
 
 <script src="JS/products.js"></script>
-<script src="js/include.js"></script>
+<script src="JS/app.js"></script>
+<script src="JS/include.js"></script>
+
+</body>
+
+</html>
