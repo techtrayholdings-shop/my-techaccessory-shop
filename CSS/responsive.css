@@ -60,3 +60,51 @@
 }
 
 }
+/* ==========================================
+   MOBILE HEADER
+========================================== */
+
+@media (max-width:768px){
+
+.header-container{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.logo{
+    width:100%;
+    justify-content:center;
+}
+
+.search-box{
+    width:100%;
+    max-width:100%;
+    order:3;
+}
+
+.header-icons{
+    order:2;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.navigation{
+    display:none;
+    flex-direction:column;
+    gap:0;
+    padding:0;
+}
+
+.navigation.show{
+    display:flex;
+}
+
+.navigation a{
+    padding:16px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    text-align:center;
+}
+
+}
