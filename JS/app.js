@@ -7,8 +7,6 @@
 // DISPLAY PRODUCTS
 // ===============================
 
-const productList = document.getElementById("product-list");
-
 function displayProducts(productArray) {
 
     if (!productList) return;
@@ -28,31 +26,57 @@ function displayProducts(productArray) {
         }
 
         productList.innerHTML += `
+
         <div class="product">
 
             ${badge}
 
-            <img src="${product.image}" alt="${product.name}">
+            <a href="product.html?id=${product.id}" class="product-link">
+
+                <img src="${product.image}" alt="${product.name}">
+
+            </a>
 
             <div class="product-info">
 
-                <h3>${product.name}</h3>
+                <h3>
+
+                    <a href="product.html?id=${product.id}" class="product-title">
+
+                        ${product.name}
+
+                    </a>
+
+                </h3>
 
                 <p>${product.description}</p>
 
                 <div class="price">R${product.price}</div>
 
-                <button onclick="addToCart(${product.id})">
-                    Add to Cart
-                </button>
+                <div class="product-buttons">
+
+                    <button onclick="addToCart(${product.id})">
+
+                        Add to Cart
+
+                    </button>
+
+                    <a href="product.html?id=${product.id}" class="view-btn">
+
+                        View Details
+
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
+
         `;
     });
-}
 
+}
 // Load all products when the page opens
 displayProducts(products);
 // ===============================
