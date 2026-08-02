@@ -90,23 +90,82 @@
 
 </div>
 
-<!-- ================= HEADER ================= -->
+<!-- ================= PREMIUM HEADER ================= -->
 
 <header class="header">
 
-    <div class="container">
+    <div class="container header-container">
+
+        <!-- Logo -->
 
         <div class="logo">
 
             <a href="index.html">
 
-                <span class="logo-main">TechTray</span>
+                <img src="images/logo.png" alt="TechTray Holdings Logo">
 
-                <span class="logo-sub">Holdings</span>
+                <div class="logo-text">
+
+                    <h2>TechTray</h2>
+
+                    <span>Holdings</span>
+
+                </div>
 
             </a>
 
         </div>
+
+        <!-- Navigation -->
+
+        <nav class="navigation">
+
+            <a class="active" href="index.html">Home</a>
+
+            <a href="shop.html">Shop</a>
+
+            <a href="#categories">Categories</a>
+
+            <a href="about.html">About</a>
+
+            <a href="contact.html">Contact</a>
+
+            <a href="track-order.html">Track Order</a>
+
+        </nav>
+
+        <!-- Right Side -->
+
+        <div class="header-right">
+
+            <div class="search-box">
+
+                <input
+                    id="search"
+                    type="text"
+                    placeholder="Search products...">
+
+            </div>
+
+            <a href="wishlist.html" class="wishlist-button">
+
+                ❤
+
+            </a>
+
+            <a href="cart.html" class="cart-button">
+
+                🛒
+
+                <span id="cart-count">0</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
 
         <nav class="navigation">
 
@@ -240,7 +299,7 @@
 
 <!-- ================= SHOP BY CATEGORY ================= -->
 
-<section class="categories">
+<section class="categories" id="categories">
 
     <div class="container">
 
