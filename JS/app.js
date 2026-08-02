@@ -7,6 +7,8 @@
 // DISPLAY PRODUCTS
 // ===============================
 
+const productList = document.getElementById("product-list");
+
 function displayProducts(productArray) {
 
     if (!productList) return;
@@ -27,7 +29,7 @@ function displayProducts(productArray) {
 
         productList.innerHTML += `
 
-        <div class="product">
+<div class="product">
 
     ${badge}
 
@@ -91,7 +93,9 @@ function displayProducts(productArray) {
     });
 
 }
+
 // Load all products when the page opens
+displayProducts(products);// Load all products when the page opens
 displayProducts(products);
 // ===============================
 // SHOPPING CART
@@ -123,9 +127,9 @@ function addToCart(id) {
 
     saveCart();
 
-    alert(product.name + " added to cart!");
-}
+    showNotification(product.name + " added to cart.");
 
+}
 function updateCartCount() {
 
     const cartCount = document.getElementById("cart-count");
@@ -197,3 +201,38 @@ filterButtons.forEach(button => {
     });
 
 });
+/* ==========================================
+   NOTIFICATION
+========================================== */
+
+function showNotification(message){
+
+    const notification=document.createElement("div");
+
+    notification.className="notification";
+
+    notification.innerHTML=`
+        ✅ ${message}
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(()=>{
+
+        notification.classList.add("show");
+
+    },100);
+
+    setTimeout(()=>{
+
+        notification.classList.remove("show");
+
+        setTimeout(()=>{
+
+            notification.remove();
+
+        },400);
+
+    },2500);
+
+}

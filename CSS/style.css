@@ -1779,3 +1779,40 @@ width:100%;
 }
 
 }
+/*==========================================
+NOTIFICATION
+==========================================*/
+
+.notification{
+
+position:fixed;
+
+top:30px;
+
+right:-450px;
+
+background:#19A8E6;
+
+color:#fff;
+
+padding:18px 25px;
+
+border-radius:12px;
+
+font-weight:600;
+
+font-size:15px;
+
+box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+transition:.45s;
+
+z-index:9999;
+
+}
+
+.notification.show{
+
+right:30px;
+
+}
