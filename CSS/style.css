@@ -74,16 +74,15 @@
 
     margin:0;
 
-    font-size:32px;
+    font-size:22px;
 
     color:var(--primary-dark);
 
     font-weight:700;
 
-    line-height:1;
+    line-height:1.1;
 
 }
-
 .logo-text span{
 
     color:var(--primary);
