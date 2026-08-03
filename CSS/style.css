@@ -2070,3 +2070,267 @@ p{
 }
 
 }
+
+/*==================================================
+61. NEWSLETTER SECTION
+==================================================*/
+
+.newsletter{
+
+    padding:100px 0;
+
+    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/*==================================================
+62. BACKGROUND EFFECTS
+==================================================*/
+
+.newsletter::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    top:-180px;
+
+    right:-120px;
+
+}
+
+.newsletter::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    bottom:-120px;
+
+    left:-80px;
+
+}
+
+/*==================================================
+63. NEWSLETTER CONTENT
+==================================================*/
+
+.newsletter-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:750px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.newsletter-content h2{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.newsletter-content p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    margin-bottom:40px;
+
+}
+
+/*==================================================
+64. NEWSLETTER FORM
+==================================================*/
+
+.newsletter-form{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+/*==================================================
+65. EMAIL INPUT
+==================================================*/
+
+.newsletter-form input{
+
+    width:420px;
+
+    max-width:100%;
+
+    padding:18px 24px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    outline:none;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+/*==================================================
+66. SUBSCRIBE BUTTON
+==================================================*/
+
+.newsletter-form button{
+
+    padding:18px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:var(--accent);
+
+    color:var(--primary-dark);
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.newsletter-form button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+
+}
+
+/*==================================================
+67. TRUST MESSAGE
+==================================================*/
+
+.newsletter-note{
+
+    margin-top:25px;
+
+    font-size:14px;
+
+    opacity:.9;
+
+}
+
+/*==================================================
+68. CTA BADGE
+==================================================*/
+
+.newsletter-badge{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:50px;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+/*==================================================
+69. FADE ANIMATION
+==================================================*/
+
+.newsletter-content{
+
+    animation:fadeUp .8s ease both;
+
+}
+
+/*==================================================
+70. RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+.newsletter{
+
+    padding:70px 20px;
+
+}
+
+.newsletter-content h2{
+
+    font-size:34px;
+
+}
+
+.newsletter-content p{
+
+    font-size:16px;
+
+}
+
+.newsletter-form{
+
+    flex-direction:column;
+
+}
+
+.newsletter-form input,
+
+.newsletter-form button{
+
+    width:100%;
+
+}
+
+}
