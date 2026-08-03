@@ -20,9 +20,7 @@ const products = [
     reviews: 128,
     badge: "NEW",
     image: "images/products/EW95.jpeg",
-    gallery: [
-        "images/products/EW95.jpeg"
-    ],
+    gallery: ["images/products/EW95.jpeg"],
     description: "Bluetooth 5.4 ANC wireless earbuds with charging case.",
     specifications: [
         "Bluetooth 5.4",
@@ -47,9 +45,7 @@ const products = [
     reviews: 95,
     badge: "BEST",
     image: "images/products/EW97.jpeg",
-    gallery: [
-        "images/products/EW97.jpeg"
-    ],
+    gallery: ["images/products/EW97.jpeg"],
     description: "Premium true wireless earbuds with deep bass.",
     specifications: [
         "Bluetooth 5.4",
@@ -64,7 +60,7 @@ const products = [
     brand: "HOCO",
     category: "Audio",
     price: 599,
-    oldPrice: 499,
+    oldPrice: 699,
     stock: 18,
     featured: true,
     bestSeller: false,
@@ -73,9 +69,7 @@ const products = [
     reviews: 56,
     badge: "NEW",
     image: "images/products/EW05.jpeg",
-    gallery: [
-        "images/products/EW05.jpeg"
-    ],
+    gallery: ["images/products/EW05.jpeg"],
     description: "Compact wireless earbuds with charging case.",
     specifications: [
         "Bluetooth",
@@ -90,7 +84,7 @@ const products = [
     brand: "HOCO",
     category: "Audio",
     price: 649,
-    oldPrice: 549,
+    oldPrice: 749,
     stock: 15,
     featured: true,
     bestSeller: false,
@@ -99,9 +93,7 @@ const products = [
     reviews: 43,
     badge: "NEW",
     image: "images/products/EW72.png",
-    gallery: [
-        "images/products/EW72.png"
-    ],
+    gallery: ["images/products/EW72.png"],
     description: "Premium wireless earbuds with rich sound.",
     specifications: [
         "Bluetooth 5.4",
@@ -125,9 +117,7 @@ const products = [
     reviews: 61,
     badge: "BEST",
     image: "images/products/HP25.jpeg",
-    gallery: [
-        "images/products/HP25.jpeg"
-    ],
+    gallery: ["images/products/HP25.jpeg"],
     description: "Comfortable over-ear headphones.",
     specifications: [
         "Stereo Sound",
@@ -151,10 +141,8 @@ const products = [
     reviews: 42,
     badge: "NEW",
     image: "images/products/E73.jpeg",
-    gallery: [
-        "images/products/E73.jpeg"
-    ],
-    description: "Bluetooth wireless neckband earphones with comfortable fit.",
+    gallery: ["images/products/E73.jpeg"],
+    description: "Bluetooth wireless neckband earphones.",
     specifications: [
         "Bluetooth 5.3",
         "Magnetic Earbuds",
@@ -177,10 +165,8 @@ const products = [
     reviews: 73,
     badge: "BEST",
     image: "images/products/HC22.png",
-    gallery: [
-        "images/products/HC22.png"
-    ],
-    description: "20W USB-C fast charger for smartphones.",
+    gallery: ["images/products/HC22.png"],
+    description: "20W USB-C Fast Charger.",
     specifications: [
         "20W Output",
         "USB-C",
@@ -203,14 +189,12 @@ const products = [
     reviews: 39,
     badge: "",
     image: "images/products/CA102.jpeg",
-    gallery: [
-        "images/products/CA102.jpeg"
-    ],
-    description: "Durable fast charging USB cable.",
+    gallery: ["images/products/CA102.jpeg"],
+    description: "Durable fast charging cable.",
     specifications: [
         "Fast Charge",
-        "Data Transfer",
-        "1m Length"
+        "1m Length",
+        "Data Transfer"
     ]
 },
 
@@ -229,10 +213,8 @@ const products = [
     reviews: 95,
     badge: "BEST",
     image: "images/products/J160A-BeStill-Magnetic.png",
-    gallery: [
-        "images/products/J160A-BeStill-Magnetic.png"
-    ],
-    description: "10000mAh magnetic wireless power bank.",
+    gallery: ["images/products/J160A-BeStill-Magnetic.png"],
+    description: "10000mAh Magnetic Wireless Power Bank.",
     specifications: [
         "10000mAh",
         "MagSafe Compatible",
@@ -255,18 +237,15 @@ const products = [
     reviews: 34,
     badge: "",
     image: "images/products/car-charger.jpg",
-    gallery: [
-        "images/products/car-charger.jpg"
-    ],
-    description: "Dual USB fast charging car adapter.",
+    gallery: ["images/products/car-charger.jpg"],
+    description: "Dual USB Fast Charging Car Adapter.",
     specifications: [
         "Dual USB",
         "Fast Charge",
         "Universal Compatibility"
     ]
-}
+},
 
-];
 {
     id: 11,
     name: "HOCO G100-5 Gaming Headset",
@@ -353,7 +332,7 @@ const products = [
     badge: "",
     image: "images/products/headphones.jpg",
     gallery: ["images/products/headphones.jpg"],
-    description: "Comfortable wireless headphones with clear sound.",
+    description: "Comfortable wireless headphones.",
     specifications: [
         "Bluetooth",
         "Built-in Microphone"
@@ -399,7 +378,7 @@ const products = [
     badge: "BEST",
     image: "images/products/headphones3.png",
     gallery: ["images/products/headphones3.png"],
-    description: "Foldable Bluetooth headphones with deep bass.",
+    description: "Foldable Bluetooth headphones.",
     specifications: [
         "Foldable Design",
         "Bluetooth 5.4"
@@ -422,7 +401,7 @@ const products = [
     badge: "BEST",
     image: "images/products/J101A.jpeg",
     gallery: ["images/products/J101A.jpeg"],
-    description: "10000mAh fast charging power bank.",
+    description: "10000mAh Fast Charging Power Bank.",
     specifications: [
         "10000mAh",
         "Fast Charge"
@@ -445,7 +424,7 @@ const products = [
     badge: "NEW",
     image: "images/products/j115.jpeg",
     gallery: ["images/products/j115.jpeg"],
-    description: "20000mAh high-capacity power bank.",
+    description: "20000mAh High Capacity Power Bank.",
     specifications: [
         "20000mAh",
         "USB-C Output"
@@ -500,3 +479,6 @@ const products = [
 }
 
 ];
+
+// Make products available globally
+window.products = products;
