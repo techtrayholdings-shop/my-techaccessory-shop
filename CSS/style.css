@@ -1380,3 +1380,439 @@ p{
 }
 
 }
+
+/*==================================================
+39. FEATURED PRODUCTS
+==================================================*/
+
+.featured-products{
+
+    padding:100px 0;
+
+    background:#F8FAFC;
+
+}
+
+/*==================================================
+40. PRODUCTS GRID
+==================================================*/
+
+.products-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:35px;
+
+}
+
+/*==================================================
+41. PRODUCT CARD
+==================================================*/
+
+.product{
+
+    position:relative;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.product:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+/*==================================================
+42. PRODUCT IMAGE
+==================================================*/
+
+.product-image{
+
+    height:260px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#F8FAFC;
+
+    padding:25px;
+
+}
+
+.product-image img{
+
+    max-width:100%;
+
+    max-height:200px;
+
+    object-fit:contain;
+
+    transition:.4s;
+
+}
+
+.product:hover .product-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*==================================================
+43. PRODUCT BADGES
+==================================================*/
+
+.badge{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    z-index:5;
+
+}
+
+.badge.new{
+
+    background:#19A8E6;
+
+}
+
+.badge.best{
+
+    background:#FDB913;
+
+    color:#081B4B;
+
+}
+
+.badge.sale{
+
+    background:#EF4444;
+
+}
+
+/*==================================================
+44. PRODUCT INFO
+==================================================*/
+
+.product-info{
+
+    padding:25px;
+
+}
+
+.product-title{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--primary-dark);
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+.product-title:hover{
+
+    color:var(--primary);
+
+}
+
+.product-description{
+
+    color:#6B7280;
+
+    line-height:1.7;
+
+    margin-bottom:15px;
+
+}
+
+/*==================================================
+45. PRODUCT RATING
+==================================================*/
+
+.product-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#FDB913;
+
+    margin-bottom:15px;
+
+    font-size:15px;
+
+}
+
+.product-rating span{
+
+    color:#6B7280;
+
+}
+
+/*==================================================
+46. PRICE
+==================================================*/
+
+.price{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+}
+
+.current-price{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:var(--primary-dark);
+
+}
+
+.old-price{
+
+    color:#9CA3AF;
+
+    text-decoration:line-through;
+
+}
+
+/*==================================================
+47. STOCK STATUS
+==================================================*/
+
+.stock{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#22C55E;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.stock.low{
+
+    color:#F97316;
+
+}
+
+.stock.out{
+
+    color:#EF4444;
+
+}
+
+/*==================================================
+48. PRODUCT BUTTONS
+==================================================*/
+
+.product-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.product-buttons button{
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.product-buttons button:hover{
+
+    background:var(--primary-dark);
+
+}
+
+.view-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:#EEF6FF;
+
+    color:var(--primary-dark);
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.view-btn:hover{
+
+    background:var(--accent);
+
+    color:var(--primary-dark);
+
+}
+
+/*==================================================
+49. QUICK ACTIONS
+==================================================*/
+
+.product-actions{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.product:hover .product-actions{
+
+    opacity:1;
+
+}
+
+.product-actions a{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:var(--primary-dark);
+
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+.product-actions a:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/*==================================================
+50. PRODUCT RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+.products-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.product-image{
+
+    height:220px;
+
+}
+
+.current-price{
+
+    font-size:26px;
+
+}
+
+.product-title{
+
+    font-size:20px;
+
+}
+
+}
