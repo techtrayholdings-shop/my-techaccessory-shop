@@ -498,3 +498,4 @@ const products = [
         "Compact Design"
     ]
 }
+];
