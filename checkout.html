@@ -3,42 +3,30 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Checkout | TechTray Holdings</title>
+<title>Checkout | TechTray Holdings</title>
 
-    <meta name="description"
-          content="Secure checkout for TechTray Holdings">
+<meta name="description" content="Secure Checkout - TechTray Holdings">
+<meta name="keywords" content="Checkout, TechTray Holdings, Electronics">
+<meta name="theme-color" content="#19A8E6">
 
-    <meta name="theme-color"
-          content="#19A8E6">
+<link rel="icon" type="image/png" href="images/products/logo.jpg">
 
-    <link rel="icon"
-          href="images/products/logo.jpg">
+<!-- Google Fonts -->
 
-    <!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+<!-- CSS -->
 
-    <!-- CSS -->
-
-    <link rel="stylesheet"
-          href="CSS/style.css">
-
-    <link rel="stylesheet"
-          href="CSS/checkout.css">
-
-    <link rel="stylesheet"
-          href="CSS/responsive.css">
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/checkout.css">
+<link rel="stylesheet" href="CSS/responsive.css">
 
 </head>
 
@@ -48,25 +36,25 @@
 
 <div class="top-bar">
 
-    <div class="container top-bar-content">
+<div class="container top-bar-content">
 
-        <div class="top-item">
-            🚚 <span>FREE Delivery on Orders Over R1000</span>
-        </div>
+<div class="top-item">
+🚚 <span>FREE Delivery on Orders Over R1000</span>
+</div>
 
-        <div class="top-item">
-            📞 <span>066 265 3887</span>
-        </div>
+<div class="top-item">
+📞 <span>066 265 3887</span>
+</div>
 
-        <div class="top-item">
-            ✉ <span>techtrayholdings@gmail.com</span>
-        </div>
+<div class="top-item">
+✉ <span>techtrayholdings@gmail.com</span>
+</div>
 
-        <div class="top-item">
-            🔒 <span>100% Secure Checkout</span>
-        </div>
+<div class="top-item">
+🔒 <span>100% Secure Checkout</span>
+</div>
 
-    </div>
+</div>
 
 </div>
 
@@ -74,44 +62,41 @@
 
 <header class="header">
 
-    <div class="container header-container">
+<div class="container header-container">
 
-        <a href="index.html" class="logo">
+<a href="index.html" class="logo">
 
-            <img src="images/products/logo.jpg"
-                 alt="TechTray">
+<img src="images/products/logo.jpg" alt="TechTray Holdings">
 
-            <div class="logo-text">
+<div class="logo-text">
 
-                <h2>TechTray</h2>
+<h2>TechTray</h2>
 
-                <span>Holdings</span>
+<span>Holdings</span>
 
-            </div>
+</div>
 
-        </a>
+</a>
 
-        <div class="header-icons">
+<div class="header-icons">
 
-            <a href="shop.html"
-               class="wishlist-button">
+<a href="shop.html" class="wishlist-button">
 
-                🛍
+🛍
 
-            </a>
+</a>
 
-            <a href="cart.html"
-               class="cart-button">
+<a href="cart.html" class="cart-button">
 
-                🛒
+🛒
 
-                <span id="cart-count">0</span>
+<span id="cart-count">0</span>
 
-            </a>
+</a>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </header>
 
@@ -119,27 +104,27 @@
 
 <section class="checkout-hero">
 
-    <div class="container">
+<div class="container">
 
-        <span class="hero-badge">
+<span class="hero-badge">
 
-            SECURE CHECKOUT
+SECURE CHECKOUT
 
-        </span>
+</span>
 
-        <h1>
+<h1>
 
-            Complete Your Order
+Complete Your Order
 
-        </h1>
+</h1>
 
-        <p>
+<p>
 
-            Review your products, enter your delivery details and place your order securely.
+You're only one step away from receiving your TechTray products.
 
-        </p>
+</p>
 
-    </div>
+</div>
 
 </section>
 
@@ -147,411 +132,151 @@
 
 <section class="checkout-page">
 
-    <div class="container">
+<div class="container">
 
-        <div class="checkout-grid">
+<div class="checkout-grid">
 
-            <!-- ================= LEFT COLUMN ================= -->
+<!-- ================= LEFT COLUMN ================= -->
 
 <div class="checkout-left">
 
-    <div class="checkout-card">
+<div class="checkout-card">
 
-        <h2>Customer Information</h2>
+<h2>Customer Information</h2>
 
-        <p class="section-description">
-            Please complete your details below to place your order.
-        </p>
+<p class="section-description">
 
-        <form id="checkoutForm">
+Please complete your details below.
 
-            <!-- FULL NAME -->
+</p>
 
-            <div class="form-group">
+<form id="checkoutForm">
 
-                <label for="customerName">
-                    Full Name *
-                </label>
+<div class="form-group">
 
-                <input
-                    type="text"
-                    id="customerName"
-                    placeholder="Enter your full name"
-                    required>
+<label>Full Name *</label>
 
-            </div>
-
-            <!-- PHONE -->
-
-            <div class="form-group">
-
-                <label for="customerPhone">
-                    Phone Number *
-                </label>
-
-                <input
-                    type="tel"
-                    id="customerPhone"
-                    placeholder="066 265 3887"
-                    required>
-
-            </div>
-
-            <!-- EMAIL -->
-
-            <div class="form-group">
-
-                <label for="customerEmail">
-                    Email Address
-                </label>
-
-                <input
-                    type="email"
-                    id="customerEmail"
-                    placeholder="you@example.com">
-
-            </div>
-
-            <!-- ADDRESS -->
-
-            <div class="form-group">
-
-                <label for="customerAddress">
-                    Delivery Address *
-                </label>
-
-                <textarea
-                    id="customerAddress"
-                    rows="5"
-                    placeholder="Street Address, Suburb, City, Province"
-                    required></textarea>
-
-            </div>
-
-            <!-- NOTES -->
-
-            <div class="form-group">
-
-                <label for="orderNotes">
-                    Order Notes
-                </label>
-
-                <textarea
-                    id="orderNotes"
-                    rows="3"
-                    placeholder="Special delivery instructions (Optional)"></textarea>
-
-            </div>
-
-            <!-- PAYMENT -->
-
-            <div class="payment-section">
-
-                <h3>Payment Method</h3>
-
-                <div class="payment-option">
-
-                    <label>
-
-                        <input
-                            type="radio"
-                            name="payment"
-                            value="Cash on Collection"
-                            checked>
-
-                        <strong>Cash on Collection</strong>
-
-                    </label>
-
-                    <small>
-                        Pay when collecting your order.
-                    </small>
-
-                </div>
-
-                <div class="payment-option">
-
-                    <label>
-
-                        <input
-                            type="radio"
-                            name="payment"
-                            value="iKhokha">
-
-                        <strong>Pay Online (iKhokha)</strong>
-
-                    </label>
-
-                    <small>
-                        Secure online payment using your debit or credit card.
-                    </small>
-
-                </div>
-
-            </div>
-
-            <!-- SECURITY -->
-
-            <div class="secure-payment">
-
-                🔒 <strong>Secure Checkout</strong>
-
-                <p>
-
-                    Your personal information is securely encrypted and never shared with third parties.
-
-                </p>
-
-            </div>
-
-            <!-- PLACE ORDER -->
-
-            <button
-                type="submit"
-                class="checkout-btn">
-
-                Place Order
-
-            </button>
-
-        </form>
-
-    </div>
+<input
+type="text"
+id="customerName"
+placeholder="Enter your full name"
+required>
 
 </div>
 
-            <!-- ================= RIGHT COLUMN ================= -->
-
-<div class="checkout-right">
-
-    <div class="checkout-card">
-
-        <h2>Order Summary</h2>
-
-        <p class="section-description">
-            Review your items before placing your order.
-        </p>
-
-        <!-- CART ITEMS -->
-
-        <div id="checkout-items">
-
-            <!-- Products load here automatically -->
-
-        </div>
-
-        <!-- COUPON -->
-
-        <div class="coupon-box">
-
-            <h3>Discount Code</h3>
-
-            <div class="coupon-input">
-
-                <input
-                    type="text"
-                    id="couponCode"
-                    placeholder="Enter coupon code">
-
-                <button
-                    type="button"
-                    id="applyCoupon"
-                    class="btn-secondary">
-
-                    Apply
-
-                </button>
-
-            </div>
-
-        </div>
-
-        <!-- ORDER TOTALS -->
-
-        <div class="summary-box">
-
-            <div class="summary-row">
-
-                <span>Subtotal</span>
-
-                <span id="subtotal">
-
-                    R0.00
-
-                </span>
-
-            </div>
-
-            <div class="summary-row">
-
-                <span>Discount</span>
-
-                <span id="discount">
-
-                    R0.00
-
-                </span>
-
-            </div>
-
-            <div class="summary-row">
-
-                <span>Delivery</span>
-
-                <span id="delivery">
-
-                    R0.00
-
-                </span>
-
-            </div>
-
-            <div class="summary-row total">
-
-                <strong>Total</strong>
-
-                <strong id="checkout-total">
-
-                    R0.00
-
-                </strong>
-
-            </div>
-
-        </div>
-
-        <!-- FREE DELIVERY NOTICE -->
-
-        <div class="delivery-notice">
-
-            🚚 FREE delivery on orders over <strong>R1000</strong>.
-
-        </div>
-
-        <!-- PAYMENT METHODS -->
-
-        <div class="payment-methods">
-
-            <h3>Accepted Payments</h3>
-
-            <div class="payment-logos">
-
-                <div class="payment-logo">
-                    💳 Visa
-                </div>
-
-                <div class="payment-logo">
-                    💳 Mastercard
-                </div>
-
-                <div class="payment-logo">
-                    🏦 iKhokha
-                </div>
-
-                <div class="payment-logo">
-                    💵 Cash
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- TRUST BADGES -->
-
-        <div class="trust-badges">
-
-            <div class="trust-item">
-
-                🔒 Secure Checkout
-
-            </div>
-
-            <div class="trust-item">
-
-                🚚 Fast Delivery
-
-            </div>
-
-            <div class="trust-item">
-
-                ⭐ Genuine Products
-
-            </div>
-
-            <div class="trust-item">
-
-                💬 WhatsApp Support
-
-            </div>
-
-        </div>
-
-    </div>
+<div class="form-group">
+
+<label>Phone Number *</label>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="066 265 3887"
+required>
 
 </div>
-</section>
 
-<!-- ================= FOOTER ================= -->
+<div class="form-group">
 
-<footer>
+<label>Email Address</label>
 
-    <div class="container footer-grid">
+<input
+type="email"
+id="customerEmail"
+placeholder="your@email.com">
 
-        <div>
+</div>
 
-            <h2>TechTray Holdings</h2>
+<div class="form-group">
 
-            <p>
+<label>Delivery Address *</label>
 
-                Premium Electronics & Accessories
+<textarea
+id="customerAddress"
+rows="5"
+placeholder="Street Address, City, Province"
+required></textarea>
 
-            </p>
+</div>
 
-        </div>
+<div class="form-group">
 
-        <div>
+<label>Order Notes</label>
 
-            <h3>Quick Links</h3>
+<textarea
+id="orderNotes"
+rows="4"
+placeholder="Optional notes..."></textarea>
 
-            <a href="index.html">Home</a><br>
+</div>
 
-            <a href="shop.html">Shop</a><br>
+<!-- PAYMENT -->
 
-            <a href="cart.html">Cart</a><br>
+<div class="payment-section">
 
-            <a href="track-order.html">Track Order</a><br>
+<h3>Payment Method</h3>
 
-            <a href="contact.html">Contact</a>
+<div class="payment-option">
 
-        </div>
+<label>
 
-        <div>
+<input
+type="radio"
+name="payment"
+value="Cash on Collection"
+checked>
 
-            <h3>Contact</h3>
+Cash on Collection
 
-            <p>📞 066 265 3887</p>
+</label>
 
-            <p>📧 techtrayholdings@gmail.com</p>
+<p>
 
-            <p>📍 South Africa</p>
+Pay when collecting your order.
 
-        </div>
+</p>
 
-    </div>
+</div>
 
-    <div class="copyright">
+<div class="payment-option">
 
-        © 2026 TechTray Holdings. All Rights Reserved.
+<label>
 
-    </div>
+<input
+type="radio"
+name="payment"
+value="iKhokha">
 
-</footer>
+Pay Online (iKhokha)
 
-<!-- JAVASCRIPT -->
+</label>
 
-<script src="JS/products.js"></script>
-<script src="JS/cart.js"></script>
-<script src="JS/checkout.js"></script>
+<p>
 
-</body>
-</html>
+Secure debit or credit card payment.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="secure-payment">
+
+🔒 Your information is protected with secure checkout.
+
+</div>
+
+<button
+type="submit"
+class="checkout-btn">
+
+Place Order
+
+</button>
+
+</form>
+
+</div>
+
+</div>
