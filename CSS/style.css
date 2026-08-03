@@ -2334,3 +2334,313 @@ p{
 }
 
 }
+
+/*==================================================
+71. PREMIUM FOOTER
+==================================================*/
+
+.footer{
+
+    background:var(--primary-dark);
+
+    color:#fff;
+
+    padding:90px 0 30px;
+
+}
+
+/*==================================================
+72. FOOTER GRID
+==================================================*/
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1.5fr;
+
+    gap:50px;
+
+    margin-bottom:60px;
+
+}
+
+/*==================================================
+73. FOOTER LOGO & DESCRIPTION
+==================================================*/
+
+.footer-logo{
+
+    margin-bottom:20px;
+
+}
+
+.footer-logo h2{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+    color:#fff;
+
+}
+
+.footer-logo span{
+
+    color:var(--accent);
+
+}
+
+.footer-about{
+
+    color:rgba(255,255,255,.8);
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+/*==================================================
+74. FOOTER HEADINGS & LINKS
+==================================================*/
+
+.footer h3{
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+    color:#fff;
+
+}
+
+.footer-links{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.footer-links li{
+
+    margin-bottom:12px;
+
+}
+
+.footer-links a{
+
+    color:rgba(255,255,255,.8);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+.footer-links a:hover{
+
+    color:var(--accent);
+
+    padding-left:8px;
+
+}
+
+/*==================================================
+75. CONTACT DETAILS
+==================================================*/
+
+.footer-contact{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.footer-contact div{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+}
+
+.footer-contact i{
+
+    color:var(--accent);
+
+    font-size:20px;
+
+    margin-top:2px;
+
+}
+
+/*==================================================
+76. SOCIAL MEDIA
+==================================================*/
+
+.footer-social{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.footer-social a{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    transition:var(--transition);
+
+}
+
+.footer-social a:hover{
+
+    background:var(--accent);
+
+    color:var(--primary-dark);
+
+    transform:translateY(-5px);
+
+}
+
+/*==================================================
+77. PAYMENT METHODS
+==================================================*/
+
+.payment-methods{
+
+    margin-top:30px;
+
+}
+
+.payment-methods h4{
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+}
+
+.payment-icons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.payment-icons img{
+
+    width:55px;
+
+    background:#fff;
+
+    padding:6px;
+
+    border-radius:8px;
+
+}
+
+/*==================================================
+78. COPYRIGHT
+==================================================*/
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    padding-top:25px;
+
+    text-align:center;
+
+    color:rgba(255,255,255,.7);
+
+    font-size:15px;
+
+}
+
+/*==================================================
+79. FOOTER ANIMATION
+==================================================*/
+
+.footer-links a,
+
+.footer-social a{
+
+    transition:all .3s ease;
+
+}
+
+/*==================================================
+80. RESPONSIVE FOOTER
+==================================================*/
+
+@media(max-width:992px){
+
+.footer-grid{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.footer{
+
+    text-align:center;
+
+}
+
+.footer-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.footer-contact div{
+
+    justify-content:center;
+
+}
+
+.footer-social{
+
+    justify-content:center;
+
+}
+
+.payment-icons{
+
+    justify-content:center;
+
+}
+
+}
