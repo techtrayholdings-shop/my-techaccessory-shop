@@ -267,3 +267,234 @@ const products = [
 }
 
 ];
+{
+    id: 11,
+    name: "HOCO G100-5 Gaming Headset",
+    brand: "HOCO",
+    category: "Gaming",
+    price: 499,
+    oldPrice: 599,
+    stock: 15,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 31,
+    badge: "NEW",
+    image: "images/products/G100-5.jpeg",
+    gallery: ["images/products/G100-5.jpeg"],
+    description: "Gaming headset with immersive stereo sound.",
+    specifications: [
+        "Noise Isolation",
+        "Gaming Microphone",
+        "3.5mm Jack"
+    ]
+},
+
+{
+    id: 12,
+    name: "HOCO HC1 Car Holder",
+    brand: "HOCO",
+    category: "Car Accessories",
+    price: 149,
+    oldPrice: 199,
+    stock: 20,
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.6,
+    reviews: 22,
+    badge: "BEST",
+    image: "images/products/HC1.jpeg",
+    gallery: ["images/products/HC1.jpeg"],
+    description: "Universal dashboard phone holder.",
+    specifications: [
+        "360° Rotation",
+        "Universal Fit"
+    ]
+},
+
+{
+    id: 13,
+    name: "HOCO HC17 Car Holder",
+    brand: "HOCO",
+    category: "Car Accessories",
+    price: 199,
+    oldPrice: 249,
+    stock: 18,
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.7,
+    reviews: 27,
+    badge: "",
+    image: "images/products/HC17.jpg",
+    gallery: ["images/products/HC17.jpg"],
+    description: "Air vent magnetic phone holder.",
+    specifications: [
+        "Magnetic Mount",
+        "360° Rotation"
+    ]
+},
+
+{
+    id: 14,
+    name: "Wireless Headphones",
+    brand: "HOCO",
+    category: "Audio",
+    price: 399,
+    oldPrice: 499,
+    stock: 25,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 20,
+    badge: "",
+    image: "images/products/headphones.jpg",
+    gallery: ["images/products/headphones.jpg"],
+    description: "Comfortable wireless headphones with clear sound.",
+    specifications: [
+        "Bluetooth",
+        "Built-in Microphone"
+    ]
+},
+
+{
+    id: 15,
+    name: "Premium Wireless Headphones",
+    brand: "HOCO",
+    category: "Audio",
+    price: 499,
+    oldPrice: 599,
+    stock: 20,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 38,
+    badge: "NEW",
+    image: "images/products/headphones2.jpg",
+    gallery: ["images/products/headphones2.jpg"],
+    description: "Premium headphones with rich bass.",
+    specifications: [
+        "Bluetooth 5.3",
+        "Long Battery"
+    ]
+},
+
+{
+    id: 16,
+    name: "Foldable Wireless Headphones",
+    brand: "HOCO",
+    category: "Audio",
+    price: 549,
+    oldPrice: 649,
+    stock: 15,
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.9,
+    reviews: 42,
+    badge: "BEST",
+    image: "images/products/headphones3.png",
+    gallery: ["images/products/headphones3.png"],
+    description: "Foldable Bluetooth headphones with deep bass.",
+    specifications: [
+        "Foldable Design",
+        "Bluetooth 5.4"
+    ]
+},
+
+{
+    id: 17,
+    name: "HOCO J101A Power Bank",
+    brand: "HOCO",
+    category: "Power Banks",
+    price: 499,
+    oldPrice: 599,
+    stock: 20,
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.8,
+    reviews: 40,
+    badge: "BEST",
+    image: "images/products/J101A.jpeg",
+    gallery: ["images/products/J101A.jpeg"],
+    description: "10000mAh fast charging power bank.",
+    specifications: [
+        "10000mAh",
+        "Fast Charge"
+    ]
+},
+
+{
+    id: 18,
+    name: "HOCO J115 Power Bank",
+    brand: "HOCO",
+    category: "Power Banks",
+    price: 599,
+    oldPrice: 699,
+    stock: 18,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 29,
+    badge: "NEW",
+    image: "images/products/j115.jpeg",
+    gallery: ["images/products/j115.jpeg"],
+    description: "20000mAh high-capacity power bank.",
+    specifications: [
+        "20000mAh",
+        "USB-C Output"
+    ]
+},
+
+{
+    id: 19,
+    name: "HOCO J115 Power Bank Black",
+    brand: "HOCO",
+    category: "Power Banks",
+    price: 599,
+    oldPrice: 699,
+    stock: 15,
+    featured: false,
+    bestSeller: false,
+    newArrival: false,
+    rating: 4.7,
+    reviews: 18,
+    badge: "",
+    image: "images/products/j115(2).jpeg",
+    gallery: ["images/products/j115(2).jpeg"],
+    description: "High-capacity fast charging power bank.",
+    specifications: [
+        "20000mAh",
+        "LED Display"
+    ]
+},
+
+{
+    id: 20,
+    name: "HOCO N34 Charger",
+    brand: "HOCO",
+    category: "Chargers",
+    price: 249,
+    oldPrice: 299,
+    stock: 22,
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.8,
+    reviews: 36,
+    badge: "",
+    image: "images/products/N34.png",
+    gallery: ["images/products/N34.png"],
+    description: "Fast charging wall adapter.",
+    specifications: [
+        "USB-C",
+        "Fast Charge",
+        "Compact Design"
+    ]
+}
