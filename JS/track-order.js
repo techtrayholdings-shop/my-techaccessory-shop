@@ -86,27 +86,36 @@ trackingForm.addEventListener("submit", function(e){
 
     trackingResult.innerHTML = `
 
-        <h3>Tracking Result</h3>
+<div class="order-summary">
 
-        <p class="tracking-number">
-            <strong>Order:</strong> ${order}
-        </p>
+    <img src="images/products/ew95.jpg" class="order-image">
 
-        <p class="tracking-email">
-            <strong>Email:</strong> ${email}
-        </p>
+    <div class="order-details">
 
-        <p class="tracking-date">
-            Estimated Delivery:
-            <strong>2–4 Business Days</strong>
-        </p>
+        <h3>HOCO EW95 True Wireless Earbuds</h3>
 
-        <div class="timeline">
+        <p><strong>Order Number:</strong> ${order}</p>
 
-            ${timeline}
+        <p><strong>Customer Email:</strong> ${email}</p>
 
-        </div>
+        <p><strong>Order Date:</strong> 03 August 2026</p>
 
-    `;
+        <p><strong>Courier:</strong> The Courier Guy</p>
 
-}, 2000);
+        <p><strong>Estimated Delivery:</strong> 05 August 2026</p>
+
+        <p><strong>Current Location:</strong> Johannesburg Distribution Centre</p>
+
+        <p><strong>Total Paid:</strong> R499.00</p>
+
+    </div>
+
+</div>
+
+<div class="timeline">
+
+    ${timeline}
+
+</div>
+
+`;
