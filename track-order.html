@@ -1,7 +1,131 @@
-<div id="header"></div>
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Your page-specific content goes here -->
+<head>
 
-<div id="footer"></div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="js/include.js"></script>
+<title>Track Your Order | TechTray Holdings</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="CSS/style.css">
+
+</head>
+
+<body>
+
+<header class="track-hero">
+
+<div class="container">
+
+<h1>Track Your Order</h1>
+
+<p>Enter your Order Number and Email Address to check your delivery status.</p>
+
+</div>
+
+</header>
+
+<section class="tracking-section">
+
+<div class="container">
+
+<div class="tracking-card">
+
+<h2>Order Tracking</h2>
+
+<form id="trackingForm">
+
+<input
+type="text"
+id="orderNumber"
+placeholder="Order Number"
+required>
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required>
+
+<button type="submit">
+
+Track Order
+
+</button>
+
+</form>
+
+</div>
+
+<div id="trackingResult" class="tracking-result">
+
+<h3>Order Status</h3>
+
+<div class="timeline">
+
+<div class="timeline-item completed">
+<div class="circle"></div>
+<p>Order Confirmed</p>
+</div>
+
+<div class="timeline-item completed">
+<div class="circle"></div>
+<p>Preparing Order</p>
+</div>
+
+<div class="timeline-item active">
+<div class="circle"></div>
+<p>Shipped</p>
+</div>
+
+<div class="timeline-item">
+<div class="circle"></div>
+<p>Out for Delivery</p>
+</div>
+
+<div class="timeline-item">
+<div class="circle"></div>
+<p>Delivered</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="tracking-help">
+
+<div class="container">
+
+<h2>Need Assistance?</h2>
+
+<p>
+If you have questions about your order, contact our support team.
+</p>
+
+<a
+href="https://wa.me/27662653887"
+class="btn-primary">
+
+Chat on WhatsApp
+
+</a>
+
+</div>
+
+</section>
+
+<script src="JS/track-order.js"></script>
+
+</body>
+
+</html>
