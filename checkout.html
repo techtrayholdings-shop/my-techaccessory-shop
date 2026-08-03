@@ -3,212 +3,135 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Checkout | TechTray Holdings</title>
+    <title>Checkout | TechTray Holdings</title>
 
-<link rel="stylesheet" href="CSS/style.css">
-<link rel="stylesheet" href="CSS/responsive.css">
+    <meta name="description" content="Secure checkout for TechTray Holdings">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="images/products/logo.jpg">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/checkout.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
 
 </head>
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
-<div class="container top-bar-content">
+    <div class="container top-bar-content">
 
-<div class="top-item">
-🚚 <span>Free Delivery Over R1000</span>
+        <div class="top-item">
+            🚚 <span>Free Delivery on Orders Over R1000</span>
+        </div>
+
+        <div class="top-item">
+            📞 <span>066 265 3887</span>
+        </div>
+
+        <div class="top-item">
+            ✉ <span>techtrayholdings@gmail.com</span>
+        </div>
+
+    </div>
+
 </div>
 
-<div class="top-item">
-📞 <span>066 265 3887</span>
-</div>
-
-<div class="top-item">
-✉ <span>techtrayholdings@gmail.com</span>
-</div>
-
-</div>
-
-</div>
-
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-<div class="container header-container">
+    <div class="container header-container">
 
-<a href="index.html" class="logo">
+        <a href="index.html" class="logo">
 
-<img src="images/products/logo.jpg" alt="TechTray">
+            <img src="images/products/logo.jpg" alt="TechTray">
 
-<div class="logo-text">
+            <div class="logo-text">
 
-<h2>TechTray</h2>
+                <h2>TechTray</h2>
 
-<span>Holdings</span>
+                <span>Holdings</span>
 
-</div>
+            </div>
 
-</a>
+        </a>
 
-<div class="header-icons">
+        <div class="header-icons">
 
-<a href="shop.html" class="wishlist-button">
-🛍
-</a>
+            <a href="shop.html" class="wishlist-button">
+                🛍
+            </a>
 
-<a href="cart.html" class="cart-button">
-🛒
-<span id="cart-count">0</span>
-</a>
+            <a href="cart.html" class="cart-button">
+                🛒
+                <span id="cart-count">0</span>
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </header>
 
-<!-- PAGE TITLE -->
+<!-- ================= HERO ================= -->
 
-<section class="shop-hero">
+<section class="checkout-hero">
 
-<div class="container">
+    <div class="container">
 
-<h1>Checkout</h1>
+        <h1>Secure Checkout</h1>
 
-<p>Review your order before placing it.</p>
+        <p>
+            Complete your order safely and securely.
+        </p>
 
-</div>
+    </div>
 
 </section>
 
-<!-- CHECKOUT -->
+<!-- ================= CHECKOUT ================= -->
 
-<main class="checkout-page">
+<section class="checkout-page">
 
-<div class="container">
+    <div class="container">
 
-<div class="checkout-grid">
+        <div class="checkout-grid">
 
-<!-- LEFT COLUMN -->
+            <!-- Left Side -->
 
-<div class="checkout-details">
+            <div class="checkout-left">
 
-<h2>Customer Information</h2>
+            </div>
 
-<form id="checkoutForm">
+            <!-- Right Side -->
 
-<div class="form-group">
+            <div class="checkout-right">
 
-<label>Full Name</label>
+            </div>
 
-<input
-type="text"
-id="customerName"
-required>
-
-</div>
-
-<div class="form-group">
-
-<label>Phone Number</label>
-
-<input
-type="tel"
-id="customerPhone"
-required>
-
-</div>
-
-<div class="form-group">
-
-<label>Email Address</label>
-
-<input
-type="email"
-id="customerEmail">
-
-</div>
-
-<div class="form-group">
-
-<label>Delivery Address</label>
-
-<textarea
-id="customerAddress"
-rows="5"
-required></textarea>
-
-</div>
-
-</div>
-
-<!-- RIGHT COLUMN -->
-
-<div class="order-summary">
-
-    <h2>Order Summary</h2>
-
-    <div id="checkout-items">
-
-        <!-- Cart products load here -->
+        </div>
 
     </div>
 
-    <div class="summary-row">
+</section>
 
-        <span>Subtotal</span>
-
-        <span id="subtotal">R0.00</span>
-
-    </div>
-
-    <div class="summary-row">
-
-        <span>Delivery</span>
-
-        <span id="delivery">FREE</span>
-
-    </div>
-
-    <div class="summary-row total">
-
-        <strong>Total</strong>
-
-        <strong id="checkout-total">R0.00</strong>
-
-    </div>
-
-    <button
-        type="submit"
-        class="btn-primary checkout-btn">
-
-        Place Order
-
-    </button>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</main>
-
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -227,8 +150,11 @@ required></textarea>
             <h3>Quick Links</h3>
 
             <a href="index.html">Home</a><br>
+
             <a href="shop.html">Shop</a><br>
+
             <a href="cart.html">Cart</a><br>
+
             <a href="contact.html">Contact</a>
 
         </div>
@@ -238,6 +164,7 @@ required></textarea>
             <h3>Contact</h3>
 
             <p>📞 066 265 3887</p>
+
             <p>✉ techtrayholdings@gmail.com</p>
 
         </div>
@@ -246,92 +173,9 @@ required></textarea>
 
 </footer>
 
-<!-- JAVASCRIPT -->
-
 <script src="JS/products.js"></script>
 <script src="JS/cart.js"></script>
 <script src="JS/checkout.js"></script>
-
-<script>
-/* ============================
-   LOAD CART
-============================ */
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-const orderItems = document.getElementById("orderItems");
-const subtotalElement = document.getElementById("subtotal");
-const deliveryElement = document.getElementById("delivery");
-const totalElement = document.getElementById("total");
-
-function formatPrice(price){
-    return "R" + Number(price).toFixed(2);
-}
-
-function loadCheckout(){
-
-    if(!orderItems) return;
-
-    orderItems.innerHTML = "";
-
-    let subtotal = 0;
-
-    if(cart.length === 0){
-
-        orderItems.innerHTML = `
-            <div class="empty-cart">
-                <p>Your cart is empty.</p>
-                <a href="shop.html" class="btn-primary">
-                    Continue Shopping
-                </a>
-            </div>
-        `;
-
-        subtotalElement.textContent = "R0.00";
-        deliveryElement.textContent = "R0.00";
-        totalElement.textContent = "R0.00";
-        return;
-    }
-
-    cart.forEach(item => {
-
-        subtotal += item.price * item.quantity;
-
-        orderItems.innerHTML += `
-            <div class="checkout-item">
-
-                <img src="${item.image}"
-                     alt="${item.name}">
-
-                <div class="checkout-item-info">
-
-                    <h4>${item.name}</h4>
-
-                    <p>Qty: ${item.quantity}</p>
-
-                </div>
-
-                <strong>${formatPrice(item.price * item.quantity)}</strong>
-
-            </div>
-        `;
-
-    });
-
-    let delivery = subtotal >= 1000 ? 0 : 120;
-    let total = subtotal + delivery;
-
-    subtotalElement.textContent = formatPrice(subtotal);
-    deliveryElement.textContent = delivery === 0
-        ? "FREE"
-        : formatPrice(delivery);
-
-    totalElement.textContent = formatPrice(total);
-
-}
-
-loadCheckout();
-</script>
 
 </body>
 </html>

@@ -1,72 +1,77 @@
-/*=========================================
-    TECHTRAY CHECKOUT
-=========================================*/
+// ========================================
+// TECHTRAY CHECKOUT
+// ========================================
 
-const checkoutItems = document.getElementById("checkout-items");
-const subtotalElement = document.getElementById("subtotal");
-const totalElement = document.getElementById("checkout-total");
 const checkoutForm = document.getElementById("checkoutForm");
+const orderSummary = document.getElementById("order-summary");
+const totalPrice = document.getElementById("total-price");
+const placeOrderBtn = document.getElementById("place-order");
+
+// Load cart
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Generate order ID
+function generateOrderID() {
+    const random = Math.floor(Math.random() * 900000) + 100000;
+    return "TT" + random;
+}
+// ===============================
+// TECHTRAY CHECKOUT
+// ===============================
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-/*=========================================
-    LOAD CHECKOUT ITEMS
-=========================================*/
+const checkoutItems = document.getElementById("checkoutItems");
+const subtotalElement = document.getElementById("subtotal");
+const shippingElement = document.getElementById("shipping");
+const totalElement = document.getElementById("total");
 
-function loadCheckout() {
+const SHIPPING_COST = 120;
 
-    if (!checkoutItems) return;
+function displayCheckoutCart() {
 
-    checkoutItems.innerHTML = "";
+    orderSummary.innerHTML = "";
 
     if (cart.length === 0) {
 
-        checkoutItems.innerHTML = `
+        orderSummary.innerHTML = `
             <p>Your cart is empty.</p>
         `;
 
-        subtotalElement.textContent = "R0.00";
-        totalElement.textContent = "R0.00";
-
+        placeOrderBtn.disabled = true;
         return;
     }
 
-    let subtotal = 0;
+    let total = 0;
 
-    cart.forEach(item => {
+    cart.forEach(product => {
 
-        const itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
+        total += product.price * product.quantity;
 
-        checkoutItems.innerHTML += `
+        orderSummary.innerHTML += `
+
             <div class="checkout-item">
 
-                <img src="${item.image}" alt="${item.name}">
+                <img src="${product.image}" alt="${product.name}">
 
-                <div class="checkout-item-info">
+                <div>
 
-                    <h4>${item.name}</h4>
+                    <h4>${product.name}</h4>
 
-                    <p>Quantity: ${item.quantity}</p>
+                    <p>Qty: ${product.quantity}</p>
 
-                    <p>Price: R${item.price.toFixed(2)}</p>
-
-                </div>
-
-                <div class="checkout-item-total">
-
-                    R${itemTotal.toFixed(2)}
+                    <strong>R${(product.price * product.quantity).toFixed(2)}</strong>
 
                 </div>
 
             </div>
+
         `;
 
     });
 
-    subtotalElement.textContent = `R${subtotal.toFixed(2)}`;
-    totalElement.textContent = `R${subtotal.toFixed(2)}`;
+    totalPrice.textContent = `R${total.toFixed(2)}`;
 
 }
 
-loadCheckout();
+displayCheckoutCart();
