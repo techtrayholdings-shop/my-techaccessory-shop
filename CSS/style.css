@@ -1816,49 +1816,48 @@ p{
 }
 
 }
+
 /*==================================================
-51. WHY CHOOSE TECHTRAY
+61. TESTIMONIALS
 ==================================================*/
 
-.why-choose{
+.testimonials{
 
     padding:100px 0;
 
-    background:#ffffff;
+    background:#F8FAFC;
 
 }
 
 /*==================================================
-52. FEATURES GRID
+62. TESTIMONIAL GRID
 ==================================================*/
 
-.features-grid{
+.testimonial-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-    gap:30px;
+    gap:35px;
 
     margin-top:60px;
 
 }
 
 /*==================================================
-53. FEATURE CARD
+63. TESTIMONIAL CARD
 ==================================================*/
 
-.feature-card{
+.testimonial-card{
 
     background:#fff;
 
-    border:1px solid var(--border);
-
     border-radius:20px;
 
-    padding:40px 30px;
+    padding:35px;
 
-    text-align:center;
+    border:1px solid var(--border);
 
     box-shadow:var(--shadow);
 
@@ -1870,11 +1869,7 @@ p{
 
 }
 
-/*==================================================
-54. FEATURE CARD HOVER
-==================================================*/
-
-.feature-card:hover{
+.testimonial-card:hover{
 
     transform:translateY(-10px);
 
@@ -1882,115 +1877,49 @@ p{
 
 }
 
-.feature-card::before{
+/*==================================================
+64. QUOTE ICON
+==================================================*/
 
-    content:"";
+.testimonial-card::before{
+
+    content:"❝";
 
     position:absolute;
 
-    top:0;
+    top:20px;
 
-    left:0;
+    right:25px;
 
-    width:100%;
+    font-size:80px;
 
-    height:5px;
+    color:rgba(25,168,230,.08);
 
-    background:linear-gradient(90deg,var(--primary),var(--accent));
-
-}
-
-/*==================================================
-55. FEATURE ICON
-==================================================*/
-
-.feature-icon{
-
-    width:90px;
-
-    height:90px;
-
-    margin:0 auto 25px;
-
-    border-radius:50%;
-
-    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#fff;
-
-    font-size:38px;
-
-    transition:var(--transition);
-
-}
-
-.feature-card:hover .feature-icon{
-
-    transform:rotate(10deg) scale(1.08);
+    font-weight:bold;
 
 }
 
 /*==================================================
-56. FEATURE CONTENT
+65. REVIEW TEXT
 ==================================================*/
 
-.feature-card h3{
-
-    font-size:24px;
-
-    color:var(--primary-dark);
-
-    margin-bottom:15px;
-
-}
-
-.feature-card p{
+.testimonial-text{
 
     color:#6B7280;
 
-    line-height:1.8;
+    line-height:1.9;
+
+    margin-bottom:25px;
+
+    font-size:16px;
 
 }
 
 /*==================================================
-57. TRUST BAR
+66. CUSTOMER INFO
 ==================================================*/
 
-.trust-bar{
-
-    margin-top:80px;
-
-    padding:35px;
-
-    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
-
-    border-radius:20px;
-
-    color:#fff;
-
-}
-
-.trust-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:30px;
-
-}
-
-/*==================================================
-58. TRUST ITEM
-==================================================*/
-
-.trust-item{
+.customer{
 
     display:flex;
 
@@ -2000,15 +1929,23 @@ p{
 
 }
 
-.trust-item i{
+.customer img{
 
-    font-size:36px;
+    width:70px;
 
-    color:var(--accent);
+    height:70px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid var(--primary);
 
 }
 
-.trust-item h4{
+.customer-info h4{
+
+    color:var(--primary-dark);
 
     margin-bottom:5px;
 
@@ -2016,71 +1953,119 @@ p{
 
 }
 
-.trust-item p{
+.customer-info span{
 
-    opacity:.9;
+    color:#6B7280;
 
-    font-size:15px;
+    font-size:14px;
 
 }
 
 /*==================================================
-59. ANIMATION
+67. STAR RATING
 ==================================================*/
 
-.feature-card{
+.review-stars{
+
+    display:flex;
+
+    gap:5px;
+
+    margin-bottom:20px;
+
+    color:#FDB913;
+
+    font-size:18px;
+
+}
+
+/*==================================================
+68. REVIEW SUMMARY
+==================================================*/
+
+.review-summary{
+
+    margin-top:70px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.review-box{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+.review-box h2{
+
+    font-size:42px;
+
+    color:var(--primary-dark);
+
+    margin-bottom:10px;
+
+}
+
+.review-box p{
+
+    color:#6B7280;
+
+    font-weight:600;
+
+}
+
+/*==================================================
+69. TESTIMONIAL ANIMATION
+==================================================*/
+
+.testimonial-card{
 
     animation:fadeUp .8s ease both;
 
 }
 
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
 /*==================================================
-60. RESPONSIVE
+70. RESPONSIVE
 ==================================================*/
 
 @media(max-width:768px){
 
-.features-grid{
+.testimonial-grid{
 
     grid-template-columns:1fr;
 
 }
 
-.trust-grid{
+.review-summary{
 
     grid-template-columns:1fr;
 
 }
 
-.feature-card{
+.customer{
 
-    padding:35px 25px;
+    flex-direction:column;
+
+    text-align:center;
 
 }
 
-.trust-bar{
+.customer img{
 
-    padding:25px;
+    margin-bottom:10px;
 
 }
 
