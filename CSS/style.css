@@ -1816,3 +1816,272 @@ p{
 }
 
 }
+/*==================================================
+51. WHY CHOOSE TECHTRAY
+==================================================*/
+
+.why-choose{
+
+    padding:100px 0;
+
+    background:#ffffff;
+
+}
+
+/*==================================================
+52. FEATURES GRID
+==================================================*/
+
+.features-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+/*==================================================
+53. FEATURE CARD
+==================================================*/
+
+.feature-card{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/*==================================================
+54. FEATURE CARD HOVER
+==================================================*/
+
+.feature-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+.feature-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+
+}
+
+/*==================================================
+55. FEATURE ICON
+==================================================*/
+
+.feature-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:38px;
+
+    transition:var(--transition);
+
+}
+
+.feature-card:hover .feature-icon{
+
+    transform:rotate(10deg) scale(1.08);
+
+}
+
+/*==================================================
+56. FEATURE CONTENT
+==================================================*/
+
+.feature-card h3{
+
+    font-size:24px;
+
+    color:var(--primary-dark);
+
+    margin-bottom:15px;
+
+}
+
+.feature-card p{
+
+    color:#6B7280;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+57. TRUST BAR
+==================================================*/
+
+.trust-bar{
+
+    margin-top:80px;
+
+    padding:35px;
+
+    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+
+    border-radius:20px;
+
+    color:#fff;
+
+}
+
+.trust-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+}
+
+/*==================================================
+58. TRUST ITEM
+==================================================*/
+
+.trust-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.trust-item i{
+
+    font-size:36px;
+
+    color:var(--accent);
+
+}
+
+.trust-item h4{
+
+    margin-bottom:5px;
+
+    font-size:20px;
+
+}
+
+.trust-item p{
+
+    opacity:.9;
+
+    font-size:15px;
+
+}
+
+/*==================================================
+59. ANIMATION
+==================================================*/
+
+.feature-card{
+
+    animation:fadeUp .8s ease both;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==================================================
+60. RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+.features-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.trust-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.feature-card{
+
+    padding:35px 25px;
+
+}
+
+.trust-bar{
+
+    padding:25px;
+
+}
+
+}
