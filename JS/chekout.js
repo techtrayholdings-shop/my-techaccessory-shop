@@ -1,36 +1,72 @@
-// ===========================================
-// TECHTRAY CHECKOUT
-// ===========================================
+/*=========================================
+    TECHTRAY CHECKOUT
+=========================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+const checkoutItems = document.getElementById("checkout-items");
+const subtotalElement = document.getElementById("subtotal");
+const totalElement = document.getElementById("checkout-total");
+const checkoutForm = document.getElementById("checkoutForm");
 
-    // Get cart
-    let cart = JSON.parse(localStorage.getItem("techtrayCart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Calculate total
-    let total = cart.reduce((sum, item) => {
-        return sum + (item.price * item.quantity);
-    }, 0);
+/*=========================================
+    LOAD CHECKOUT ITEMS
+=========================================*/
 
-    // Update total if element exists
-    const totalElement = document.getElementById("checkoutTotal");
+function loadCheckout() {
 
-    if (totalElement) {
-        totalElement.textContent = "R" + total.toFixed(2);
+    if (!checkoutItems) return;
+
+    checkoutItems.innerHTML = "";
+
+    if (cart.length === 0) {
+
+        checkoutItems.innerHTML = `
+            <p>Your cart is empty.</p>
+        `;
+
+        subtotalElement.textContent = "R0.00";
+        totalElement.textContent = "R0.00";
+
+        return;
     }
 
-});
+    let subtotal = 0;
 
-// Save order
-function saveOrder(orderData) {
+    cart.forEach(item => {
 
-    let orders = JSON.parse(localStorage.getItem("techtrayOrders")) || [];
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
 
-    orders.unshift(orderData);
+        checkoutItems.innerHTML += `
+            <div class="checkout-item">
 
-    localStorage.setItem(
-        "techtrayOrders",
-        JSON.stringify(orders)
-    );
+                <img src="${item.image}" alt="${item.name}">
+
+                <div class="checkout-item-info">
+
+                    <h4>${item.name}</h4>
+
+                    <p>Quantity: ${item.quantity}</p>
+
+                    <p>Price: R${item.price.toFixed(2)}</p>
+
+                </div>
+
+                <div class="checkout-item-total">
+
+                    R${itemTotal.toFixed(2)}
+
+                </div>
+
+            </div>
+        `;
+
+    });
+
+    subtotalElement.textContent = `R${subtotal.toFixed(2)}`;
+    totalElement.textContent = `R${subtotal.toFixed(2)}`;
 
 }
+
+loadCheckout();
