@@ -1,121 +1,106 @@
-const trackingForm = document.getElementById("trackingForm");
-const trackingResult = document.getElementById("trackingResult");
+document.addEventListener("DOMContentLoaded", () => {
 
-trackingResult.style.display = "none";
+    const trackButton = document.getElementById("trackButton");
+    const orderInput = document.getElementById("orderNumber");
+    const emailInput = document.getElementById("email");
+    const trackingResult = document.getElementById("trackingResult");
 
-trackingForm.addEventListener("submit", function(e){
+    trackButton.addEventListener("click", function () {
 
-    e.preventDefault();
+        const order = orderInput.value.trim();
+        const email = emailInput.value.trim();
 
-    const order = document.getElementById("orderNumber").value.trim();
-    const email = document.getElementById("email").value.trim();
+        if (order === "" || email === "") {
 
-    if(order === "" || email === ""){
-        alert("Please complete all fields.");
-        return;
-    }
+            trackingResult.innerHTML = `
+                <div class="tracking-error">
+                    <h3>⚠ Please complete all fields</h3>
+                    <p>Enter your Order Number and Email Address.</p>
+                </div>
+            `;
 
-    trackingResult.style.display = "block";
-
-    trackingResult.innerHTML = `
-        <div class="loading">
-            <div class="spinner"></div>
-            <p>Checking your order...</p>
-        </div>
-    `;
-
-    setTimeout(function () {
-
-    let orderStatus = [];
-
-    if (order.toUpperCase() === "TT1001") {
-
-        orderStatus = [
-            { status: "Order Confirmed", class: "completed" },
-            { status: "Preparing Order", class: "completed" },
-            { status: "Shipped", class: "completed" },
-            { status: "Out for Delivery", class: "active" },
-            { status: "Delivered", class: "" }
-        ];
-
-    } else if (order.toUpperCase() === "TT1002") {
-
-        orderStatus = [
-            { status: "Order Confirmed", class: "completed" },
-            { status: "Preparing Order", class: "active" },
-            { status: "Shipped", class: "" },
-            { status: "Out for Delivery", class: "" },
-            { status: "Delivered", class: "" }
-        ];
-
-    } else if (order.toUpperCase() === "TT1003") {
-
-        orderStatus = [
-            { status: "Order Confirmed", class: "completed" },
-            { status: "Preparing Order", class: "completed" },
-            { status: "Shipped", class: "completed" },
-            { status: "Out for Delivery", class: "completed" },
-            { status: "Delivered", class: "completed" }
-        ];
-
-    } else {
+            return;
+        }
 
         trackingResult.innerHTML = `
-            <div class="order-not-found">
-                <h3>Order Not Found</h3>
-                <p>We couldn't find an order with that number.</p>
-                <p>Please check your Order Number and try again.</p>
+            <div class="tracking-loading">
+                <h3>Searching for your order...</h3>
             </div>
         `;
-        return;
 
-    }
+        setTimeout(() => {
 
-    let timeline = "";
+            const foundOrder = orders.find(item =>
+                item.orderNumber.toLowerCase() === order.toLowerCase() &&
+                item.email.toLowerCase() === email.toLowerCase()
+            );
 
-    orderStatus.forEach(item => {
+            if (!foundOrder) {
 
-        timeline += `
-            <div class="timeline-item ${item.class}">
-                <div class="circle"></div>
-                <p>${item.status}</p>
-            </div>
-        `;
+                trackingResult.innerHTML = `
+                    <div class="tracking-error">
+                        <h3>❌ Order Not Found</h3>
+                        <p>Please check your Order Number and Email Address.</p>
+                    </div>
+                `;
+
+                return;
+            }
+
+            let timeline = "";
+
+            foundOrder.status.forEach(step => {
+
+                timeline += `
+                    <div class="timeline-item ${step.done ? "completed" : ""}">
+                        <div class="timeline-icon">
+                            ${step.done ? "✔" : "○"}
+                        </div>
+
+                        <div class="timeline-content">
+                            ${step.text}
+                        </div>
+                    </div>
+                `;
+
+            });
+
+            trackingResult.innerHTML = `
+
+                <div class="order-summary">
+
+                    <img src="${foundOrder.image}" alt="${foundOrder.product}">
+
+                    <div>
+
+                        <h2>${foundOrder.product}</h2>
+
+                        <p><strong>Customer:</strong> ${foundOrder.customer}</p>
+
+                        <p><strong>Order Number:</strong> ${foundOrder.orderNumber}</p>
+
+                        <p><strong>Price:</strong> ${foundOrder.price}</p>
+
+                        <p><strong>Courier:</strong> ${foundOrder.courier}</p>
+
+                        <p><strong>Current Location:</strong> ${foundOrder.location}</p>
+
+                        <p><strong>Estimated Delivery:</strong> ${foundOrder.delivery}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline">
+
+                    ${timeline}
+
+                </div>
+
+            `;
+
+        }, 1500);
 
     });
 
-    trackingResult.innerHTML = `
-
-<div class="order-summary">
-
-    <img src="images/products/ew95.jpg" class="order-image">
-
-    <div class="order-details">
-
-        <h3>HOCO EW95 True Wireless Earbuds</h3>
-
-        <p><strong>Order Number:</strong> ${order}</p>
-
-        <p><strong>Customer Email:</strong> ${email}</p>
-
-        <p><strong>Order Date:</strong> 03 August 2026</p>
-
-        <p><strong>Courier:</strong> The Courier Guy</p>
-
-        <p><strong>Estimated Delivery:</strong> 05 August 2026</p>
-
-        <p><strong>Current Location:</strong> Johannesburg Distribution Centre</p>
-
-        <p><strong>Total Paid:</strong> R499.00</p>
-
-    </div>
-
-</div>
-
-<div class="timeline">
-
-    ${timeline}
-
-</div>
-
-`;
+});
