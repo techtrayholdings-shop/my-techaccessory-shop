@@ -1,68 +1,77 @@
-// ========================================
-// TECHTRAY CHECKOUT
-// ========================================
+/*==========================================
+    TECHTRAY HOLDINGS
+    CHECKOUT PHASE 1
+==========================================*/
 
-const checkoutForm = document.getElementById("checkoutForm");
-const orderSummary = document.getElementById("order-summary");
-const totalPrice = document.getElementById("total-price");
-const placeOrderBtn = document.getElementById("place-order");
-
-// Load cart
+// Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Generate order ID
-function generateOrderID() {
-    const random = Math.floor(Math.random() * 900000) + 100000;
-    return "TT" + random;
-}
-// ===============================
-// TECHTRAY CHECKOUT
-// ===============================
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-const checkoutItems = document.getElementById("checkoutItems");
+// Get HTML elements
+const checkoutItems = document.getElementById("checkout-items");
 const subtotalElement = document.getElementById("subtotal");
-const shippingElement = document.getElementById("shipping");
-const totalElement = document.getElementById("total");
+const deliveryElement = document.getElementById("delivery");
+const totalElement = document.getElementById("checkout-total");
 
-const SHIPPING_COST = 120;
+// Format price
+function formatPrice(price) {
+    return "R" + Number(price).toFixed(2);
+}
 
-function displayCheckoutCart() {
+// Load Checkout
+function loadCheckout() {
 
-    orderSummary.innerHTML = "";
+    // Stop if page elements don't exist
+    if (!checkoutItems) return;
 
+    checkoutItems.innerHTML = "";
+
+    let subtotal = 0;
+
+    // Empty cart
     if (cart.length === 0) {
 
-        orderSummary.innerHTML = `
-            <p>Your cart is empty.</p>
+        checkoutItems.innerHTML = `
+            <div class="empty-cart">
+                <h3>Your cart is empty</h3>
+                <p>Add some products before checking out.</p>
+
+                <a href="shop.html" class="btn-primary">
+                    Continue Shopping
+                </a>
+            </div>
         `;
 
-        placeOrderBtn.disabled = true;
+        subtotalElement.textContent = "R0.00";
+        deliveryElement.textContent = "R0.00";
+        totalElement.textContent = "R0.00";
+
         return;
     }
 
-    let total = 0;
+    // Display products
+    cart.forEach(item => {
 
-    cart.forEach(product => {
+        const itemTotal = item.price * item.quantity;
 
-        total += product.price * product.quantity;
+        subtotal += itemTotal;
 
-        orderSummary.innerHTML += `
+        checkoutItems.innerHTML += `
 
             <div class="checkout-item">
 
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${item.image}" alt="${item.name}">
 
-                <div>
+                <div class="checkout-item-info">
 
-                    <h4>${product.name}</h4>
+                    <h4>${item.name}</h4>
 
-                    <p>Qty: ${product.quantity}</p>
+                    <p>Quantity: ${item.quantity}</p>
 
-                    <strong>R${(product.price * product.quantity).toFixed(2)}</strong>
+                    <small>R${item.price.toFixed(2)} each</small>
 
                 </div>
+
+                <strong>${formatPrice(itemTotal)}</strong>
 
             </div>
 
@@ -70,8 +79,23 @@ function displayCheckoutCart() {
 
     });
 
-    totalPrice.textContent = `R${total.toFixed(2)}`;
+    // Delivery
+    let delivery = subtotal >= 1000 ? 0 : 120;
+
+    // Total
+    let total = subtotal + delivery;
+
+    // Update totals
+    subtotalElement.textContent = formatPrice(subtotal);
+
+    deliveryElement.textContent =
+        delivery === 0
+        ? "FREE"
+        : formatPrice(delivery);
+
+    totalElement.textContent = formatPrice(total);
 
 }
 
-displayCheckoutCart();
+// Start checkout
+loadCheckout();
