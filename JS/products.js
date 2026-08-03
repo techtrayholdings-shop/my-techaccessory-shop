@@ -25,26 +25,10 @@ const products = [
     ],
     description: "Bluetooth 5.4 ANC wireless earbuds with charging case.",
     specifications: [
-        "Introducing the Hoco EW95True Wireless Stereo Headset, engineered to elevate your audio experience with cutting-edge features and reliable performance.",
-
-"Specifications",
-
-"Bluetooth version: v5.3; chip: Jerry AC6983",
-"Battery capacity: Charging case - 300mAh; Headset - 30mAh",
-"Usage time: Up to 4 hours; Standby time: Up to 150 hours",
-"Dimensions: 54.2×46.6x22mm",
-"Features:"
-
-"Master-slave switching for flexible usage scenarios.",
-"Seamless song navigation for effortless control.",
-"Voice assistant activation for hands-free convenience.",
-"Intuitive touch-sensitive operation for easy management of calls and music playback.",
-"Enjoy unparalleled sound quality and functionality with the Hoco EW95 True Wireless Stereo Headset, designed to complement your active lifestyle with style and innovation.",
-
-"What's in the box",
-"1 x Set of Headset",
-"1 x Casing",
-"1 x Charging cable",
+        "Bluetooth 5.4",
+        "ANC Noise Cancellation",
+        "USB-C Charging",
+        "20 Hour Battery"
     ]
 },
 
