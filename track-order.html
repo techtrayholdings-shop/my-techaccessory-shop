@@ -3,129 +3,144 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Track Your Order | TechTray Holdings</title>
+    <title>Track Your Order | TechTray Holdings</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/home.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
 
 </head>
 
 <body>
 
-<header class="track-hero">
+    <!-- Shared Header -->
+    <div id="header"></div>
 
-<div class="container">
+    <!-- Hero -->
+    <header class="track-hero">
 
-<h1>Track Your Order</h1>
+        <div class="container">
 
-<p>Enter your Order Number and Email Address to check your delivery status.</p>
+            <h1>Track Your Order</h1>
 
-</div>
+            <p>
+                Enter your Order Number and Email Address to check your delivery status.
+            </p>
 
-</header>
+        </div>
 
-<section class="tracking-section">
+    </header>
 
-<div class="container">
+    <!-- Tracking Form -->
+    <section class="tracking-section">
 
-<div class="tracking-card">
+        <div class="container">
 
-<h2>Order Tracking</h2>
+            <div class="tracking-card">
 
-<form id="trackingForm">
+                <h2>Order Tracking</h2>
 
-<input
-type="text"
-id="orderNumber"
-placeholder="Order Number"
-required>
+                <form id="trackingForm">
 
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-required>
+                    <input
+                        type="text"
+                        id="orderNumber"
+                        placeholder="Order Number"
+                        required>
 
-<button type="submit">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email Address"
+                        required>
 
-Track Order
+                    <button type="submit">
+                        Track Order
+                    </button>
 
-</button>
+                </form>
 
-</form>
+            </div>
 
-</div>
+            <div id="trackingResult" class="tracking-result">
 
-<div id="trackingResult" class="tracking-result">
+                <h3>Order Status</h3>
 
-<h3>Order Status</h3>
+                <div class="timeline">
 
-<div class="timeline">
+                    <div class="timeline-item completed">
+                        <div class="circle"></div>
+                        <p>Order Confirmed</p>
+                    </div>
 
-<div class="timeline-item completed">
-<div class="circle"></div>
-<p>Order Confirmed</p>
-</div>
+                    <div class="timeline-item completed">
+                        <div class="circle"></div>
+                        <p>Preparing Order</p>
+                    </div>
 
-<div class="timeline-item completed">
-<div class="circle"></div>
-<p>Preparing Order</p>
-</div>
+                    <div class="timeline-item active">
+                        <div class="circle"></div>
+                        <p>Shipped</p>
+                    </div>
 
-<div class="timeline-item active">
-<div class="circle"></div>
-<p>Shipped</p>
-</div>
+                    <div class="timeline-item">
+                        <div class="circle"></div>
+                        <p>Out for Delivery</p>
+                    </div>
 
-<div class="timeline-item">
-<div class="circle"></div>
-<p>Out for Delivery</p>
-</div>
+                    <div class="timeline-item">
+                        <div class="circle"></div>
+                        <p>Delivered</p>
+                    </div>
 
-<div class="timeline-item">
-<div class="circle"></div>
-<p>Delivered</p>
-</div>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </section>
 
-</section>
+    <!-- Help -->
+    <section class="tracking-help">
 
-<section class="tracking-help">
+        <div class="container">
 
-<div class="container">
+            <h2>Need Assistance?</h2>
 
-<h2>Need Assistance?</h2>
+            <p>
+                If you have questions about your order, our support team is ready to assist you.
+            </p>
 
-<p>
-If you have questions about your order, contact our support team.
-</p>
+            <a
+                href="https://wa.me/27662653887"
+                class="btn-primary">
 
-<a
-href="https://wa.me/27662653887"
-class="btn-primary">
+                Chat on WhatsApp
 
-Chat on WhatsApp
+            </a>
 
-</a>
+        </div>
 
-</div>
+    </section>
 
-</section>
+    <!-- Shared Footer -->
+    <div id="footer"></div>
 
-<script src="JS/orders.js"></script>
-<script src="JS/track-order.js"></script>
+    <!-- Scripts -->
+
+    <script src="JS/navigation.js"></script>
+    <script src="JS/include.js"></script>
+    <script src="JS/orders.js"></script>
+    <script src="JS/track-order.js"></script>
 
 </body>
 

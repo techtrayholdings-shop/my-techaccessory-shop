@@ -1,16 +1,34 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const header = document.getElementById("header");
-    const footer = document.getElementById("footer");
+    async function loadFile(id, file) {
 
-    if (header) {
-        const response = await fetch("header.html");
-        header.innerHTML = await response.text();
+        const element = document.getElementById(id);
+
+        if (!element) return;
+
+        try {
+
+            const response = await fetch(file);
+
+            if (!response.ok) {
+                throw new Error(`Unable to load ${file}`);
+            }
+
+            element.innerHTML = await response.text();
+
+        } catch (error) {
+
+            console.error(error);
+
+        }
+
     }
 
-    if (footer) {
-        const response = await fetch("footer.html");
-        footer.innerHTML = await response.text();
+    await loadFile("header", "header.html");
+    await loadFile("footer", "footer.html");
+
+    if (typeof initialiseNavigation === "function") {
+        initialiseNavigation();
     }
 
 });
