@@ -1,23 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
-    // Load Header
-    fetch("header.html")
-        .then(response => response.text())
-        .then(data => {
-            const header = document.getElementById("header");
-            if (header) {
-                header.innerHTML = data;
-            }
-        });
+    const header = document.getElementById("header");
+    const footer = document.getElementById("footer");
 
-    // Load Footer
-    fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            const footer = document.getElementById("footer");
-            if (footer) {
-                footer.innerHTML = data;
-            }
-        });
+    if (header) {
+        const response = await fetch("header.html");
+        header.innerHTML = await response.text();
+    }
+
+    if (footer) {
+        const response = await fetch("footer.html");
+        footer.innerHTML = await response.text();
+    }
 
 });
