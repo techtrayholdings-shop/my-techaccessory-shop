@@ -478,6 +478,174 @@ const products = [
     ]
 }
 
+{
+    id: 21,
+    name: "Wireless Mouse",
+    brand: "HOCO",
+    category: "Computer Accessories",
+    price: 249,
+    oldPrice: 299,
+    stock: 20,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 18,
+    badge: "NEW",
+    image: "images/products/mouse.jpeg",
+    gallery: ["images/products/mouse.jpeg"],
+    description: "Ergonomic wireless mouse for home, office and gaming.",
+    specifications: [
+        "2.4GHz Wireless",
+        "Silent Click",
+        "Adjustable DPI"
+    ]
+},
+
+{
+    id: 22,
+    name: "Smart Watch",
+    brand: "HOCO",
+    category: "Smart Watches",
+    price: 899,
+    oldPrice: 1099,
+    stock: 15,
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    rating: 4.9,
+    reviews: 41,
+    badge: "HOT",
+    image: "images/products/smart-watch.jpg",
+    gallery: ["images/products/smart-watch.jpg"],
+    description: "Smart watch with fitness tracking, heart rate monitoring and notifications.",
+    specifications: [
+        "Heart Rate Monitor",
+        "Sleep Tracking",
+        "Bluetooth Calling"
+    ]
+},
+
+{
+    id: 23,
+    name: "Laptop Stand",
+    brand: "HOCO",
+    category: "Computer Accessories",
+    price: 399,
+    oldPrice: 499,
+    stock: 18,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 23,
+    badge: "NEW",
+    image: "images/products/laptop-stand.jpeg",
+    gallery: ["images/products/laptop-stand.jpeg"],
+    description: "Foldable aluminium laptop stand for improved comfort.",
+    specifications: [
+        "Foldable",
+        "Adjustable Height",
+        "Aluminium Alloy"
+    ]
+},
+
+{
+    id: 24,
+    name: "Wi-Fi Security Camera",
+    brand: "HOCO",
+    category: "Smart Home",
+    price: 999,
+    oldPrice: 1199,
+    stock: 10,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.9,
+    reviews: 26,
+    badge: "NEW",
+    image: "images/products/security-camera.jpg",
+    gallery: ["images/products/security-camera.jpg"],
+    description: "Indoor Wi-Fi smart security camera with motion detection.",
+    specifications: [
+        "1080P HD",
+        "Night Vision",
+        "Motion Alerts"
+    ]
+},
+
+{
+    id: 25,
+    name: "Wireless Charging Station",
+    brand: "HOCO",
+    category: "Chargers",
+    price: 699,
+    oldPrice: 799,
+    stock: 15,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 17,
+    badge: "NEW",
+    image: "images/products/charging-station.jpg",
+    gallery: ["images/products/charging-station.jpg"],
+    description: "Fast wireless charging station for multiple devices.",
+    specifications: [
+        "15W Fast Charge",
+        "Qi Compatible",
+        "USB-C Input"
+    ]
+},
+
+{
+    id: 26,
+    name: "Magnetic Wireless Charger",
+    brand: "HOCO",
+    category: "Chargers",
+    price: 349,
+    oldPrice: 449,
+    stock: 20,
+    featured: false,
+    bestSeller: true,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 15,
+    badge: "HOT",
+    image: "images/products/magnet-wireless.jpeg",
+    gallery: ["images/products/magnet-wireless.jpeg"],
+    description: "Magnetic wireless charger for compatible smartphones.",
+    specifications: [
+        "MagSafe Compatible",
+        "15W Charging",
+        "USB-C"
+    ]
+},
+
+{
+    id: 27,
+    name: "Phone Ring Holder",
+    brand: "HOCO",
+    category: "Phone Accessories",
+    price: 99,
+    oldPrice: 149,
+    stock: 50,
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    rating: 4.6,
+    reviews: 33,
+    badge: "",
+    image: "images/products/ring-holder.jpg",
+    gallery: ["images/products/ring-holder.jpg"],
+    description: "360° rotating metal ring holder and phone stand.",
+    specifications: [
+        "360° Rotation",
+        "Strong Adhesive",
+        "Universal Fit"
+    ]
+}
+
 ];
 
 // Make products available globally

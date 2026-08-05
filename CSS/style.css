@@ -3417,3 +3417,52 @@ height:150px;
 }
 
 }
+
+/* ===== SHOP SIDEBAR ===== */
+
+.shop-sidebar{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.shop-sidebar h3{
+    color:#081b4b;
+    margin-bottom:20px;
+    border-bottom:3px solid #19A8E6;
+    padding-bottom:10px;
+}
+
+.shop-sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.shop-sidebar li{
+    margin-bottom:12px;
+}
+
+.filter-btn{
+    width:100%;
+    text-align:left;
+    border:none;
+    background:#f5f7fb;
+    padding:14px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.filter-btn:hover{
+    background:#19A8E6;
+    color:#fff;
+    transform:translateX(6px);
+}
+
+.filter-btn.active{
+    background:#f7b500;
+    color:#081b4b;
+}
