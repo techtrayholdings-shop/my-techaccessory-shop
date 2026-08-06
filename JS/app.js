@@ -47,7 +47,7 @@ function displayProducts(productArray) {
                 👁 Quick View
             </a>
 
-            <button class="wishlist-btn">
+            <button class="wishlist-btn" onclick="toggleWishlist(${product.id})">
                 ❤
             </button>
 
@@ -271,5 +271,35 @@ if (menuToggle && navigation) {
         navigation.classList.toggle("show");
 
     });
+
+}
+
+/*==========================================
+        WISHLIST
+==========================================*/
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+function toggleWishlist(id){
+
+    const product = products.find(p => p.id === id);
+
+    const index = wishlist.findIndex(item => item.id === id);
+
+    if(index === -1){
+
+        wishlist.push(product);
+
+        showNotification(product.name + " added to Wishlist ❤️");
+
+    }else{
+
+        wishlist.splice(index,1);
+
+        showNotification(product.name + " removed from Wishlist");
+
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
 }
