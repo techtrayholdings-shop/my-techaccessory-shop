@@ -476,7 +476,7 @@ const products = [
         "Fast Charge",
         "Compact Design"
     ]
-}
+},
 
 {
     id: 21,

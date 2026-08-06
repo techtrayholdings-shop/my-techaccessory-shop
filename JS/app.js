@@ -27,66 +27,81 @@ function displayProducts(productArray) {
             badge = `<span class="badge best">BEST SELLER</span>`;
         }
 
+        if (product.badge === "HOT") {
+            badge = `<span class="badge hot">HOT</span>`;
+        }
+
         productList.innerHTML += `
 
-<div class="product">
+<div class="product-card">
 
-    ${badge}
+    <div class="product-image">
 
-    <a href="product.html?id=${product.id}" class="product-link">
+        ${badge}
 
-        <div class="product-image">
+        <img src="${product.image}" alt="${product.name}">
 
-            <img src="${product.image}" alt="${product.name}">
+        <div class="product-overlay">
+
+            <a href="product.html?id=${product.id}" class="quick-view">
+                👁 Quick View
+            </a>
+
+            <button class="wishlist-btn">
+                ❤
+            </button>
 
         </div>
 
-    </a>
+    </div>
 
     <div class="product-info">
 
+        <div class="product-brand">
+            ${product.brand}
+        </div>
+
         <h3>
-
             <a href="product.html?id=${product.id}" class="product-title">
-
                 ${product.name}
-
             </a>
-
         </h3>
 
         <div class="product-rating">
+            ⭐ ${product.rating}
+            <span>(${product.reviews} Reviews)</span>
+        </div>
 
-            ⭐⭐⭐⭐⭐ <span>(4.9)</span>
+        <p class="product-description">
+            ${product.description}
+        </p>
+
+        <div class="price-box">
+
+            <span class="old-price">
+                R${product.oldPrice}
+            </span>
+
+            <span class="price">
+                R${product.price}
+            </span>
 
         </div>
 
-        <p>${product.description}</p>
+        <div class="stock">
 
-<div class="product-rating">
-    ⭐ ${product.rating} (${product.reviews} Reviews)
-</div>
+            ${product.stock > 0 ? "✅ In Stock" : "❌ Out of Stock"}
 
-<div class="price">
-    R${product.price}
-</div>
-
-<div class="stock">
-    ✅ ${product.stock} In Stock
-</div>
+        </div>
 
         <div class="product-buttons">
 
             <a href="product.html?id=${product.id}" class="view-btn">
-
                 👁 View Details
-
             </a>
 
-            <button onclick="addToCart(${product.id})">
-
+            <button class="cart-btn" onclick="addToCart(${product.id})">
                 🛒 Add to Cart
-
             </button>
 
         </div>
@@ -95,7 +110,7 @@ function displayProducts(productArray) {
 
 </div>
 
-        `;
+`;
     });
 
 }
