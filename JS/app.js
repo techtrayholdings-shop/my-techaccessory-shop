@@ -96,21 +96,19 @@ function displayProducts(productArray) {
 
         <div class="product-buttons">
 
-            <a href="product.html?id=${product.id}" class="view-btn">
-                👁 View Details
-            </a>
+    <button class="wishlist-btn" onclick="toggleWishlist(${product.id})">
+        ❤️ Wishlist
+    </button>
 
-            <button class="cart-btn" onclick="addToCart(${product.id})">
-                🛒 Add to Cart
-            </button>
+    <a href="product.html?id=${product.id}" class="view-btn">
+        👁 View Details
+    </a>
 
-        </div>
-
-    </div>
+    <button class="cart-btn" onclick="addToCart(${product.id})">
+        🛒 Add to Cart
+    </button>
 
 </div>
-
-`;
     });
 
 }
