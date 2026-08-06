@@ -21,13 +21,9 @@ function displayProducts(productArray) {
 
         if (product.badge === "NEW") {
             badge = `<span class="badge new">NEW</span>`;
-        }
-
-        if (product.badge === "BEST") {
+        } else if (product.badge === "BEST") {
             badge = `<span class="badge best">BEST SELLER</span>`;
-        }
-
-        if (product.badge === "HOT") {
+        } else if (product.badge === "HOT") {
             badge = `<span class="badge hot">HOT</span>`;
         }
 
@@ -43,15 +39,11 @@ function displayProducts(productArray) {
 
         <div class="product-overlay">
 
-            <a href="product.html?id=${product.id}" class="quick-view">
-                👁 Quick View
-            </a>
+    <button class="quick-view" onclick="quickView(${product.id})">
+        👁 Quick View
+    </button>
 
-            <button class="wishlist-btn" onclick="toggleWishlist(${product.id})">
-                ❤
-            </button>
-
-        </div>
+</div>
 
     </div>
 
@@ -89,33 +81,34 @@ function displayProducts(productArray) {
         </div>
 
         <div class="stock">
-
             ${product.stock > 0 ? "✅ In Stock" : "❌ Out of Stock"}
-
         </div>
 
         <div class="product-buttons">
 
-    <button class="wishlist-btn" onclick="toggleWishlist(${product.id})">
-        ❤️ Wishlist
-    </button>
+            <a href="product.html?id=${product.id}" class="view-btn">
+                👁 View Details
+            </a>
 
-    <a href="product.html?id=${product.id}" class="view-btn">
-        👁 View Details
-    </a>
+            <button class="cart-btn" onclick="addToCart(${product.id})">
+                🛒 Add to Cart
+            </button>
 
-    <button class="cart-btn" onclick="addToCart(${product.id})">
-        🛒 Add to Cart
-    </button>
+        </div>
+
+    </div>
 
 </div>
+
+        `;
+
     });
 
 }
 
 // Load all products when the page opens
 displayProducts(products);// Load all products when the page opens
-displayProducts(products);
+
 // ===============================
 // SHOPPING CART
 // ===============================
@@ -301,3 +294,49 @@ function toggleWishlist(id){
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
 }
+
+/*==========================================
+        QUICK VIEW
+==========================================*/
+
+const modal = document.getElementById("quick-view-modal");
+
+function quickView(id){
+
+    const product = products.find(p => p.id === id);
+
+    if(!product) return;
+
+    document.getElementById("quick-image").src = product.image;
+    document.getElementById("quick-name").textContent = product.name;
+    document.getElementById("quick-description").textContent = product.description;
+    document.getElementById("quick-price").textContent = "R" + product.price;
+
+    document.getElementById("quick-cart-btn").onclick = function () {
+    addToCart(product.id);
+};
+
+document.getElementById("quick-product-link").href =
+    "product.html?id=" + product.id;
+
+modal.style.display = "flex";
+
+}
+
+const closeModal = document.querySelector(".close-modal");
+
+if(closeModal){
+
+    closeModal.onclick = function(){
+        modal.style.display = "none";
+    };
+
+}
+
+window.addEventListener("click", function(e){
+
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+
+});
