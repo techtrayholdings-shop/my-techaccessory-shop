@@ -340,3 +340,86 @@ window.addEventListener("click", function(e){
     }
 
 });
+
+/* ==================================================
+   TECHTRAY NIGHT MODE
+================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const themeToggle = document.getElementById("theme-toggle");
+
+    if (!themeToggle) return;
+
+
+    /* Load saved theme */
+
+    const savedTheme = localStorage.getItem("techtray-theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        themeToggle.textContent = "☀️";
+
+    } else {
+
+        themeToggle.textContent = "🌙";
+
+    }
+
+
+    /* Toggle Night Mode */
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+
+        const isDark =
+            document.body.classList.contains("dark-mode");
+
+
+        if (isDark) {
+
+            themeToggle.textContent = "☀️";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to light mode"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Switch to light mode"
+            );
+
+            localStorage.setItem(
+                "techtray-theme",
+                "dark"
+            );
+
+        } else {
+
+            themeToggle.textContent = "🌙";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to night mode"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Switch to night mode"
+            );
+
+            localStorage.setItem(
+                "techtray-theme",
+                "light"
+            );
+
+        }
+
+    });
+
+});
