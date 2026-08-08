@@ -345,6 +345,10 @@ window.addEventListener("click", function(e){
    TECHTRAY NIGHT MODE
 ================================================== */
 
+/* ==================================================
+   TECHTRAY NIGHT MODE
+================================================== */
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const themeToggle = document.getElementById("theme-toggle");
@@ -352,9 +356,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!themeToggle) return;
 
 
-    /* Load saved theme */
+    const savedTheme =
+        localStorage.getItem("techtray-theme");
 
-    const savedTheme = localStorage.getItem("techtray-theme");
 
     if (savedTheme === "dark") {
 
@@ -362,37 +366,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
         themeToggle.textContent = "☀️";
 
-    } else {
-
-        themeToggle.textContent = "🌙";
-
     }
 
-
-    /* Toggle Night Mode */
 
     themeToggle.addEventListener("click", function () {
 
         document.body.classList.toggle("dark-mode");
 
 
-        const isDark =
+        const darkMode =
             document.body.classList.contains("dark-mode");
 
 
-        if (isDark) {
+        if (darkMode) {
 
             themeToggle.textContent = "☀️";
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to light mode"
-            );
-
-            themeToggle.setAttribute(
-                "title",
-                "Switch to light mode"
-            );
 
             localStorage.setItem(
                 "techtray-theme",
@@ -402,16 +390,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
 
             themeToggle.textContent = "🌙";
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to night mode"
-            );
-
-            themeToggle.setAttribute(
-                "title",
-                "Switch to night mode"
-            );
 
             localStorage.setItem(
                 "techtray-theme",
