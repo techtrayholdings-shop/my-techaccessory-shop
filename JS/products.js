@@ -644,6 +644,324 @@ const products = [
         "Strong Adhesive",
         "Universal Fit"
     ]
+},
+
+{
+    id: 28,
+    name: "5-in-1 PC Gaming Bundle",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 1199.99,
+    oldPrice: 1649,
+    stock: 10,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 0,
+    badge: "SALE",
+    image: "images/products/TF250.jpg",
+    gallery: ["images/products/TF250.jpg"],
+    description: "Complete 5-in-1 gaming bundle designed for an immersive PC gaming experience.",
+    specifications: [
+        "5-in-1 Gaming Set",
+        "Gaming Keyboard",
+        "Gaming Mouse",
+        "Gaming Accessories"
+    ]
+},
+
+{
+    id: 29,
+    name: "Retro Rainbow Gaming Keyboard",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 249.99,
+    oldPrice: 299,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "SALE",
+    image: "images/products/T80.jpg",
+    gallery: ["images/products/T80.jpg"],
+    description: "Retro-style gaming keyboard with colourful rainbow backlighting.",
+    specifications: [
+        "Rainbow Backlighting",
+        "Wired USB",
+        "Gaming Design"
+    ]
+},
+
+{
+    id: 30,
+    name: "Rainbow Backlit Gaming Keyboard & Mouse Set",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 299.99,
+    oldPrice: 399,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "SALE",
+    image: "images/products/GG-TF-200.jpg",
+    gallery: ["images/products/GG-TF-200.jpg"],
+    description: "Gaming keyboard and mouse set with vibrant rainbow backlighting.",
+    specifications: [
+        "Keyboard & Mouse",
+        "Rainbow Backlighting",
+        "Wired Connection"
+    ]
+},
+
+{
+    id: 31,
+    name: "Wireless Folding Bluetooth Keyboard",
+    brand: "T-WOLF",
+    category: "Computer Accessories",
+    price: 349.99,
+    oldPrice: 499,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/FOLDING-KEYBOARD.jpg",
+    gallery: ["images/products/FOLDING-KEYBOARD.jpg"],
+    description: "Portable folding wireless keyboard with a compact design for work on the go.",
+    specifications: [
+        "Bluetooth",
+        "Folding Design",
+        "Rechargeable",
+        "Portable"
+    ]
+},
+
+{
+    id: 32,
+    name: "Wired Keyboard & Mouse Combo",
+    brand: "HOCO",
+    category: "Computer Accessories",
+    price: 299.99,
+    oldPrice: 399,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.6,
+    reviews: 0,
+    badge: "SALE",
+    image: "images/products/GM60.jpg",
+    gallery: ["images/products/GM60.jpg"],
+    description: "Full-size wired keyboard and mouse combo for everyday computer use.",
+    specifications: [
+        "104-Key Keyboard",
+        "USB Connection",
+        "Keyboard & Mouse"
+    ]
+},
+
+{
+    id: 33,
+    name: "Retro Wireless Keyboard & Mouse Combo",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 399.99,
+    oldPrice: 599,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "SALE",
+    image: "images/products/RETRO-WIRELESS.jpg",
+    gallery: ["images/products/RETRO-WIRELESS.jpg"],
+    description: "Stylish retro wireless keyboard and mouse combination.",
+    specifications: [
+        "Wireless",
+        "Keyboard & Mouse",
+        "Retro Design"
+    ]
+},
+
+{
+    id: 34,
+    name: "T-WOLF Desktop Keyboard",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 299.99,
+    oldPrice: 399,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.6,
+    reviews: 0,
+    badge: "SALE",
+    image: "images/products/T19.jpg",
+    gallery: ["images/products/T19.jpg"],
+    description: "Desktop gaming keyboard designed for comfortable everyday use.",
+    specifications: [
+        "Wired USB",
+        "Desktop Design",
+        "Gaming Style"
+    ]
+},
+
+{
+    id: 35,
+    name: "5-in-1 Gaming Set",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 549.99,
+    oldPrice: 799,
+    stock: 10,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 0,
+    badge: "HOT",
+    image: "images/products/TF950.jpg",
+    gallery: ["images/products/TF950.jpg"],
+    description: "Complete gaming set with essential accessories for PC gamers.",
+    specifications: [
+        "5-in-1 Set",
+        "Gaming Keyboard",
+        "Gaming Mouse",
+        "Mouse Pad"
+    ]
+},
+
+{
+    id: 36,
+    name: "Gaming Keyboard & Mouse Combo",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 399.99,
+    oldPrice: 499,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "SALE",
+    image: "images/products/TF660.jpg",
+    gallery: ["images/products/TF660.jpg"],
+    description: "Comfortable wired gaming keyboard and mouse combination.",
+    specifications: [
+        "Gaming Keyboard",
+        "Gaming Mouse",
+        "Wired Connection"
+    ]
+},
+
+{
+    id: 37,
+    name: "Metal Illuminated Wired Gaming Keyboard",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 349.99,
+    oldPrice: 399.99,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/T16.jpg",
+    gallery: ["images/products/T16.jpg"],
+    description: "Metal-style wired gaming keyboard with illuminated keys.",
+    specifications: [
+        "Metal Design",
+        "Illuminated Keys",
+        "Wired USB"
+    ]
+},
+
+{
+    id: 38,
+    name: "Retro Punk Wireless Keyboard & Mouse Bundle – Pink",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 449.99,
+    oldPrice: 599,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/TF770-PINK.jpg",
+    gallery: ["images/products/TF770-PINK.jpg"],
+    description: "Stylish pink retro wireless keyboard and mouse bundle.",
+    specifications: [
+        "Wireless",
+        "Keyboard & Mouse",
+        "Retro Punk Design",
+        "Pink Finish"
+    ]
+},
+
+{
+    id: 39,
+    name: "RGB Wired Gaming Keyboard & Mouse Combo",
+    brand: "T-WOLF",
+    category: "Gaming",
+    price: 399.99,
+    oldPrice: 499.99,
+    stock: 10,
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.8,
+    reviews: 0,
+    badge: "HOT",
+    image: "images/products/TF600.jpg",
+    gallery: ["images/products/TF600.jpg"],
+    description: "RGB-style wired gaming keyboard and mouse combo for an immersive gaming setup.",
+    specifications: [
+        "RGB Backlighting",
+        "Gaming Keyboard",
+        "Gaming Mouse",
+        "Wired USB"
+    ]
+},
+
+{
+    id: 40,
+    name: "Wireless Keyboard – Blue",
+    brand: "XO Design",
+    category: "Computer Accessories",
+    price: 399.99,
+    oldPrice: 499,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/KB-12-BLUE.jpg",
+    gallery: ["images/products/KB-12-BLUE.jpg"],
+    description: "Compact wireless keyboard with Bluetooth and 2.4G connectivity.",
+    specifications: [
+        "Bluetooth",
+        "2.4G Wireless",
+        "85 Keys",
+        "Compact Design"
+    ]
 }
 
 ];
