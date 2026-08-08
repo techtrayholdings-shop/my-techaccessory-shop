@@ -65,6 +65,86 @@
           href="CSS/responsive.css">
 
 </head>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const themeToggle = document.getElementById("theme-toggle");
+
+    if (!themeToggle) return;
+
+
+    /* Load saved theme */
+
+    const savedTheme = localStorage.getItem("techtray-theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        themeToggle.textContent = "☀️";
+
+    }
+
+
+    /* Toggle theme */
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+
+        const isDark =
+            document.body.classList.contains("dark-mode");
+
+
+        if (isDark) {
+
+            themeToggle.textContent = "☀️";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to light mode"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Switch to light mode"
+            );
+
+            localStorage.setItem(
+                "techtray-theme",
+                "dark"
+            );
+
+        } else {
+
+            themeToggle.textContent = "🌙";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to night mode"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Switch to night mode"
+            );
+
+            localStorage.setItem(
+                "techtray-theme",
+                "light"
+            );
+
+        }
+
+    });
+
+});
+
+</script>
+
 <body>
 
 <!-- ================= PREMIUM TOP BAR ================= -->
@@ -129,6 +209,14 @@
         <!-- Icons -->
 
         <div class="header-icons">
+
+            <button
+                id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle night mode"
+                title="Toggle night mode">
+                🌙
+            </button>
 
             <a href="wishlist.html" class="wishlist-button">
 

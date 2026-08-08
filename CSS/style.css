@@ -3874,5 +3874,190 @@ height:150px;
         font-size:28px;
 
     }
+/* ==================================================
+   TECHTRAY NIGHT MODE
+================================================== */
 
+.theme-toggle {
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.3s ease;
 }
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+
+/* NIGHT MODE */
+
+body.dark-mode {
+    background: #08111f;
+    color: #f5f7fa;
+}
+
+
+/* Header */
+
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode .top-bar {
+    background: #0d1726;
+    color: #ffffff;
+}
+
+
+/* Navigation */
+
+body.dark-mode .navigation {
+    background: #0d1726;
+}
+
+body.dark-mode .navigation a {
+    color: #ffffff;
+}
+
+body.dark-mode .navigation a:hover {
+    color: #19A8E6;
+}
+
+
+/* Search */
+
+body.dark-mode .search-box input {
+    background: #172235;
+    color: #ffffff;
+    border-color: #26364d;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #aab4c3;
+}
+
+
+/* Sections */
+
+body.dark-mode .section-title h2,
+body.dark-mode .section-title p {
+    color: #ffffff;
+}
+
+
+/* Category Cards */
+
+body.dark-mode .category-card {
+    background: #111d2e;
+    color: #ffffff;
+    border-color: #26364d;
+}
+
+body.dark-mode .category-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .category-card p {
+    color: #b8c2d0;
+}
+
+
+/* Product Cards */
+
+body.dark-mode .product-card {
+    background: #111d2e;
+    color: #ffffff;
+    border-color: #26364d;
+}
+
+body.dark-mode .product-card h3,
+body.dark-mode .product-card h4 {
+    color: #ffffff;
+}
+
+body.dark-mode .product-card p {
+    color: #b8c2d0;
+}
+
+
+/* Features */
+
+body.dark-mode .feature-box {
+    background: #111d2e;
+    color: #ffffff;
+    border-color: #26364d;
+}
+
+body.dark-mode .feature-box h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .feature-box p {
+    color: #b8c2d0;
+}
+
+
+/* Newsletter */
+
+body.dark-mode .newsletter {
+    background: #0d1726;
+    color: #ffffff;
+}
+
+
+/* Footer */
+
+body.dark-mode footer {
+    background: #050b14;
+    color: #ffffff;
+}
+
+body.dark-mode footer a {
+    color: #dce4ef;
+}
+
+
+/* Filter Buttons */
+
+body.dark-mode .filter-btn {
+    background: #111d2e;
+    color: #ffffff;
+    border-color: #26364d;
+}
+
+body.dark-mode .filter-btn:hover,
+body.dark-mode .filter-btn.active {
+    background: #19A8E6;
+    color: #ffffff;
+}
+
+
+/* General links */
+
+body.dark-mode a {
+    color: inherit;
+}
+
+
+/* Smooth transition */
+
+body,
+header,
+.header,
+.top-bar,
+.navigation,
+.category-card,
+.product-card,
+.feature-box,
+.search-box input,
+.filter-btn,
+footer {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+}
+
