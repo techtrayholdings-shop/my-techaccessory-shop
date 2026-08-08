@@ -345,94 +345,96 @@ window.addEventListener("click", function(e){
    TECHTRAY NIGHT MODE
 ================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-    const themeToggle = document.getElementById("theme-toggle");
+    function setupNightMode() {
 
-    if (!themeToggle) return;
+        const themeToggle = document.getElementById("theme-toggle");
+
+        if (!themeToggle) {
+            return;
+        }
+
+        /* Restore saved theme */
+
+        const savedTheme = localStorage.getItem("techtray-theme");
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add("dark-mode");
+
+            themeToggle.textContent = "☀️";
+
+        } else {
+
+            document.body.classList.remove("dark-mode");
+
+            themeToggle.textContent = "🌙";
+
+        }
 
 
-    /* Check saved theme */
+        /* Prevent duplicate event listeners */
 
-    const savedTheme = localStorage.getItem("techtray-theme");
+        if (themeToggle.dataset.themeReady === "true") {
+            return;
+        }
 
-    if (savedTheme === "dark") {
+        themeToggle.dataset.themeReady = "true";
 
-        document.body.classList.add("dark-mode");
 
-        themeToggle.textContent = "☀️";
+        /* Toggle theme */
 
-        themeToggle.setAttribute(
-            "title",
-            "Switch to light mode"
-        );
+        themeToggle.addEventListener("click", function () {
 
-    } else {
+            const isDark =
+                document.body.classList.contains("dark-mode");
 
-        document.body.classList.remove("dark-mode");
 
-        themeToggle.textContent = "🌙";
+            if (isDark) {
 
-        themeToggle.setAttribute(
-            "title",
-            "Switch to night mode"
-        );
+                /* LIGHT MODE */
+
+                document.body.classList.remove("dark-mode");
+
+                localStorage.setItem(
+                    "techtray-theme",
+                    "light"
+                );
+
+                themeToggle.textContent = "🌙";
+
+            } else {
+
+                /* NIGHT MODE */
+
+                document.body.classList.add("dark-mode");
+
+                localStorage.setItem(
+                    "techtray-theme",
+                    "dark"
+                );
+
+                themeToggle.textContent = "☀️";
+
+            }
+
+        });
 
     }
 
 
-    /* Toggle */
+    if (document.readyState === "loading") {
 
-    themeToggle.addEventListener("click", function () {
+        document.addEventListener(
+            "DOMContentLoaded",
+            setupNightMode
+        );
 
-        if (document.body.classList.contains("dark-mode")) {
+    } else {
 
-            /* SWITCH TO LIGHT */
+        setupNightMode();
 
-            document.body.classList.remove("dark-mode");
+    }
 
-            localStorage.setItem(
-                "techtray-theme",
-                "light"
-            );
-
-            themeToggle.textContent = "🌙";
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to night mode"
-            );
-
-            themeToggle.setAttribute(
-                "title",
-                "Switch to night mode"
-            );
-
-        } else {
-
-            /* SWITCH TO NIGHT */
-
-            document.body.classList.add("dark-mode");
-
-            localStorage.setItem(
-                "techtray-theme",
-                "dark"
-            );
-
-            themeToggle.textContent = "☀️";
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to light mode"
-            );
-
-            themeToggle.setAttribute(
-                "title",
-                "Switch to light mode"
-            );
-
-        }
-
-    });
-
-});
+})();

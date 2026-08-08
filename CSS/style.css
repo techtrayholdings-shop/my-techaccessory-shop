@@ -64,21 +64,42 @@
   TECHTRAY NIGHT MODE VARIABLES
 ==================================================*/
 
-body.dark-mode{
+body.dark-mode {
 
-    --white:#0F172A;
-    --light:#111827;
-    --background:#08111F;
-    --border:#26364D;
+    --white: #111D2E;
+    --light: #111827;
+    --background: #08111F;
+    --border: #26364D;
 
-    --text:#F5F7FA;
-    --text-light:#B8C2D0;
+    --text: #F5F7FA;
+    --text-light: #B8C2D0;
 
-    --primary-dark:#FFFFFF;
+    --primary-dark: #FFFFFF;
 
-    --shadow-sm:0 5px 15px rgba(0,0,0,.25);
-    --shadow:0 10px 30px rgba(0,0,0,.30);
-    --shadow-lg:0 20px 50px rgba(0,0,0,.40);
+    --shadow-sm: 0 5px 15px rgba(0,0,0,.25);
+    --shadow: 0 10px 30px rgba(0,0,0,.30);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,.40);
+}
+
+/*==================================================
+  TECHTRAY NIGHT MODE VARIABLES
+==================================================*/
+
+body.dark-mode {
+
+    --white: #111D2E;
+    --light: #111827;
+    --background: #08111F;
+    --border: #26364D;
+
+    --text: #F5F7FA;
+    --text-light: #B8C2D0;
+
+    --primary-dark: #FFFFFF;
+
+    --shadow-sm: 0 5px 15px rgba(0,0,0,.25);
+    --shadow: 0 10px 30px rgba(0,0,0,.30);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,.40);
 }
 /*==================================================
 2. RESET
@@ -3919,6 +3940,18 @@ body.dark-mode .top-bar {
     color: #ffffff !important;
 }
 
+body.dark-mode {
+    background: #08111F !important;
+    color: #F5F7FA !important;
+}
+
+body.dark-mode section {
+    background: #08111F !important;
+}
+
+body.dark-mode main {
+    background: #08111F !important;
+}
 
 /* TOP BAR */
 
@@ -4178,5 +4211,917 @@ body.dark-mode .product-card p,
 body.dark-mode .feature-box p{
 
     color:#B8C2D0;
+
+}
+
+/*==================================================
+  TECHTRAY NIGHT MODE
+==================================================*/
+
+body.dark-mode {
+
+    background: var(--background);
+    color: var(--text);
+
+}
+
+
+/* Main page */
+
+body.dark-mode main {
+
+    background: var(--background);
+
+}
+
+
+/* Sections */
+
+body.dark-mode section {
+
+    background: var(--background);
+
+}
+
+
+/* Headings */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+
+    color: var(--text);
+
+}
+
+
+/* Paragraphs */
+
+body.dark-mode p {
+
+    color: var(--text-light);
+
+}
+
+
+/* Product cards */
+
+body.dark-mode .product-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+/* Product headings */
+
+body.dark-mode .product-card h3,
+body.dark-mode .product-card h4,
+body.dark-mode .product-card .product-name {
+
+    color: #FFFFFF;
+
+}
+
+
+/* Product descriptions */
+
+body.dark-mode .product-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Category cards */
+
+body.dark-mode .category-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .category-card h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .category-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Feature boxes */
+
+body.dark-mode .feature-box {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .feature-box h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .feature-box p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Filter buttons */
+
+body.dark-mode .filter-btn {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+}
+
+
+/* Search */
+
+body.dark-mode .search-box input {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .search-box input::placeholder {
+
+    color: #9CA8B8;
+
+}
+
+
+/* Newsletter */
+
+body.dark-mode .newsletter {
+
+    background: #0B1524;
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter h2 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Smooth transition */
+
+body,
+section,
+main,
+.category-card,
+.product-card,
+.feature-box,
+.search-box input,
+.filter-btn,
+.newsletter {
+
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+
+}
+
+
+/* Night Mode button */
+
+.theme-toggle {
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    font-size: 21px;
+
+    padding: 8px;
+
+    line-height: 1;
+
+    transition: transform .25s ease;
+
+}
+
+
+.theme-toggle:hover {
+
+    transform: scale(1.15);
+
+}
+
+/*==================================================
+  TECHTRAY NIGHT MODE
+==================================================*/
+
+body.dark-mode {
+
+    background: var(--background);
+    color: var(--text);
+
+}
+
+
+/* Main page */
+
+body.dark-mode main {
+
+    background: var(--background);
+
+}
+
+
+/* Sections */
+
+body.dark-mode section {
+
+    background: var(--background);
+
+}
+
+
+/* Headings */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+
+    color: var(--text);
+
+}
+
+
+/* Paragraphs */
+
+body.dark-mode p {
+
+    color: var(--text-light);
+
+}
+
+
+/* Product cards */
+
+body.dark-mode .product-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+/* Product headings */
+
+body.dark-mode .product-card h3,
+body.dark-mode .product-card h4,
+body.dark-mode .product-card .product-name {
+
+    color: #FFFFFF;
+
+}
+
+
+/* Product descriptions */
+
+body.dark-mode .product-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Category cards */
+
+body.dark-mode .category-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .category-card h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .category-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Feature boxes */
+
+body.dark-mode .feature-box {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .feature-box h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .feature-box p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Filter buttons */
+
+body.dark-mode .filter-btn {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+}
+
+
+/* Search */
+
+body.dark-mode .search-box input {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .search-box input::placeholder {
+
+    color: #9CA8B8;
+
+}
+
+
+/* Newsletter */
+
+body.dark-mode .newsletter {
+
+    background: #0B1524;
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter h2 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Smooth transition */
+
+body,
+section,
+main,
+.category-card,
+.product-card,
+.feature-box,
+.search-box input,
+.filter-btn,
+.newsletter {
+
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+
+}
+
+/*==================================================
+  TECHTRAY NIGHT MODE
+==================================================*/
+
+body.dark-mode {
+
+    background: var(--background);
+    color: var(--text);
+
+}
+
+
+/* Main page */
+
+body.dark-mode main {
+
+    background: var(--background);
+
+}
+
+
+/* Sections */
+
+body.dark-mode section {
+
+    background: var(--background);
+
+}
+
+
+/* Headings */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+
+    color: var(--text);
+
+}
+
+
+/* Paragraphs */
+
+body.dark-mode p {
+
+    color: var(--text-light);
+
+}
+
+
+/* Product cards */
+
+body.dark-mode .product-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+/* Product headings */
+
+body.dark-mode .product-card h3,
+body.dark-mode .product-card h4,
+body.dark-mode .product-card .product-name {
+
+    color: #FFFFFF;
+
+}
+
+
+/* Product descriptions */
+
+body.dark-mode .product-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Category cards */
+
+body.dark-mode .category-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .category-card h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .category-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Feature boxes */
+
+body.dark-mode .feature-box {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .feature-box h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .feature-box p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Filter buttons */
+
+body.dark-mode .filter-btn {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+}
+
+
+/* Search */
+
+body.dark-mode .search-box input {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .search-box input::placeholder {
+
+    color: #9CA8B8;
+
+}
+
+
+/* Newsletter */
+
+body.dark-mode .newsletter {
+
+    background: #0B1524;
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter h2 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Smooth transition */
+
+body,
+section,
+main,
+.category-card,
+.product-card,
+.feature-box,
+.search-box input,
+.filter-btn,
+.newsletter {
+
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+
+}
+
+/*==================================================
+  TECHTRAY NIGHT MODE
+==================================================*/
+
+body.dark-mode {
+
+    background: var(--background);
+    color: var(--text);
+
+}
+
+
+/* Main page */
+
+body.dark-mode main {
+
+    background: var(--background);
+
+}
+
+
+/* Sections */
+
+body.dark-mode section {
+
+    background: var(--background);
+
+}
+
+
+/* Headings */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+
+    color: var(--text);
+
+}
+
+
+/* Paragraphs */
+
+body.dark-mode p {
+
+    color: var(--text-light);
+
+}
+
+
+/* Product cards */
+
+body.dark-mode .product-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+/* Product headings */
+
+body.dark-mode .product-card h3,
+body.dark-mode .product-card h4,
+body.dark-mode .product-card .product-name {
+
+    color: #FFFFFF;
+
+}
+
+
+/* Product descriptions */
+
+body.dark-mode .product-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Category cards */
+
+body.dark-mode .category-card {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .category-card h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .category-card p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Feature boxes */
+
+body.dark-mode .feature-box {
+
+    background: #111D2E;
+    color: #F5F7FA;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .feature-box h3 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .feature-box p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Filter buttons */
+
+body.dark-mode .filter-btn {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+}
+
+
+/* Search */
+
+body.dark-mode .search-box input {
+
+    background: #111D2E;
+    color: #FFFFFF;
+    border-color: #26364D;
+
+}
+
+
+body.dark-mode .search-box input::placeholder {
+
+    color: #9CA8B8;
+
+}
+
+
+/* Newsletter */
+
+body.dark-mode .newsletter {
+
+    background: #0B1524;
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter h2 {
+
+    color: #FFFFFF;
+
+}
+
+
+body.dark-mode .newsletter p {
+
+    color: #B8C2D0;
+
+}
+
+
+/* Smooth transition */
+
+body,
+section,
+main,
+.category-card,
+.product-card,
+.feature-box,
+.search-box input,
+.filter-btn,
+.newsletter {
+
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+
+}
+
+
+/* Night Mode button */
+
+.theme-toggle {
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    font-size: 21px;
+
+    padding: 8px;
+
+    line-height: 1;
+
+    transition: transform .25s ease;
+
+}
+
+
+.theme-toggle:hover {
+
+    transform: scale(1.15);
 
 }
