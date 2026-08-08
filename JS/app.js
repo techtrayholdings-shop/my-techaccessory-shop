@@ -345,10 +345,6 @@ window.addEventListener("click", function(e){
    TECHTRAY NIGHT MODE
 ================================================== */
 
-/* ==================================================
-   TECHTRAY NIGHT MODE
-================================================== */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const themeToggle = document.getElementById("theme-toggle");
@@ -356,9 +352,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!themeToggle) return;
 
 
-    const savedTheme =
-        localStorage.getItem("techtray-theme");
+    /* Check saved theme */
 
+    const savedTheme = localStorage.getItem("techtray-theme");
 
     if (savedTheme === "dark") {
 
@@ -366,34 +362,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
         themeToggle.textContent = "☀️";
 
+        themeToggle.setAttribute(
+            "title",
+            "Switch to light mode"
+        );
+
+    } else {
+
+        document.body.classList.remove("dark-mode");
+
+        themeToggle.textContent = "🌙";
+
+        themeToggle.setAttribute(
+            "title",
+            "Switch to night mode"
+        );
+
     }
 
 
+    /* Toggle */
+
     themeToggle.addEventListener("click", function () {
 
-        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
 
+            /* SWITCH TO LIGHT */
 
-        const darkMode =
-            document.body.classList.contains("dark-mode");
+            document.body.classList.remove("dark-mode");
 
+            localStorage.setItem(
+                "techtray-theme",
+                "light"
+            );
 
-        if (darkMode) {
+            themeToggle.textContent = "🌙";
 
-            themeToggle.textContent = "☀️";
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to night mode"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Switch to night mode"
+            );
+
+        } else {
+
+            /* SWITCH TO NIGHT */
+
+            document.body.classList.add("dark-mode");
 
             localStorage.setItem(
                 "techtray-theme",
                 "dark"
             );
 
-        } else {
+            themeToggle.textContent = "☀️";
 
-            themeToggle.textContent = "🌙";
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to light mode"
+            );
 
-            localStorage.setItem(
-                "techtray-theme",
-                "light"
+            themeToggle.setAttribute(
+                "title",
+                "Switch to light mode"
             );
 
         }
