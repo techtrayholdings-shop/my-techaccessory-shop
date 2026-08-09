@@ -1,122 +1,51 @@
-/* ================= MOBILE TOP BAR ================= */
+/* =========================================================
+   TECHTRAY HOLDINGS
+   RESPONSIVE.CSS
+   CLEAN MOBILE RESPONSIVE SYSTEM
+   ========================================================= */
 
-@media(max-width:768px){
 
-.top-bar-content{
+/* =========================================================
+   TABLETS
+   ========================================================= */
 
-    justify-content:center;
+@media (max-width: 1024px){
 
-    text-align:center;
+    .container{
+        width:100%;
+        max-width:100%;
+        padding-left:25px;
+        padding-right:25px;
+        box-sizing:border-box;
+    }
 
-}
+    .hero-grid{
+        gap:30px;
+    }
 
-.top-item{
+    .hero-content h1{
+        font-size:48px;
+    }
 
-    width:100%;
+    .products-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
 
-    justify-content:center;
-
-}
-
-}
-/* ==========================================
-   MOBILE NAVIGATION
-========================================== */
-
-@media screen and (max-width:768px){
-
-.menu-toggle{
-
-    display:block;
-
-}
-
-.navigation{
-
-    display:none !important;
-
-    width:100%;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    gap:20px;
-
-    padding:20px 0;
-
-    background:#ffffff;
-
-    border-radius:12px;
-
-    margin-top:15px;
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
 
 }
 
-.navigation.show{
 
-    display:flex !important;
-
-}
-
-}
-/* ==========================================
-   MOBILE HEADER
-========================================== */
+/* =========================================================
+   MOBILE DEVICES
+   ========================================================= */
 
 @media (max-width:768px){
 
-.header-container{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.logo{
-    width:100%;
-    justify-content:center;
-}
-
-.search-box{
-    width:100%;
-    max-width:100%;
-    order:3;
-}
-
-.header-icons{
-    order:2;
-}
-
-.menu-toggle{
-    display:block;
-}
-
-.navigation{
-    display:none;
-    flex-direction:column;
-    gap:0;
-    padding:0;
-}
-
-.navigation.show{
-    display:flex;
-}
-
-.navigation a{
-    padding:16px;
-    border-bottom:1px solid rgba(255,255,255,.15);
-    text-align:center;
-}
-
-}
-
-/* =========================================================
-   TECHTRAY MOBILE RESPONSIVE FIX
-   ========================================================= */
-
-@media (max-width: 768px){
-
     /* -----------------------------------------------------
-       GENERAL MOBILE FIX
+       GENERAL
        ----------------------------------------------------- */
 
     html,
@@ -126,11 +55,47 @@
         overflow-x:hidden;
     }
 
+    body{
+        margin:0;
+    }
+
     .container{
         width:100%;
         max-width:100%;
-        padding-left:20px;
-        padding-right:20px;
+        padding-left:18px;
+        padding-right:18px;
+        box-sizing:border-box;
+    }
+
+
+    /* -----------------------------------------------------
+       TOP BAR
+       ----------------------------------------------------- */
+
+    .top-bar{
+        width:100%;
+    }
+
+    .top-bar-content{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        gap:6px;
+        padding:8px 15px;
+        box-sizing:border-box;
+    }
+
+    .top-item{
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        font-size:12px;
+        line-height:1.4;
     }
 
 
@@ -140,12 +105,13 @@
 
     .header-container{
         width:100%;
-        padding:18px 20px 15px;
+        padding:15px 18px;
         display:flex;
-        flex-wrap:wrap;
         align-items:center;
         justify-content:space-between;
-        gap:15px;
+        flex-wrap:wrap;
+        gap:12px;
+        box-sizing:border-box;
     }
 
 
@@ -156,25 +122,30 @@
     .logo{
         display:flex;
         align-items:center;
-        gap:10px;
+        gap:8px;
         flex:1;
         min-width:0;
     }
 
     .logo img{
-        width:72px;
-        height:72px;
+        width:58px;
+        height:58px;
         object-fit:contain;
+        flex-shrink:0;
+    }
+
+    .logo-text{
+        min-width:0;
     }
 
     .logo-text h2{
-        font-size:25px;
+        font-size:21px;
         line-height:1;
         margin:0;
     }
 
     .logo-text span{
-        font-size:17px;
+        font-size:14px;
         line-height:1.2;
     }
 
@@ -187,32 +158,34 @@
         display:flex;
         align-items:center;
         justify-content:flex-end;
-        gap:10px;
+        gap:7px;
         flex-shrink:0;
     }
 
     .theme-toggle,
     .wishlist-button,
     .cart-button{
-        width:54px;
-        height:54px;
-        min-width:54px;
-        border-radius:50%;
+        width:44px;
+        height:44px;
+        min-width:44px;
         display:flex;
         align-items:center;
         justify-content:center;
-        font-size:22px;
+        border-radius:50%;
+        font-size:18px;
+        box-sizing:border-box;
     }
 
     .menu-toggle{
-        width:58px;
-        height:54px;
-        min-width:58px;
-        border-radius:12px;
+        width:46px;
+        height:44px;
+        min-width:46px;
         display:flex;
         align-items:center;
         justify-content:center;
-        font-size:28px;
+        border-radius:10px;
+        font-size:24px;
+        box-sizing:border-box;
     }
 
 
@@ -227,15 +200,16 @@
     #cart-count{
         position:absolute;
         top:-5px;
-        right:-3px;
-        min-width:26px;
-        height:26px;
-        padding:0 6px;
+        right:-4px;
+        min-width:21px;
+        height:21px;
+        padding:0 5px;
         border-radius:50%;
         display:flex;
         align-items:center;
         justify-content:center;
-        font-size:13px;
+        font-size:11px;
+        box-sizing:border-box;
     }
 
 
@@ -252,16 +226,16 @@
 
     .search-box input{
         width:100%;
-        height:58px;
-        padding:0 22px;
-        border-radius:30px;
-        font-size:17px;
+        height:50px;
+        padding:0 18px;
+        border-radius:28px;
+        font-size:15px;
         box-sizing:border-box;
     }
 
 
     /* -----------------------------------------------------
-       NAVIGATION
+       MOBILE NAVIGATION
        ----------------------------------------------------- */
 
     .navigation{
@@ -269,15 +243,20 @@
         display:none;
         flex-direction:column;
         gap:0;
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
     }
 
+    .navigation.show,
     .navigation.active{
-        display:flex;
+        display:flex !important;
     }
 
     .navigation a{
         width:100%;
-        padding:15px 20px;
+        padding:14px 18px;
+        text-align:center;
         box-sizing:border-box;
     }
 
@@ -287,39 +266,53 @@
        ----------------------------------------------------- */
 
     .hero{
+        width:100%;
         min-height:auto;
         height:auto;
+        overflow:hidden;
     }
 
     .hero-grid{
-        grid-template-columns:1fr;
+        width:100%;
         min-height:auto;
-        padding-top:35px;
-        padding-bottom:35px;
+        grid-template-columns:1fr;
+        gap:20px;
+        padding-top:25px;
+        padding-bottom:25px;
+        box-sizing:border-box;
     }
 
     .hero-content{
+        width:100%;
         text-align:center;
-        padding:20px 0;
+        padding:15px 0;
     }
 
     .hero-content h1{
-        font-size:42px;
-        line-height:1.05;
+        font-size:38px;
+        line-height:1.08;
+        margin-bottom:15px;
     }
 
     .hero-content p{
-        font-size:16px;
+        font-size:15px;
         line-height:1.6;
+        max-width:600px;
+        margin-left:auto;
+        margin-right:auto;
     }
 
     .hero-buttons{
+        display:flex;
         justify-content:center;
+        align-items:center;
         flex-wrap:wrap;
+        gap:10px;
     }
 
     .hero-right{
-        margin-top:20px;
+        width:100%;
+        margin-top:10px;
     }
 
 
@@ -332,60 +325,76 @@
     .hero-slide{
         width:100%;
         max-width:100%;
+        box-sizing:border-box;
     }
 
     .hero-slide{
-        min-height:520px;
+        min-height:460px;
+        height:auto;
+        overflow:hidden;
     }
 
     .hero-slide-content{
-        padding:30px 25px;
+        width:100%;
+        padding:25px 20px;
+        box-sizing:border-box;
+        text-align:center;
     }
 
     .hero-slide h1{
-        font-size:42px;
+        font-size:36px;
+        line-height:1.08;
     }
 
     .hero-slide p{
-        font-size:16px;
+        font-size:15px;
+        line-height:1.5;
     }
 
     .hero-slide-image{
-        max-width:90%;
-        max-height:350px;
+        width:auto;
+        max-width:85%;
+        max-height:280px;
+        object-fit:contain;
     }
 
 
     /* -----------------------------------------------------
-       CATEGORY SECTION
+       HERO ARROWS
        ----------------------------------------------------- */
 
-    .category-grid{
-        grid-template-columns:1fr;
-        gap:18px;
+    .hero-prev,
+    .hero-next,
+    .slider-prev,
+    .slider-next{
+        width:40px;
+        height:40px;
+        min-width:40px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
     }
 
-    .category-card{
-        min-height:260px;
-        height:auto;
-        padding:30px 20px;
-        border-radius:24px;
+
+    /* -----------------------------------------------------
+       HERO FEATURES
+       ----------------------------------------------------- */
+
+    .hero-icons{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-top:20px;
     }
 
-    .category-icon{
-        width:130px;
-        height:130px;
-        margin:0 auto 20px;
-        font-size:60px;
-    }
-
-    .category-card h3{
-        font-size:27px;
-        margin:10px 0;
-    }
-
-    .category-card p{
-        font-size:17px;
+    .hero-icons div{
+        display:flex;
+        align-items:center;
+        gap:5px;
+        font-size:13px;
     }
 
 
@@ -394,16 +403,53 @@
        ----------------------------------------------------- */
 
     .section-title{
-        padding:35px 10px 25px;
+        padding:30px 8px 20px;
+        text-align:center;
     }
 
     .section-title h2{
-        font-size:32px;
+        font-size:30px;
         line-height:1.15;
     }
 
     .section-title p{
-        font-size:16px;
+        font-size:15px;
+        line-height:1.5;
+    }
+
+
+    /* -----------------------------------------------------
+       CATEGORY GRID
+       ----------------------------------------------------- */
+
+    .category-grid{
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+    }
+
+    .category-card{
+        min-height:190px;
+        height:auto;
+        padding:20px 12px;
+        border-radius:18px;
+        box-sizing:border-box;
+    }
+
+    .category-icon{
+        width:80px;
+        height:80px;
+        margin:0 auto 12px;
+        font-size:40px;
+    }
+
+    .category-card h3{
+        font-size:18px;
+        margin:7px 0;
+    }
+
+    .category-card p{
+        font-size:13px;
+        line-height:1.4;
     }
 
 
@@ -412,22 +458,33 @@
        ----------------------------------------------------- */
 
     .products-grid{
-        grid-template-columns:1fr;
-        gap:20px;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
     }
 
 
     /* -----------------------------------------------------
-       FEATURE BOXES
+       PRODUCT CARDS
+       ----------------------------------------------------- */
+
+    .product-card{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+
+    /* -----------------------------------------------------
+       FEATURES
        ----------------------------------------------------- */
 
     .features-grid{
         grid-template-columns:1fr;
-        gap:18px;
+        gap:15px;
     }
 
     .feature-box{
-        padding:25px 20px;
+        padding:22px 18px;
+        text-align:center;
     }
 
 
@@ -436,9 +493,10 @@
        ----------------------------------------------------- */
 
     .newsletter-form{
-        flex-direction:column;
         width:100%;
-        gap:12px;
+        display:flex;
+        flex-direction:column;
+        gap:10px;
     }
 
     .newsletter-form input,
@@ -454,7 +512,7 @@
 
     .footer-grid{
         grid-template-columns:1fr;
-        gap:30px;
+        gap:25px;
         text-align:center;
     }
 
@@ -465,72 +523,216 @@
    SMALL PHONES
    ========================================================= */
 
-@media (max-width: 480px){
+@media (max-width:480px){
+
+    .container{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+
+    /* HEADER */
 
     .header-container{
-        padding:15px 15px 14px;
+        padding:12px 15px;
+        gap:10px;
     }
 
     .logo img{
-        width:62px;
-        height:62px;
+        width:52px;
+        height:52px;
     }
 
     .logo-text h2{
-        font-size:22px;
+        font-size:19px;
     }
 
     .logo-text span{
-        font-size:15px;
+        font-size:13px;
     }
 
+
+    /* HEADER BUTTONS */
+
     .header-icons{
-        gap:7px;
+        gap:5px;
     }
 
     .theme-toggle,
     .wishlist-button,
     .cart-button{
-        width:46px;
-        height:46px;
-        min-width:46px;
-        font-size:19px;
+        width:40px;
+        height:40px;
+        min-width:40px;
+        font-size:17px;
     }
 
     .menu-toggle{
-        width:50px;
-        height:46px;
-        min-width:50px;
-        font-size:25px;
+        width:42px;
+        height:40px;
+        min-width:42px;
+        font-size:22px;
     }
 
+
+    /* SEARCH */
+
     .search-box input{
-        height:54px;
-        font-size:16px;
+        height:48px;
+        font-size:14px;
+    }
+
+
+    /* HERO */
+
+    .hero-grid{
+        padding-top:18px;
+        padding-bottom:18px;
     }
 
     .hero-content h1,
     .hero-slide h1{
-        font-size:35px;
+        font-size:32px;
+    }
+
+    .hero-content p,
+    .hero-slide p{
+        font-size:14px;
+    }
+
+    .hero-slide{
+        min-height:410px;
+    }
+
+    .hero-slide-image{
+        max-width:80%;
+        max-height:230px;
+    }
+
+
+    /* HERO BUTTONS */
+
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .hero-buttons a{
+        width:100%;
+        max-width:280px;
+        box-sizing:border-box;
+        text-align:center;
+    }
+
+
+    /* HERO FEATURES */
+
+    .hero-icons{
+        gap:8px;
+    }
+
+    .hero-icons div{
+        font-size:11px;
+    }
+
+
+    /* SECTION TITLES */
+
+    .section-title h2{
+        font-size:27px;
+    }
+
+
+    /* PRODUCTS */
+
+    .products-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+
+    /* CATEGORIES */
+
+    .category-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
     }
 
     .category-card{
-        min-height:230px;
-        padding:25px 15px;
+        min-height:170px;
+        padding:15px 8px;
     }
 
     .category-icon{
-        width:110px;
-        height:110px;
-        font-size:52px;
+        width:65px;
+        height:65px;
+        font-size:32px;
     }
 
     .category-card h3{
-        font-size:24px;
+        font-size:16px;
     }
 
     .category-card p{
+        font-size:12px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid{
+        gap:20px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width:360px){
+
+    .header-icons{
+        gap:3px;
+    }
+
+    .theme-toggle,
+    .wishlist-button,
+    .cart-button{
+        width:36px;
+        height:36px;
+        min-width:36px;
         font-size:15px;
+    }
+
+    .menu-toggle{
+        width:38px;
+        height:36px;
+        min-width:38px;
+        font-size:20px;
+    }
+
+    .logo img{
+        width:46px;
+        height:46px;
+    }
+
+    .logo-text h2{
+        font-size:17px;
+    }
+
+    .logo-text span{
+        font-size:12px;
+    }
+
+    .hero-content h1,
+    .hero-slide h1{
+        font-size:29px;
+    }
+
+    .category-card h3{
+        font-size:14px;
     }
 
 }
