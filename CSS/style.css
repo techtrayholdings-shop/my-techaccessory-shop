@@ -6085,3 +6085,24 @@ main,
     }
 
 }
+
+/* ==================================================
+   REMOVE SPACE BETWEEN HEADER AND HERO
+   ================================================== */
+
+header {
+    margin-bottom: 0 !important;
+}
+
+.site-header {
+    margin-bottom: 0 !important;
+}
+
+main {
+    margin-top: 0 !important;
+}
+
+.hero,
+.hero-section {
+    margin-top: 0 !important;
+}
