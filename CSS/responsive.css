@@ -108,3 +108,429 @@
 }
 
 }
+
+/* =========================================================
+   TECHTRAY MOBILE RESPONSIVE FIX
+   ========================================================= */
+
+@media (max-width: 768px){
+
+    /* -----------------------------------------------------
+       GENERAL MOBILE FIX
+       ----------------------------------------------------- */
+
+    html,
+    body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden;
+    }
+
+    .container{
+        width:100%;
+        max-width:100%;
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+       ----------------------------------------------------- */
+
+    .header-container{
+        width:100%;
+        padding:18px 20px 15px;
+        display:flex;
+        flex-wrap:wrap;
+        align-items:center;
+        justify-content:space-between;
+        gap:15px;
+    }
+
+
+    /* -----------------------------------------------------
+       LOGO
+       ----------------------------------------------------- */
+
+    .logo{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        flex:1;
+        min-width:0;
+    }
+
+    .logo img{
+        width:72px;
+        height:72px;
+        object-fit:contain;
+    }
+
+    .logo-text h2{
+        font-size:25px;
+        line-height:1;
+        margin:0;
+    }
+
+    .logo-text span{
+        font-size:17px;
+        line-height:1.2;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER ICONS
+       ----------------------------------------------------- */
+
+    .header-icons{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        gap:10px;
+        flex-shrink:0;
+    }
+
+    .theme-toggle,
+    .wishlist-button,
+    .cart-button{
+        width:54px;
+        height:54px;
+        min-width:54px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:22px;
+    }
+
+    .menu-toggle{
+        width:58px;
+        height:54px;
+        min-width:58px;
+        border-radius:12px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:28px;
+    }
+
+
+    /* -----------------------------------------------------
+       CART BADGE
+       ----------------------------------------------------- */
+
+    .cart-button{
+        position:relative;
+    }
+
+    #cart-count{
+        position:absolute;
+        top:-5px;
+        right:-3px;
+        min-width:26px;
+        height:26px;
+        padding:0 6px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:13px;
+    }
+
+
+    /* -----------------------------------------------------
+       SEARCH
+       ----------------------------------------------------- */
+
+    .search-box{
+        order:3;
+        width:100%;
+        flex-basis:100%;
+        margin:0;
+    }
+
+    .search-box input{
+        width:100%;
+        height:58px;
+        padding:0 22px;
+        border-radius:30px;
+        font-size:17px;
+        box-sizing:border-box;
+    }
+
+
+    /* -----------------------------------------------------
+       NAVIGATION
+       ----------------------------------------------------- */
+
+    .navigation{
+        width:100%;
+        display:none;
+        flex-direction:column;
+        gap:0;
+    }
+
+    .navigation.active{
+        display:flex;
+    }
+
+    .navigation a{
+        width:100%;
+        padding:15px 20px;
+        box-sizing:border-box;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero{
+        min-height:auto;
+        height:auto;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding-top:35px;
+        padding-bottom:35px;
+    }
+
+    .hero-content{
+        text-align:center;
+        padding:20px 0;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+        line-height:1.05;
+    }
+
+    .hero-content p{
+        font-size:16px;
+        line-height:1.6;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-right{
+        margin-top:20px;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO SLIDESHOW
+       ----------------------------------------------------- */
+
+    .hero-slider,
+    .hero-slides,
+    .hero-slide{
+        width:100%;
+        max-width:100%;
+    }
+
+    .hero-slide{
+        min-height:520px;
+    }
+
+    .hero-slide-content{
+        padding:30px 25px;
+    }
+
+    .hero-slide h1{
+        font-size:42px;
+    }
+
+    .hero-slide p{
+        font-size:16px;
+    }
+
+    .hero-slide-image{
+        max-width:90%;
+        max-height:350px;
+    }
+
+
+    /* -----------------------------------------------------
+       CATEGORY SECTION
+       ----------------------------------------------------- */
+
+    .category-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .category-card{
+        min-height:260px;
+        height:auto;
+        padding:30px 20px;
+        border-radius:24px;
+    }
+
+    .category-icon{
+        width:130px;
+        height:130px;
+        margin:0 auto 20px;
+        font-size:60px;
+    }
+
+    .category-card h3{
+        font-size:27px;
+        margin:10px 0;
+    }
+
+    .category-card p{
+        font-size:17px;
+    }
+
+
+    /* -----------------------------------------------------
+       SECTION TITLES
+       ----------------------------------------------------- */
+
+    .section-title{
+        padding:35px 10px 25px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+        line-height:1.15;
+    }
+
+    .section-title p{
+        font-size:16px;
+    }
+
+
+    /* -----------------------------------------------------
+       PRODUCTS
+       ----------------------------------------------------- */
+
+    .products-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+
+    /* -----------------------------------------------------
+       FEATURE BOXES
+       ----------------------------------------------------- */
+
+    .features-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .feature-box{
+        padding:25px 20px;
+    }
+
+
+    /* -----------------------------------------------------
+       NEWSLETTER
+       ----------------------------------------------------- */
+
+    .newsletter-form{
+        flex-direction:column;
+        width:100%;
+        gap:12px;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+       ----------------------------------------------------- */
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+        text-align:center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px){
+
+    .header-container{
+        padding:15px 15px 14px;
+    }
+
+    .logo img{
+        width:62px;
+        height:62px;
+    }
+
+    .logo-text h2{
+        font-size:22px;
+    }
+
+    .logo-text span{
+        font-size:15px;
+    }
+
+    .header-icons{
+        gap:7px;
+    }
+
+    .theme-toggle,
+    .wishlist-button,
+    .cart-button{
+        width:46px;
+        height:46px;
+        min-width:46px;
+        font-size:19px;
+    }
+
+    .menu-toggle{
+        width:50px;
+        height:46px;
+        min-width:50px;
+        font-size:25px;
+    }
+
+    .search-box input{
+        height:54px;
+        font-size:16px;
+    }
+
+    .hero-content h1,
+    .hero-slide h1{
+        font-size:35px;
+    }
+
+    .category-card{
+        min-height:230px;
+        padding:25px 15px;
+    }
+
+    .category-icon{
+        width:110px;
+        height:110px;
+        font-size:52px;
+    }
+
+    .category-card h3{
+        font-size:24px;
+    }
+
+    .category-card p{
+        font-size:15px;
+    }
+
+}
