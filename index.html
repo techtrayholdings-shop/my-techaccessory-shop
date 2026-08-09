@@ -147,32 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <body>
 
-<!-- ================= PREMIUM TOP BAR ================= -->
-
-<div class="top-bar">
-
-    <div class="container top-bar-content">
-
-        <div class="top-item">
-            🚚 <span>FREE Delivery on Orders Over R1000</span>
-        </div>
-
-        <div class="top-item">
-            📞 <span>WhatsApp: +27 66 265 3887 / 060 670 6147</span>
-        </div>
-
-        <div class="top-item">
-            ✉ <span>techtrayholdings@gmail.com</span>
-        </div>
-
-        <div class="top-item">
-            🔒 <span>100% Secure Shopping</span>
-        </div>
-
-    </div>
-
-</div>
-
 <!-- ================= PREMIUM HEADER ================= -->
 
 <header class="header">
@@ -265,91 +239,236 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 
-<!-- ================= HERO ================= -->
+<<!-- =========================================================
+     TECHTRAY PREMIUM HERO SLIDESHOW
+========================================================= -->
 
-<section class="hero">
+<section class="hero-slider" id="heroSlider">
 
-    <div class="hero-bg"></div>
+    <div class="hero-slides">
 
-    <div class="container hero-grid">
+        <!-- SLIDE 1 -->
+        <div class="hero-slide active">
 
-        <div class="hero-content">
+            <div class="hero-slide-content">
 
-            <span class="hero-badge">
-                PREMIUM ELECTRONICS
-            </span>
+                <span class="hero-badge">
+                    HOCO PREMIUM COLLECTION
+                </span>
 
-            <h1>
-                Tech That Fits
-                <span>Your Lifestyle</span>
-            </h1>
+                <h1>
+                    Premium Tech.
+                    <span>Everyday Lifestyle.</span>
+                </h1>
 
-            <p>
+                <p>
+                    Discover premium HOCO accessories designed
+                    to keep your devices powered, protected
+                    and connected.
+                </p>
 
-                Shop genuine HOCO accessories, premium earbuds,
-                fast chargers, power banks, smart watches,
-                gaming accessories and much more.
+                <div class="hero-buttons">
 
-            </p>
+                    <a href="shop.html" class="btn-primary">
+                        Shop HOCO
+                    </a>
 
-            <div class="hero-buttons">
+                    <a href="https://wa.me/27662653887"
+                       class="btn-secondary"
+                       target="_blank"
+                       rel="noopener">
+                        WhatsApp Us
+                    </a>
 
-                <a href="shop.html" class="btn-primary">
-
-                    Shop Now
-
-                </a>
-
-<a href="https://wa.me/27662653887"
-   class="btn-secondary"
-   target="_blank"
-   rel="noopener">
-                    WhatsApp Us
-
-                </a>
+                </div>
 
             </div>
 
-            <div class="hero-icons">
+            <div class="hero-slide-image">
 
-                <div>
+                <div class="hero-glow"></div>
 
-                    🛡️
-
-                    <span>100% Genuine</span>
-
-                </div>
-
-                <div>
-
-                    🚚
-
-                    <span>Fast Delivery</span>
-
-                </div>
-
-                <div>
-
-                    🔒
-
-                    <span>Secure Shopping</span>
-
-                </div>
+                <img
+                    src="images/products/EW95.jpeg"
+                    alt="HOCO EW95 ANC Earbuds">
 
             </div>
 
         </div>
 
-        <div class="hero-right">
 
-            <div class="hero-circle"></div>
+        <!-- SLIDE 2 -->
+        <div class="hero-slide">
 
-            <img src="images/products/logo.jpg"
-                 class="hero-logo">
+            <div class="hero-slide-content">
 
-            <img src="images/banners/hero-banner.png"
-                 class="hero-product">
+                <span class="hero-badge">
+                    WIRELESS AUDIO
+                </span>
 
+                <h1>
+                    Sound That
+                    <span>Moves With You.</span>
+                </h1>
+
+                <p>
+                    Upgrade your listening experience with
+                    premium wireless earbuds and headphones
+                    from TechTray Holdings.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="shop.html?category=Audio"
+                       class="btn-primary">
+                        Shop Audio
+                    </a>
+
+                    <a href="https://wa.me/27662653887"
+                       class="btn-secondary"
+                       target="_blank"
+                       rel="noopener">
+                        Ask on WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-slide-image">
+
+                <div class="hero-glow"></div>
+
+                <img
+                    src="images/products/EW97.jpeg"
+                    alt="HOCO EW97 Wireless Earbuds">
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 3 -->
+        <div class="hero-slide">
+
+            <div class="hero-slide-content">
+
+                <span class="hero-badge">
+                    TECHTRAY COLLECTION
+                </span>
+
+                <h1>
+                    Technology
+                    <span>Made For You.</span>
+                </h1>
+
+                <p>
+                    Shop chargers, power banks, cables,
+                    smart watches, audio accessories and
+                    more — all in one place.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="shop.html"
+                       class="btn-primary">
+                        Explore Store
+                    </a>
+
+                    <a href="https://wa.me/27662653887"
+                       class="btn-secondary"
+                       target="_blank"
+                       rel="noopener">
+                        WhatsApp Us
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-slide-image banner-slide-image">
+
+                <div class="hero-glow"></div>
+
+                <img
+                    src="images/banners/hero-banner.png"
+                    alt="TechTray Holdings Premium Electronics">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SLIDER ARROWS -->
+
+    <button
+        class="hero-arrow hero-prev"
+        id="heroPrev"
+        aria-label="Previous slide">
+
+        &#10094;
+
+    </button>
+
+    <button
+        class="hero-arrow hero-next"
+        id="heroNext"
+        aria-label="Next slide">
+
+        &#10095;
+
+    </button>
+
+
+    <!-- SLIDER NAVIGATION -->
+
+    <div class="hero-dots" id="heroDots">
+
+        <button
+            class="hero-dot active"
+            data-slide="0"
+            aria-label="Go to slide 1">
+        </button>
+
+        <button
+            class="hero-dot"
+            data-slide="1"
+            aria-label="Go to slide 2">
+        </button>
+
+        <button
+            class="hero-dot"
+            data-slide="2"
+            aria-label="Go to slide 3">
+        </button>
+
+    </div>
+
+
+    <!-- TRUST BAR -->
+
+    <div class="hero-trust-bar">
+
+        <div class="hero-trust-item">
+            <span>🛡️</span>
+            <strong>Genuine Products</strong>
+        </div>
+
+        <div class="hero-trust-item">
+            <span>🚚</span>
+            <strong>Fast Delivery</strong>
+        </div>
+
+        <div class="hero-trust-item">
+            <span>🔒</span>
+            <strong>Secure Shopping</strong>
+        </div>
+
+        <div class="hero-trust-item">
+            <span>💬</span>
+            <strong>WhatsApp Support</strong>
         </div>
 
     </div>
@@ -734,7 +853,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div class="copyright">
 
-        © 2026 TechTray Holdings. All Rights Reserved.
+        © 2025 TechTray Holdings. All Rights Reserved.
 
     </div>
 
@@ -758,7 +877,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script src="JS/products.js"></script>
 <script src="JS/app.js"></script>
-
+<script src="JS/home.js"></script>
 
 </body>
 </html>

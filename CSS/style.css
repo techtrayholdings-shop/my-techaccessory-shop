@@ -11,53 +11,65 @@
 
 :root{
 
-    /* Brand Colours */
+    /* =========================================
+       TECHTRAY BRAND COLOURS
+       ========================================= */
 
     --primary:#19A8E6;
     --primary-dark:#081B4B;
     --accent:#FDB913;
 
-    /* Neutrals */
+    /* =========================================
+       MATTE BLACK THEME
+       ========================================= */
 
-    --white:#FFFFFF;
-    --light:#F8FAFC;
-    --background:#F5F7FB;
-    --border:#E5E7EB;
+    --white:#151515;
+    --light:#1B1B1B;
+    --background:#0B0B0B;
+    --border:#2A2A2A;
 
-    /* Text */
+    /* =========================================
+       TEXT
+       ========================================= */
 
-    --text:#1F2937;
-    --text-light:#6B7280;
+    --text:#F5F5F5;
+    --text-light:#B8B8B8;
 
-    /* Success */
+    /* =========================================
+       STATUS
+       ========================================= */
 
     --success:#22C55E;
-
-    /* Error */
-
     --danger:#EF4444;
 
-    /* Border Radius */
+    /* =========================================
+       BORDER RADIUS
+       ========================================= */
 
     --radius-sm:8px;
     --radius:14px;
     --radius-lg:22px;
     --radius-round:50px;
 
-    /* Shadows */
+    /* =========================================
+       SHADOWS
+       ========================================= */
 
-    --shadow-sm:0 5px 15px rgba(0,0,0,.05);
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-    --shadow-lg:0 20px 50px rgba(0,0,0,.15);
+    --shadow-sm:0 5px 15px rgba(0,0,0,.35);
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+    --shadow-lg:0 20px 50px rgba(0,0,0,.60);
 
-    /* Animation */
+    /* =========================================
+       ANIMATION
+       ========================================= */
 
     --transition:.35s ease;
 
-    /* Max Width */
+    /* =========================================
+       MAX WIDTH
+       ========================================= */
 
     --container:1300px;
-
 }
 
 /*==================================================
@@ -126,7 +138,6 @@ body{
     line-height:1.6;
 
     overflow-x:hidden;
-
 }
 
 img{
@@ -197,21 +208,14 @@ h1{
 }
 
 h2{
-
     font-size:44px;
-
-    color:var(--primary-dark);
-
+    color:var(--text);
     margin-bottom:20px;
-
 }
 
 h3{
-
     font-size:24px;
-
-    color:var(--primary-dark);
-
+    color:var(--text);
 }
 
 p{
@@ -1192,11 +1196,8 @@ p{
 ==================================================*/
 
 .categories{
-
     padding:100px 0;
-
-    background:var(--white);
-
+    background:var(--background);
 }
 
 /*==================================================
@@ -1270,13 +1271,9 @@ p{
 ==================================================*/
 
 .category-card{
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     text-align:center;
 
     padding:40px 25px;
@@ -1290,9 +1287,7 @@ p{
     transition:var(--transition);
 
     border:1px solid var(--border);
-
 }
-
 /*==================================================
 34. CATEGORY HOVER
 ==================================================*/
@@ -1428,11 +1423,8 @@ p{
 ==================================================*/
 
 .featured-products{
-
     padding:100px 0;
-
     background:#F8FAFC;
-
 }
 
 /*==================================================
@@ -1453,22 +1445,21 @@ p{
 41. PRODUCT CARD
 ==================================================*/
 
-.product{
+.product-card{
 
-    position:relative;
+    background:var(--white);
 
-    background:#fff;
-
-    border-radius:20px;
+    border-radius:18px;
 
     overflow:hidden;
 
-    border:1px solid var(--border);
-
     box-shadow:var(--shadow);
 
-    transition:var(--transition);
+    transition:.35s;
 
+    position:relative;
+
+    border:1px solid var(--border);
 }
 
 .product:hover{
@@ -3536,7 +3527,7 @@ height:150px;
 .product-image{
     position:relative;
     overflow:hidden;
-    background:#f8f9fc;
+    background:#151515;
     height:260px;
 }
 
@@ -5123,5 +5114,974 @@ main,
 .theme-toggle:hover {
 
     transform: scale(1.15);
+
+}
+
+/* =========================================================
+   TECHTRAY HOLDINGS
+   MATTE BLACK THEME OVERRIDE
+   Version 3.0
+   ========================================================= */
+
+
+/* =========================================================
+   8. GLOBAL MATTE BLACK BACKGROUND
+   ========================================================= */
+
+html,
+body{
+    background:#0B0B0B;
+    color:#F5F5F5;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+}
+
+
+/* =========================================================
+   9. HEADER
+   ========================================================= */
+
+.header{
+    background:#101010 !important;
+    box-shadow:0 5px 25px rgba(0,0,0,.5);
+}
+
+.header-container{
+    background:transparent;
+}
+
+.logo-text h2{
+    color:#FFFFFF !important;
+}
+
+.logo-text span{
+    color:#19A8E6;
+}
+
+.navigation a{
+    color:#FFFFFF !important;
+}
+
+.navigation a:hover,
+.navigation a.active{
+    color:#19A8E6 !important;
+}
+
+.menu-toggle{
+    color:#FFFFFF !important;
+}
+
+
+/* =========================================================
+   10. HEADER ICONS
+   ========================================================= */
+
+.wishlist-button,
+.cart-button{
+    background:#1B1B1B !important;
+    color:#FFFFFF !important;
+    border:1px solid #2A2A2A;
+}
+
+.wishlist-button:hover,
+.cart-button:hover{
+    background:#19A8E6 !important;
+    color:#FFFFFF !important;
+}
+
+
+/* =========================================================
+   11. SEARCH
+   ========================================================= */
+
+.search-box input{
+    background:#151515 !important;
+    color:#FFFFFF !important;
+    border:2px solid #2A2A2A !important;
+}
+
+.search-box input::placeholder{
+    color:#999999;
+}
+
+.search-box input:focus{
+    border-color:#19A8E6 !important;
+    box-shadow:0 0 15px rgba(25,168,230,.2);
+}
+
+
+/* =========================================================
+   12. GENERAL SECTIONS
+   ========================================================= */
+
+section,
+main{
+    background:#0B0B0B;
+}
+
+
+/* =========================================================
+   13. HEADINGS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    color:#FFFFFF;
+}
+
+p{
+    color:#B8B8B8;
+}
+
+
+/* =========================================================
+   14. SECTION TITLES
+   ========================================================= */
+
+.section-title h2{
+    color:#FFFFFF !important;
+}
+
+.section-title p{
+    color:#B8B8B8 !important;
+}
+
+.section-title span{
+    color:#FDB913 !important;
+}
+
+
+/* =========================================================
+   15. HERO
+   ========================================================= */
+
+.hero{
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(25,168,230,.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050505 0%,
+            #0B0B0B 55%,
+            #101820 100%
+        ) !important;
+}
+
+.hero-content h1{
+    color:#FFFFFF !important;
+}
+
+.hero-content p{
+    color:#E5E5E5 !important;
+}
+
+
+/* =========================================================
+   16. HERO PRODUCT AREA
+   ========================================================= */
+
+.floating-product{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.glow-circle{
+    background:#19A8E6;
+}
+
+
+/* =========================================================
+   17. FEATURED CATEGORIES
+   ========================================================= */
+
+.categories{
+    background:#0B0B0B !important;
+}
+
+
+/* =========================================================
+   18. CATEGORY CARDS
+   ========================================================= */
+
+.category-card{
+    background:#151515 !important;
+    border:1px solid #2A2A2A !important;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
+.category-card:hover{
+    background:#181818 !important;
+    box-shadow:0 18px 45px rgba(0,0,0,.65);
+}
+
+.category-card h3{
+    color:#FFFFFF !important;
+}
+
+.category-card p{
+    color:#B8B8B8 !important;
+}
+
+.category-icon{
+    background:linear-gradient(
+        135deg,
+        #19A8E6,
+        #081B4B
+    );
+}
+
+
+/* =========================================================
+   19. FEATURED PRODUCTS
+   ========================================================= */
+
+.featured-products{
+    background:#0B0B0B !important;
+}
+
+
+/* =========================================================
+   20. PRODUCT GRID
+   ========================================================= */
+
+.products-grid{
+    background:transparent;
+}
+
+
+/* =========================================================
+   21. PRODUCT CARDS
+   ========================================================= */
+
+.product,
+.product-card{
+    background:#151515 !important;
+    border:1px solid #2A2A2A !important;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+.product:hover,
+.product-card:hover{
+    background:#181818 !important;
+    box-shadow:0 20px 45px rgba(0,0,0,.7);
+}
+
+
+/* =========================================================
+   22. PRODUCT IMAGE AREA
+   ========================================================= */
+
+.product-image{
+    background:#101010 !important;
+}
+
+.product-image img{
+    background:transparent;
+}
+
+
+/* =========================================================
+   23. PRODUCT INFORMATION
+   ========================================================= */
+
+.product-info{
+    background:#151515 !important;
+}
+
+.product-title,
+.product-info h3,
+.product-card h3,
+.product-card h4{
+    color:#FFFFFF !important;
+}
+
+.product-description{
+    color:#AFAFAF !important;
+}
+
+.product-brand{
+    color:#19A8E6 !important;
+}
+
+
+/* =========================================================
+   24. PRODUCT PRICES
+   ========================================================= */
+
+.current-price{
+    color:#FFFFFF !important;
+}
+
+.price{
+    color:#19A8E6 !important;
+}
+
+.quick-price{
+    color:#FDB913 !important;
+}
+
+.old-price{
+    color:#888888 !important;
+}
+
+
+/* =========================================================
+   25. PRODUCT RATING
+   ========================================================= */
+
+.product-rating{
+    color:#FDB913 !important;
+}
+
+.product-rating span{
+    color:#999999 !important;
+}
+
+
+/* =========================================================
+   26. STOCK
+   ========================================================= */
+
+.stock{
+    color:#22C55E !important;
+}
+
+.stock.low{
+    color:#F97316 !important;
+}
+
+.stock.out{
+    color:#EF4444 !important;
+}
+
+
+/* =========================================================
+   27. PRODUCT BUTTONS
+   ========================================================= */
+
+.product-buttons button,
+.cart-btn{
+    background:#19A8E6 !important;
+    color:#FFFFFF !important;
+}
+
+.product-buttons button:hover,
+.cart-btn:hover{
+    background:#FDB913 !important;
+    color:#081B4B !important;
+}
+
+.view-btn{
+    background:#1B1B1B !important;
+    color:#FFFFFF !important;
+    border:1px solid #2A2A2A;
+}
+
+.view-btn:hover{
+    background:#FDB913 !important;
+    color:#081B4B !important;
+}
+
+
+/* =========================================================
+   28. QUICK PRODUCT ACTIONS
+   ========================================================= */
+
+.product-actions a{
+    background:#1B1B1B !important;
+    color:#FFFFFF !important;
+    border:1px solid #2A2A2A;
+}
+
+.product-actions a:hover{
+    background:#19A8E6 !important;
+    color:#FFFFFF !important;
+}
+
+
+/* =========================================================
+   29. SHOP SIDEBAR
+   ========================================================= */
+
+.shop-sidebar{
+    background:#151515 !important;
+    border:1px solid #2A2A2A;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
+.shop-sidebar h3{
+    color:#FFFFFF !important;
+}
+
+.filter-btn{
+    background:#1B1B1B !important;
+    color:#FFFFFF !important;
+    border:1px solid #2A2A2A !important;
+}
+
+.filter-btn:hover{
+    background:#19A8E6 !important;
+    color:#FFFFFF !important;
+}
+
+.filter-btn.active{
+    background:#FDB913 !important;
+    color:#081B4B !important;
+}
+
+
+/* =========================================================
+   30. TESTIMONIALS
+   ========================================================= */
+
+.testimonials{
+    background:#0B0B0B !important;
+}
+
+.testimonial-card{
+    background:#151515 !important;
+    border:1px solid #2A2A2A !important;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
+.testimonial-card:hover{
+    background:#181818 !important;
+}
+
+.testimonial-text{
+    color:#B8B8B8 !important;
+}
+
+.customer-info h4{
+    color:#FFFFFF !important;
+}
+
+.customer-info span{
+    color:#999999 !important;
+}
+
+.review-stars{
+    color:#FDB913 !important;
+}
+
+.review-box{
+    background:#151515 !important;
+    border:1px solid #2A2A2A;
+}
+
+.review-box h2{
+    color:#FFFFFF !important;
+}
+
+.review-box p{
+    color:#B8B8B8 !important;
+}
+
+
+/* =========================================================
+   31. NEWSLETTER
+   ========================================================= */
+
+.newsletter{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(25,168,230,.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #101010
+        ) !important;
+}
+
+.newsletter-content h2{
+    color:#FFFFFF !important;
+}
+
+.newsletter-content p{
+    color:#D0D0D0 !important;
+}
+
+.newsletter-form input{
+    background:#151515 !important;
+    color:#FFFFFF !important;
+    border:1px solid #2A2A2A;
+}
+
+.newsletter-form input::placeholder{
+    color:#888888;
+}
+
+.newsletter-form button{
+    background:#FDB913 !important;
+    color:#081B4B !important;
+}
+
+
+/* =========================================================
+   32. FOOTER
+   ========================================================= */
+
+.footer{
+    background:#050505 !important;
+    color:#FFFFFF;
+}
+
+.footer h2,
+.footer h3{
+    color:#FFFFFF !important;
+}
+
+.footer-about,
+.footer-links a{
+    color:#B8B8B8 !important;
+}
+
+.footer-links a:hover{
+    color:#FDB913 !important;
+}
+
+.footer-contact i{
+    color:#FDB913;
+}
+
+.footer-social a{
+    background:#151515;
+    color:#FFFFFF;
+    border:1px solid #2A2A2A;
+}
+
+.footer-social a:hover{
+    background:#FDB913;
+    color:#081B4B;
+}
+
+.footer-bottom{
+    border-top:1px solid #2A2A2A;
+    color:#888888;
+}
+
+
+/* =========================================================
+   33. PAYMENT METHODS
+   ========================================================= */
+
+.payment-icons img{
+    background:#FFFFFF;
+}
+
+
+/* =========================================================
+   34. TRACK ORDER
+   ========================================================= */
+
+.track-hero{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(25,168,230,.20),
+            transparent 50%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #101820
+        ) !important;
+}
+
+.tracking-section{
+    background:#0B0B0B !important;
+}
+
+.tracking-card{
+    background:#151515 !important;
+    border:1px solid #2A2A2A;
+    box-shadow:0 15px 40px rgba(0,0,0,.55);
+}
+
+.tracking-card h2{
+    color:#FFFFFF !important;
+}
+
+#trackingForm input{
+    background:#101010 !important;
+    color:#FFFFFF !important;
+    border:2px solid #2A2A2A !important;
+}
+
+#trackingForm input::placeholder{
+    color:#888888;
+}
+
+#trackingForm input:focus{
+    border-color:#19A8E6 !important;
+}
+
+.timeline{
+    border-left-color:#333333;
+}
+
+.circle{
+    background:#333333;
+    border-color:#151515;
+    box-shadow:0 0 0 3px #333333;
+}
+
+.timeline-item.completed .circle{
+    background:#22C55E;
+    box-shadow:0 0 0 3px #22C55E;
+}
+
+.timeline-item.active .circle{
+    background:#19A8E6;
+    box-shadow:0 0 0 3px #19A8E6;
+}
+
+.timeline-item p{
+    color:#D5D5D5 !important;
+}
+
+.tracking-help{
+    background:#101010 !important;
+}
+
+.tracking-help h2{
+    color:#FFFFFF !important;
+}
+
+.tracking-help p{
+    color:#B8B8B8 !important;
+}
+
+.order-summary{
+    background:#151515 !important;
+    border:1px solid #2A2A2A;
+}
+
+.order-image{
+    background:#101010 !important;
+}
+
+
+/* =========================================================
+   35. CONTACT PAGE
+   ========================================================= */
+
+.contact-hero{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(25,168,230,.20),
+            transparent 50%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #101820
+        ) !important;
+}
+
+.contact-section{
+    background:#0B0B0B !important;
+}
+
+.contact-card{
+    background:#151515 !important;
+    border:1px solid #2A2A2A;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
+.contact-card h3{
+    color:#FFFFFF !important;
+}
+
+.contact-card p{
+    color:#B8B8B8 !important;
+}
+
+.contact-form{
+    background:#151515 !important;
+    border:1px solid #2A2A2A;
+}
+
+.contact-form h2{
+    color:#FFFFFF !important;
+}
+
+.contact-form input,
+.contact-form textarea{
+    background:#101010 !important;
+    color:#FFFFFF !important;
+    border:2px solid #2A2A2A !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#888888;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#19A8E6 !important;
+}
+
+.contact-cta{
+    background:#050505 !important;
+}
+
+.contact-cta h2{
+    color:#FFFFFF !important;
+}
+
+.contact-cta p{
+    color:#B8B8B8 !important;
+}
+
+
+/* =========================================================
+   36. QUICK VIEW MODAL
+   ========================================================= */
+
+.quick-view-modal{
+    background:rgba(0,0,0,.85) !important;
+}
+
+.quick-view-content{
+    background:#151515 !important;
+    border:1px solid #2A2A2A;
+}
+
+.quick-view-image{
+    background:#101010 !important;
+}
+
+.quick-view-details{
+    background:#151515 !important;
+}
+
+.quick-view-details h2{
+    color:#FFFFFF !important;
+}
+
+.quick-view-details p{
+    color:#B8B8B8 !important;
+}
+
+.quick-view-details .view-btn{
+    background:#1B1B1B !important;
+    color:#FFFFFF !important;
+}
+
+.close-modal{
+    color:#FFFFFF !important;
+}
+
+.close-modal:hover{
+    color:#19A8E6 !important;
+}
+
+
+/* =========================================================
+   37. GLASS EFFECT
+   ========================================================= */
+
+.glass{
+    background:rgba(255,255,255,.06) !important;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
+   38. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#19A8E6;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#FDB913;
+}
+
+
+/* =========================================================
+   39. SELECTION
+   ========================================================= */
+
+::selection{
+    background:#19A8E6;
+    color:#FFFFFF;
+}
+
+
+/* =========================================================
+   40. BUTTONS
+   ========================================================= */
+
+.btn-primary{
+    background:#19A8E6 !important;
+    color:#FFFFFF !important;
+}
+
+.btn-primary:hover{
+    background:#FDB913 !important;
+    color:#081B4B !important;
+}
+
+.btn-secondary{
+    background:transparent !important;
+    color:#FFFFFF !important;
+    border:2px solid #19A8E6 !important;
+}
+
+.btn-secondary:hover{
+    background:#19A8E6 !important;
+    color:#FFFFFF !important;
+}
+
+
+/* =========================================================
+   41. SCROLL TO TOP
+   ========================================================= */
+
+.scroll-top{
+    background:#19A8E6 !important;
+    color:#FFFFFF !important;
+}
+
+.scroll-top:hover{
+    background:#FDB913 !important;
+    color:#081B4B !important;
+}
+
+
+/* =========================================================
+   42. LOADING
+   ========================================================= */
+
+.loading{
+    background:#0B0B0B;
+    color:#FFFFFF;
+}
+
+.spinner{
+    border-color:#2A2A2A;
+    border-top-color:#19A8E6;
+}
+
+
+/* =========================================================
+   43. ERROR MESSAGE
+   ========================================================= */
+
+.order-not-found{
+    background:#211111 !important;
+    border-color:#EF4444 !important;
+    color:#FF7777 !important;
+}
+
+
+/* =========================================================
+   44. THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle{
+    color:#FFFFFF;
+    background:transparent;
+    border:none;
+}
+
+.theme-toggle:hover{
+    color:#19A8E6;
+}
+
+
+/* =========================================================
+   45. GLOBAL TRANSITIONS
+   ========================================================= */
+
+body,
+header,
+section,
+main,
+.category-card,
+.product,
+.product-card,
+.feature-box,
+.testimonial-card,
+.review-box,
+.newsletter,
+.footer,
+.contact-card,
+.contact-form,
+.tracking-card,
+.order-summary,
+.shop-sidebar,
+.search-box input,
+.filter-btn{
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* =========================================================
+   46. MOBILE MATTE BLACK
+   ========================================================= */
+
+@media(max-width:768px){
+
+    body,
+    main,
+    section{
+        background:#0B0B0B;
+    }
+
+    .header{
+        background:#101010 !important;
+    }
+
+    .navigation{
+        background:#101010 !important;
+    }
+
+    .navigation a{
+        color:#FFFFFF !important;
+    }
+
+    .category-card,
+    .product,
+    .product-card,
+    .testimonial-card,
+    .review-box,
+    .contact-card,
+    .contact-form,
+    .tracking-card,
+    .order-summary{
+        background:#151515 !important;
+    }
 
 }
