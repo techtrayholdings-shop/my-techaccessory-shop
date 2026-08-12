@@ -954,8 +954,8 @@ const products = [
     rating: 4.7,
     reviews: 0,
     badge: "NEW",
-    image: "images/products/KB-12-BLUE.jpg",
-    gallery: ["images/products/KB-12-BLUE.jpg"],
+    image: "images/products/KB-12-BLUE.jpeg",
+    gallery: ["images/products/KB-12-BLUE.jpeg"],
     description: "Compact wireless keyboard with Bluetooth and 2.4G connectivity.",
     specifications: [
         "Bluetooth",
@@ -979,9 +979,9 @@ const products = [
     rating: 4.7,
     reviews: 0,
     badge: "NEW",
-    image: "images/products/GM24.jpg",
+    image: "images/products/GM24.jpeg",
     gallery: [
-        "images/products/GM24.jpg"
+        "images/products/GM24.jpeg"
     ],
     description: "Dual-mode wireless mouse with 2.4G and Bluetooth connectivity, ergonomic design and adjustable DPI for comfortable everyday computing.",
     specifications: [
@@ -1012,9 +1012,9 @@ const products = [
     rating: 4.7,
     reviews: 0,
     badge: "NEW",
-    image: "images/products/DI43.jpg",
+    image: "images/products/DI43.jpeg",
     gallery: [
-        "images/products/DI43.jpg"
+        "images/products/DI43.jpeg"
     ],
     description: "Lightweight 2.4G wireless gaming mouse designed for responsive and comfortable computer and gaming use.",
     specifications: [
@@ -1042,9 +1042,9 @@ const products = [
     rating: 4.7,
     reviews: 0,
     badge: "NEW",
-    image: "images/products/GM29.jpg",
+    image: "images/products/GM29.jpeg",
     gallery: [
-        "images/products/GM29.jpg"
+        "images/products/GM29.jpeg"
     ],
     description: "Stylish dual-mode wireless mouse with 2.4G and Bluetooth connectivity, transparent housing and silent buttons for comfortable everyday use.",
     specifications: [
@@ -1076,9 +1076,9 @@ const products = [
     rating: 4.7,
     reviews: 0,
     badge: "NEW",
-    image: "images/products/GM17.jpg",
+    image: "images/products/GM17.jpeg",
     gallery: [
-        "images/products/GM17.jpg"
+        "images/products/GM17.jpeg"
     ],
     description: "Wireless keyboard and mouse set designed for comfortable everyday computing, office work and general PC use.",
     specifications: [
