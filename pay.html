@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TechTray Holdings | Secure Payment</title>
+
+    <meta name="description"
+          content="Secure payment page for TechTray Holdings.">
+
+    <link rel="icon"
+          type="image/png"
+          href="images/logo.png">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="CSS/style.css">
+
+    <link rel="stylesheet"
+          href="CSS/responsive.css">
+
+    <style>
+
+        .payment-page{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:40px 20px;
+        }
+
+        .payment-card{
+            width:100%;
+            max-width:600px;
+            text-align:center;
+            padding:45px 35px;
+            border-radius:25px;
+            background:#ffffff;
+            box-shadow:0 20px 60px rgba(0,0,0,.12);
+        }
+
+        .payment-logo{
+            width:90px;
+            height:90px;
+            object-fit:contain;
+            margin-bottom:15px;
+        }
+
+        .payment-card h1{
+            color:#081B4B;
+            font-size:32px;
+            margin-bottom:10px;
+        }
+
+        .payment-card .subtitle{
+            color:#666;
+            margin-bottom:30px;
+        }
+
+        .payment-security{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+            margin:25px 0;
+            font-size:14px;
+        }
+
+        .payment-option{
+            display:block;
+            width:100%;
+            padding:18px;
+            margin:15px 0;
+            border-radius:14px;
+            text-decoration:none;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .payment-option:hover{
+            transform:translateY(-3px);
+        }
+
+        .ikhokha-option{
+            background:#081B4B;
+            color:#ffffff;
+        }
+
+        .whatsapp-option{
+            background:#19A8E6;
+            color:#ffffff;
+        }
+
+        .payment-note{
+            margin-top:25px;
+            font-size:13px;
+            color:#777;
+            line-height:1.6;
+        }
+
+        @media(max-width:600px){
+
+            .payment-page{
+                padding:25px 15px;
+            }
+
+            .payment-card{
+                padding:35px 22px;
+            }
+
+            .payment-card h1{
+                font-size:27px;
+            }
+
+        }
+
+        /* DARK MODE */
+
+        body.dark-mode .payment-card{
+            background:#111827;
+            box-shadow:0 20px 60px rgba(0,0,0,.35);
+        }
+
+        body.dark-mode .payment-card h1{
+            color:#ffffff;
+        }
+
+        body.dark-mode .payment-card .subtitle,
+        body.dark-mode .payment-note{
+            color:#b8c0cc;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="payment-page">
+
+        <div class="payment-card">
+
+            <img
+                src="images/products/logo.jpg"
+                alt="TechTray Holdings"
+                class="payment-logo">
+
+            <h1>
+                Secure Payment
+            </h1>
+
+            <p class="subtitle">
+                Complete your TechTray Holdings payment securely.
+            </p>
+
+
+            <div class="payment-security">
+
+                <span>🔒 Secure Payment</span>
+
+                <span>🛡️ Trusted Checkout</span>
+
+                <span>🇿🇦 South Africa</span>
+
+            </div>
+
+
+            <h3>
+                Choose Your Payment Option
+            </h3>
+
+
+            <!-- iKhokha -->
+
+            <a
+                href="#"
+                class="payment-option ikhokha-option">
+
+                💳 Pay with iKhokha
+
+            </a>
+
+
+            <!-- WhatsApp -->
+
+            <a
+                href="https://wa.me/27662653887"
+                class="payment-option whatsapp-option"
+                target="_blank"
+                rel="noopener">
+
+                💬 Request Payment Assistance
+
+            </a>
+
+
+            <p class="payment-note">
+
+                Your payment information is handled through
+                the selected payment service. TechTray Holdings
+                does not store your card details.
+
+            </p>
+
+            <p class="payment-note">
+
+                © 2026 TechTray Holdings. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- Existing TechTray Scripts -->
+
+    <script src="JS/app.js"></script>
+
+    <script src="JS/navigation.js"></script>
+
+
+</body>
+
+</html>
