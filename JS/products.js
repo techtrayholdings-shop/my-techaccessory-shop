@@ -963,7 +963,7 @@ const products = [
         "85 Keys",
         "Compact Design"
     ]
-}
+},
 
 {
     id: 37,
