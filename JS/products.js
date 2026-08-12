@@ -847,8 +847,8 @@ const products = [
     name: "T-WOLF Funky Keyboard and Mouse Combo",
     brand: "T-WOLF",
     category: "Gaming",
-    price: 399.99,
-    oldPrice: 499,
+    price: 549.99,
+    oldPrice: 699,
     stock: 10,
     featured: false,
     bestSeller: false,
@@ -964,6 +964,136 @@ const products = [
         "Compact Design"
     ]
 }
+
+{
+    id: 37,
+    name: "HOCO GM24 Mystic Wireless Mouse",
+    brand: "HOCO",
+    category: "Computer Accessories",
+    price: 399,
+    oldPrice: 499,
+    stock: 0,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/GM24.jpg",
+    gallery: [
+        "images/products/GM24.jpg"
+    ],
+    description: "Dual-mode wireless mouse with 2.4G and Bluetooth connectivity, ergonomic design and adjustable DPI for comfortable everyday computing.",
+    specifications: [
+        "Dual-mode 2.4G + Bluetooth wireless connection",
+        "USB-A 2.4G receiver included",
+        "Bluetooth 3.0 / 5.2",
+        "6 buttons",
+        "800 / 1200 / 1600 DPI",
+        "Ergonomic design",
+        "2 × AAA batteries",
+        "Compatible with desktops, laptops, smartphones and tablets",
+        "Size: 111 × 71 × 40 mm",
+        "Weight: 65 g"
+    ]
+},
+
+{
+    id: 38,
+    name: "HOCO DI43 Robot 2.4G Wireless Gaming Mouse",
+    brand: "HOCO",
+    category: "Gaming",
+    price: 499,
+    oldPrice: 599,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/DI43.jpg",
+    gallery: [
+        "images/products/DI43.jpg"
+    ],
+    description: "Lightweight 2.4G wireless gaming mouse designed for responsive and comfortable computer and gaming use.",
+    specifications: [
+        "2.4G wireless connection",
+        "Wireless gaming design",
+        "1600 DPI optical sensor",
+        "Lightweight construction",
+        "Ergonomic design",
+        "USB wireless receiver",
+        "Suitable for gaming and everyday computer use"
+    ]
+},
+
+{
+    id: 39,
+    name: "HOCO GM29 Mysterious Dual-Mode Wireless Mouse",
+    brand: "HOCO",
+    category: "Computer Accessories",
+    price: 299,
+    oldPrice:399,
+    stock: 0,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/GM29.jpg",
+    gallery: [
+        "images/products/GM29.jpg"
+    ],
+    description: "Stylish dual-mode wireless mouse with 2.4G and Bluetooth connectivity, transparent housing and silent buttons for comfortable everyday use.",
+    specifications: [
+        "2.4G + Bluetooth dual-mode connection",
+        "USB-A wireless receiver included",
+        "800 / 1200 / 1600 DPI",
+        "4 silent buttons",
+        "Transparent housing",
+        "Magnetic top cover",
+        "Ergonomic design",
+        "2 × AAA batteries",
+        "Compatible with desktops, laptops, smartphones and tablets",
+        "Size: 110 × 60 × 31 mm",
+        "Weight: 58 g"
+    ]
+},
+
+{
+    id: 40,
+    name: "HOCO GM17 Wireless Keyboard & Mouse Set",
+    brand: "HOCO",
+    category: "Computer Accessories",
+    price: 599,
+    oldPrice: 699,
+    stock: 10,
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    rating: 4.7,
+    reviews: 0,
+    badge: "NEW",
+    image: "images/products/GM17.jpg",
+    gallery: [
+        "images/products/GM17.jpg"
+    ],
+    description: "Wireless keyboard and mouse set designed for comfortable everyday computing, office work and general PC use.",
+    specifications: [
+        "Wireless 2.4G connection",
+        "USB-A receiver",
+        "104-key membrane keyboard",
+        "ABS + liquid silicone keyboard body",
+        "800 / 1200 / 1600 DPI mouse",
+        "Ergonomic mouse design",
+        "Keyboard size: 440 × 140 × 25 mm",
+        "Mouse size: 105.5 × 60 × 23.5 mm",
+        "Compatible with most mainstream systems",
+        "English / Russian layout options"
+    ]
+},
 
 ];
 
