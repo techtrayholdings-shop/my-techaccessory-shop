@@ -867,7 +867,7 @@ const products = [
 },
 
 {
-    id: 37,
+    id: 41,
     name: "Metal Illuminated Wired Gaming Keyboard",
     brand: "T-WOLF",
     category: "Gaming",
@@ -891,7 +891,7 @@ const products = [
 },
 
 {
-    id: 38,
+    id: 42,
     name: "Retro Punk Wireless Keyboard & Mouse Bundle – Pink",
     brand: "T-WOLF",
     category: "Gaming",
@@ -916,7 +916,7 @@ const products = [
 },
 
 {
-    id: 39,
+    id: 43,
     name: "RGB Wired Gaming Keyboard & Mouse Combo",
     brand: "T-WOLF",
     category: "Gaming",
@@ -941,7 +941,7 @@ const products = [
 },
 
 {
-    id: 40,
+    id: 44,
     name: "Wireless Keyboard – Blue",
     brand: "XO Design",
     category: "Computer Accessories",
