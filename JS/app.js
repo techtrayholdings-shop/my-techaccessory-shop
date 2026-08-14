@@ -86,9 +86,12 @@ function displayProducts(productArray) {
 
         <div class="product-buttons">
 
-            <a href="product.html?id=${product.id}" class="view-btn">
-                👁 View Details
-            </a>
+            <a 
+    href="./product.html?id=${product.id}" 
+    class="view-btn"
+    aria-label="View details for ${product.name}">
+    👁 View Details
+</a>
 
             <button class="cart-btn" onclick="addToCart(${product.id})">
                 🛒 Add to Cart
