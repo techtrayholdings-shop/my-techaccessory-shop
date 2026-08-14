@@ -377,8 +377,8 @@ const products = [
     rating: 4.9,
     reviews: 42,
     badge: "BEST",
-    image: "images/products/headphones.png",
-    gallery: ["images/products/headphones.png"],
+    image: "images/products/headphones.jpg",
+    gallery: ["images/products/headphones.jpg"],
     description: "Foldable Bluetooth headphones.",
     specifications: [
         "Foldable Design",
