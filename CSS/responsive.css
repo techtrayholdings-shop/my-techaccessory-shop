@@ -1077,3 +1077,49 @@
     }
 
 }
+
+/* =========================================
+   MOBILE PRODUCT BUTTON FIX
+   VIEW DETAILS + ADD TO CART
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .product-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-info {
+        position: relative;
+        z-index: 5;
+    }
+
+    .product-buttons {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .product-buttons .view-btn,
+    .product-buttons .cart-btn {
+        position: relative;
+        z-index: 20;
+        pointer-events: auto !important;
+        touch-action: manipulation;
+        cursor: pointer;
+    }
+
+    /* Keep the image overlay above the image only */
+    .product-image {
+        position: relative;
+        z-index: 1;
+    }
+
+    .product-overlay {
+        z-index: 2;
+    }
+
+}
