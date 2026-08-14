@@ -331,8 +331,8 @@ const products = [
     rating: 4.7,
     reviews: 20,
     badge: "",
-    image: "images/products/headphones.jpg",
-    gallery: ["images/products/headphones.jpg"],
+    image: "images/products/headphones3.jpg",
+    gallery: ["images/products/headphones3.jpg"],
     description: "Comfortable wireless headphones.",
     specifications: [
         "Bluetooth",
