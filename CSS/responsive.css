@@ -1054,3 +1054,20 @@
     }
 
 }
+
+/* =========================================
+   MOBILE - ENLARGE PRODUCT IMAGES
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .product-image img,
+    .product-card img {
+        width: 90% !important;
+        height: 90% !important;
+        max-width: 90% !important;
+        object-fit: contain !important;
+        margin: auto !important;
+    }
+
+}
