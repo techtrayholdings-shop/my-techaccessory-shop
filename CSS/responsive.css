@@ -1000,3 +1000,37 @@
     }
 
 }
+
+/* =========================================
+   TECHTRAY - MOBILE SHOP FIX
+   TWO PRODUCTS PER ROW
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Product grid */
+    .products-grid,
+    #product-list,
+    .product-grid,
+    .products-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Product cards */
+    .products-grid > *,
+    #product-list > *,
+    .product-grid > *,
+    .products-container > * {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+}
