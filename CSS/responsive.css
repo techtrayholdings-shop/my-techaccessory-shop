@@ -1029,3 +1029,28 @@
     }
 
 }
+
+/* =========================================
+   MOBILE PRODUCT IMAGE AREA
+   REDUCE EMPTY BORDER / CLEARANCE
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .product-card .product-image,
+    .product .product-image {
+        padding: 10px !important;
+        margin: 0 !important;
+        height: 250px !important;
+        box-sizing: border-box !important;
+    }
+
+    .product-card .product-image img,
+    .product .product-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+    }
+
+}
