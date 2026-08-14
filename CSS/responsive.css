@@ -972,3 +972,31 @@
     }
 
 }
+
+/* =========================================
+   TECHTRAY MOBILE PRODUCT GRID
+   FORCE 2 PRODUCTS PER ROW
+   ========================================= */
+
+@media only screen and (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .products-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .products-grid .product {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
+    }
+
+}
