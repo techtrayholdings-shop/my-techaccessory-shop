@@ -1031,26 +1031,32 @@
 }
 
 /* =========================================
-   MOBILE PRODUCT IMAGE AREA
-   REDUCE EMPTY BORDER / CLEARANCE
+   MOBILE PRODUCT CARDS - FULL WIDTH
    ========================================= */
 
 @media screen and (max-width: 768px) {
 
-    .product-card .product-image,
-    .product .product-image {
-        padding: 10px !important;
-        margin: 0 !important;
-        height: 250px !important;
+    .products-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+        width: 100vw !important;
+        max-width: 100vw !important;
+
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+
+        padding: 0 6px !important;
+        gap: 8px !important;
+
         box-sizing: border-box !important;
     }
 
-    .product-card .product-image img,
-    .product .product-image img {
+    .products-grid > * {
         width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
-        margin: 0 auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
     }
 
 }
