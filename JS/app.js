@@ -352,21 +352,58 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const themeToggle = document.getElementById("theme-toggle");
 
-    if (!themeToggle) {
-        return;
+    if (!themeToggle) return;
+
+
+    // ==========================================
+    // LOAD SAVED THEME
+    // ==========================================
+
+    const savedTheme = localStorage.getItem("techtray-theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        themeToggle.textContent = "☀️";
+        themeToggle.title = "Switch to Light Mode";
+
+    } else {
+
+        document.body.classList.remove("dark-mode");
+
+        themeToggle.textContent = "🌙";
+        themeToggle.title = "Switch to Night Mode";
+
     }
+
+
+    // ==========================================
+    // TOGGLE THEME
+    // ==========================================
 
     themeToggle.addEventListener("click", function () {
 
         document.body.classList.toggle("dark-mode");
 
+
+        // NIGHT MODE
         if (document.body.classList.contains("dark-mode")) {
 
-            themeToggle.textContent = "☀️";
+            localStorage.setItem("techtray-theme", "dark");
 
-        } else {
+            themeToggle.textContent = "☀️";
+            themeToggle.title = "Switch to Light Mode";
+
+        }
+
+        // LIGHT MODE
+        else {
+
+            localStorage.setItem("techtray-theme", "light");
 
             themeToggle.textContent = "🌙";
+            themeToggle.title = "Switch to Night Mode";
 
         }
 
