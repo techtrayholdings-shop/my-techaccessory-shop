@@ -1,103 +1,78 @@
-/*=========================================
-    TECHTRAY HOLDINGS
-    CHECKOUT.JS
-    PHASE 3 — CHECKOUT ENGINE
-=========================================*/
+/* ==========================================
+   TECHTRAY HOLDINGS
+   CHECKOUT.JS
+   SINGLE CART SYSTEM
+========================================== */
 
-// ========================================
-// LOAD CART
-// ========================================
+const CART_STORAGE_KEY = "techtray-cart";
 
-let cart = JSON.parse(localStorage.getItem("techtray-cart")) || [];
-
-
-// ========================================
-// CHECKOUT ELEMENTS
-// ========================================
-
-const checkoutItems = document.getElementById("checkout-items");
-const subtotalElement = document.getElementById("subtotal");
-const discountElement = document.getElementById("discount");
-const deliveryElement = document.getElementById("delivery");
-const totalElement = document.getElementById("checkout-total");
-
-const checkoutForm = document.getElementById("checkoutForm");
-const couponInput = document.getElementById("couponCode");
-const applyCouponButton = document.getElementById("applyCoupon");
-
-const loadingOverlay = document.getElementById("loadingOverlay");
-const successModal = document.getElementById("successModal");
-const continueShoppingButton = document.getElementById("continueShopping");
+let cart =
+    JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
 
 
-// ========================================
-// CHECKOUT STATE
-// ========================================
+/* ==========================================
+   ELEMENTS
+========================================== */
 
-let appliedDiscount = 0;
-let appliedCoupon = "";
+const checkoutItems =
+    document.getElementById("checkout-items");
+
+const subtotalElement =
+    document.getElementById("subtotal");
+
+const discountElement =
+    document.getElementById("discount");
+
+const deliveryElement =
+    document.getElementById("delivery");
+
+const totalElement =
+    document.getElementById("checkout-total");
+
+const checkoutForm =
+    document.getElementById("checkoutForm");
 
 
-// ========================================
-// FORMAT PRICE
-// ========================================
+/* ==========================================
+   FORMAT PRICE
+========================================== */
 
 function formatPrice(price) {
 
-    return "R" + Number(price).toFixed(2);
+    return "R" + Number(price || 0).toFixed(2);
 
 }
 
 
-// ========================================
-// CALCULATE SUBTOTAL
-// ========================================
+/* ==========================================
+   CALCULATE TOTALS
+========================================== */
 
-function calculateSubtotal() {
+function calculateTotals() {
 
     let subtotal = 0;
 
     cart.forEach(item => {
 
-        subtotal += Number(item.price) * Number(item.quantity);
+        const price = Number(item.price) || 0;
+        const quantity = Number(item.quantity) || 1;
+
+        subtotal += price * quantity;
 
     });
 
-    return subtotal;
+    const discount = 0;
 
-}
+    const delivery =
+        subtotal >= 1000
+            ? 0
+            : subtotal > 0
+                ? 120
+                : 0;
 
+    const total =
+        subtotal - discount + delivery;
 
-// ========================================
-// CALCULATE DELIVERY
-// ========================================
-
-function calculateDelivery(subtotal) {
-
-    return subtotal >= 1000 ? 0 : 120;
-
-}
-
-
-// ========================================
-// CALCULATE TOTALS
-// ========================================
-
-function calculateTotals() {
-
-    const subtotal = calculateSubtotal();
-
-    const delivery = calculateDelivery(subtotal);
-
-    const discount = Math.min(appliedDiscount, subtotal);
-
-    const total = Math.max(
-        0,
-        subtotal - discount + delivery
-    );
-
-
-    // Subtotal
 
     if (subtotalElement) {
 
@@ -107,19 +82,13 @@ function calculateTotals() {
     }
 
 
-    // Discount
-
     if (discountElement) {
 
         discountElement.textContent =
-            discount > 0
-                ? "-" + formatPrice(discount)
-                : "R0.00";
+            formatPrice(discount);
 
     }
 
-
-    // Delivery
 
     if (deliveryElement) {
 
@@ -131,8 +100,6 @@ function calculateTotals() {
     }
 
 
-    // Total
-
     if (totalElement) {
 
         totalElement.textContent =
@@ -140,32 +107,19 @@ function calculateTotals() {
 
     }
 
-
-    return {
-
-        subtotal,
-        discount,
-        delivery,
-        total
-
-    };
-
 }
 
 
-// ========================================
-// LOAD CHECKOUT ITEMS
-// ========================================
+/* ==========================================
+   LOAD CHECKOUT
+========================================== */
 
 function loadCheckout() {
 
     if (!checkoutItems) return;
 
-
     checkoutItems.innerHTML = "";
 
-
-    // Empty cart
 
     if (cart.length === 0) {
 
@@ -191,7 +145,6 @@ function loadCheckout() {
 
         `;
 
-
         if (subtotalElement)
             subtotalElement.textContent = "R0.00";
 
@@ -204,19 +157,21 @@ function loadCheckout() {
         if (totalElement)
             totalElement.textContent = "R0.00";
 
-
         return;
 
     }
 
 
-    // Display products
-
     cart.forEach(item => {
 
+        const price =
+            Number(item.price) || 0;
+
+        const quantity =
+            Number(item.quantity) || 1;
+
         const itemTotal =
-            Number(item.price) *
-            Number(item.quantity);
+            price * quantity;
 
 
         checkoutItems.innerHTML += `
@@ -234,12 +189,11 @@ function loadCheckout() {
                     </h4>
 
                     <p>
-                        Quantity: ${item.quantity}
+                        Quantity: ${quantity}
                     </p>
 
                     <small>
-                        ${formatPrice(item.price)}
-                        each
+                        ${formatPrice(price)} each
                     </small>
 
                 </div>
@@ -260,468 +214,68 @@ function loadCheckout() {
 }
 
 
-// ========================================
-// COUPON SYSTEM
-// ========================================
+/* ==========================================
+   UPDATE CART COUNT
+========================================== */
 
-function applyCoupon() {
+function updateCheckoutCartCount() {
 
-    if (!couponInput) return;
+    const cartCount =
+        document.getElementById("cart-count");
 
+    if (!cartCount) return;
 
-    const code =
-        couponInput.value
-            .trim()
-            .toUpperCase();
-
-
-    if (!code) {
-
-        alert("Please enter a coupon code.");
-
-        return;
-
-    }
-
-
-    /*
-        TEMPORARY TEST COUPON
-
-        We can replace this with
-        your real TechTray coupon
-        system later.
-    */
-
-    const coupons = {
-
-        "TECHTRAY10": 10
-
-    };
-
-
-    if (coupons[code]) {
-
-        const subtotal =
-            calculateSubtotal();
-
-
-        appliedDiscount =
-            subtotal * (coupons[code] / 100);
-
-
-        appliedCoupon = code;
-
-
-        calculateTotals();
-
-
-        alert(
-            `${code} applied successfully. ` +
-            `${coupons[code]}% discount added.`
+    const totalItems =
+        cart.reduce(
+            (total, item) =>
+                total + Number(item.quantity || 0),
+            0
         );
 
-
-        couponInput.disabled = true;
-
-
-        if (applyCouponButton) {
-
-            applyCouponButton.textContent =
-                "Applied";
-
-            applyCouponButton.disabled = true;
-
-        }
-
-    } else {
-
-        alert(
-            "Invalid or expired coupon code."
-        );
-
-    }
+    cartCount.textContent = totalItems;
 
 }
 
 
-// ========================================
-// COUPON BUTTON
-// ========================================
-
-if (applyCouponButton) {
-
-    applyCouponButton.addEventListener(
-        "click",
-        applyCoupon
-    );
-
-}
-
-
-// ========================================
-// GET PAYMENT METHOD
-// ========================================
-
-function getPaymentMethod() {
-
-    const selectedPayment =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        );
-
-
-    if (!selectedPayment) {
-
-        return null;
-
-    }
-
-
-    return selectedPayment.value;
-
-}
-
-
-// ========================================
-// GENERATE ORDER REFERENCE
-// ========================================
-
-function generateOrderReference() {
-
-    const timestamp =
-        Date.now()
-            .toString()
-            .slice(-6);
-
-
-    const random =
-        Math.floor(
-            100 + Math.random() * 900
-        );
-
-
-    return `TT-${timestamp}-${random}`;
-
-}
-
-
-// ========================================
-// GET CUSTOMER DETAILS
-// ========================================
-
-function getCustomerDetails() {
-
-    return {
-
-        name:
-            document
-                .getElementById("customerName")
-                ?.value
-                .trim() || "",
-
-        phone:
-            document
-                .getElementById("customerPhone")
-                ?.value
-                .trim() || "",
-
-        email:
-            document
-                .getElementById("customerEmail")
-                ?.value
-                .trim() || "",
-
-        address:
-            document
-                .getElementById("customerAddress")
-                ?.value
-                .trim() || "",
-
-        notes:
-            document
-                .getElementById("orderNotes")
-                ?.value
-                .trim() || ""
-
-    };
-
-}
-
-
-// ========================================
-// VALIDATE CUSTOMER DETAILS
-// ========================================
-
-function validateCustomerDetails(customer) {
-
-    if (!customer.name) {
-
-        alert("Please enter your full name.");
-
-        return false;
-
-    }
-
-
-    if (!customer.phone) {
-
-        alert("Please enter your phone number.");
-
-        return false;
-
-    }
-
-
-    if (!customer.address) {
-
-        alert("Please enter your delivery address.");
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-// ========================================
-// SHOW LOADING
-// ========================================
-
-function showLoading() {
-
-    if (loadingOverlay) {
-
-        loadingOverlay.classList.add(
-            "active"
-        );
-
-    }
-
-}
-
-
-// ========================================
-// HIDE LOADING
-// ========================================
-
-function hideLoading() {
-
-    if (loadingOverlay) {
-
-        loadingOverlay.classList.remove(
-            "active"
-        );
-
-    }
-
-}
-
-
-// ========================================
-// SHOW SUCCESS
-// ========================================
-
-function showSuccess() {
-
-    if (successModal) {
-
-        successModal.classList.add(
-            "active"
-        );
-
-    }
-
-}
-
-
-// ========================================
-// SAVE ORDER
-// ========================================
-
-function saveOrder(
-    customer,
-    paymentMethod,
-    totals
-) {
-
-    const orderReference =
-        generateOrderReference();
-
-
-    const order = {
-
-        reference:
-            orderReference,
-
-        date:
-            new Date().toISOString(),
-
-        customer,
-
-        items:
-            cart,
-
-        subtotal:
-            totals.subtotal,
-
-        discount:
-            totals.discount,
-
-        delivery:
-            totals.delivery,
-
-        total:
-            totals.total,
-
-        coupon:
-            appliedCoupon,
-
-        paymentMethod,
-
-        paymentStatus:
-            paymentMethod === "Cash on Collection"
-                ? "Pending"
-                : "Awaiting Payment",
-
-        orderStatus:
-            "Order Received"
-
-    };
-
-
-    localStorage.setItem(
-        "techtrayLastOrder",
-        JSON.stringify(order)
-    );
-
-
-    return order;
-
-}
-
-
-// ========================================
-// HANDLE CASH ON COLLECTION
-// ========================================
-
-function processCashOrder(
-    customer,
-    totals
-) {
-
-    const order =
-        saveOrder(
-            customer,
-            "Cash on Collection",
-            totals
-        );
-
-
-    console.log(
-        "TechTray Order:",
-        order
-    );
-
-
-    /*
-        IMPORTANT:
-
-        We are NOT clearing the cart yet.
-
-        We will handle this properly once
-        payment/order confirmation is
-        fully implemented.
-    */
-
-
-    hideLoading();
-
-    showSuccess();
-
-
-    alert(
-        `Order ${order.reference} received successfully.`
-    );
-
-}
-
-
-// ========================================
-// HANDLE iKHOKHA
-// ========================================
-
-function processIKhokhaOrder(
-    customer,
-    totals
-) {
-
-    /*
-        iKHOKHA INTEGRATION WILL BE
-        CONNECTED HERE.
-
-        DO NOT place your iKhokha
-        secret/API credentials in
-        this JavaScript file.
-
-        The final flow will be:
-
-        Checkout
-            ↓
-        Secure Backend
-            ↓
-        iKhokha
-            ↓
-        Customer Payment
-            ↓
-        Payment Confirmation
-            ↓
-        Order Confirmation
-    */
-
-
-    console.log(
-        "iKhokha payment requested:",
-        {
-            customer,
-            totals
-        }
-    );
-
-
-    hideLoading();
-
-
-    alert(
-        "iKhokha online payment is being prepared. " +
-        "The secure payment connection will be added next."
-    );
-
-}
-
-
-// ========================================
-// FORM SUBMISSION
-// ========================================
+/* ==========================================
+   CHECKOUT FORM
+========================================== */
 
 if (checkoutForm) {
 
     checkoutForm.addEventListener(
         "submit",
-        function(event) {
+        function (event) {
 
             event.preventDefault();
-
-
-            // Prevent checkout with empty cart
 
             if (cart.length === 0) {
 
                 alert(
-                    "Your cart is empty. " +
-                    "Please add products before checking out."
+                    "Your cart is empty. Please add a product first."
+                );
+
+                return;
+
+            }
+
+            const payment =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                );
+
+            if (
+                payment &&
+                payment.value === "iKhokha"
+            ) {
+
+                /*
+                    iKHOKHA PAYMENT
+                    WILL BE CONNECTED HERE
+                */
+
+                alert(
+                    "iKhokha payment will be connected here."
                 );
 
                 return;
@@ -729,30 +283,484 @@ if (checkoutForm) {
             }
 
 
-            // Customer
+            /*
+                CASH ON COLLECTION
+            */
 
-            const customer =
-                getCustomerDetails();
+            alert(
+                "Your order has been received."
+            );
+
+        }
+    );
+
+}
 
 
-            if (
-                !validateCustomerDetails(
-                    customer
-                )
-            ) {
+/* ==========================================
+   START
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        cart =
+            JSON.parse(
+                localStorage.getItem(CART_STORAGE_KEY)
+            ) || [];
+
+        updateCheckoutCartCount();
+
+        loadCheckout();
+
+    }
+);/* ==========================================
+   TECHTRAY HOLDINGS
+   CHECKOUT.JS
+   CONNECTED TO CART
+========================================== */
+
+const CART_STORAGE_KEY = "techtray-cart";
+
+/* ==========================================
+   LOAD CART
+========================================== */
+
+function getCart() {
+
+    // Main cart
+    let savedCart = localStorage.getItem(CART_STORAGE_KEY);
+
+    // Old cart system - migration support
+    if (!savedCart) {
+        savedCart = localStorage.getItem("cart");
+    }
+
+    if (!savedCart) {
+        return [];
+    }
+
+    try {
+
+        const parsedCart = JSON.parse(savedCart);
+
+        if (!Array.isArray(parsedCart)) {
+            return [];
+        }
+
+        // Make sure quantities are numbers
+        return parsedCart.map(item => ({
+            ...item,
+            quantity: Number(item.quantity) || 1
+        }));
+
+    } catch (error) {
+
+        console.error("Unable to load cart:", error);
+
+        return [];
+    }
+}
+
+
+/* ==========================================
+   CART
+========================================== */
+
+let cart = getCart();
+
+
+/* ==========================================
+   SAVE CART
+========================================== */
+
+function saveCheckoutCart() {
+
+    localStorage.setItem(
+        CART_STORAGE_KEY,
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const checkoutItems =
+    document.getElementById("checkout-items");
+
+const subtotalElement =
+    document.getElementById("subtotal");
+
+const discountElement =
+    document.getElementById("discount");
+
+const deliveryElement =
+    document.getElementById("delivery");
+
+const totalElement =
+    document.getElementById("checkout-total");
+
+const cartCountElement =
+    document.getElementById("cart-count");
+
+
+/* ==========================================
+   FORMAT PRICE
+========================================== */
+
+function formatPrice(price) {
+
+    return "R" + Number(price || 0).toFixed(2);
+
+}
+
+
+/* ==========================================
+   UPDATE CART COUNT
+========================================== */
+
+function updateCheckoutCartCount() {
+
+    if (!cartCountElement) return;
+
+    const totalItems = cart.reduce(
+        (total, item) => {
+
+            return total +
+                (Number(item.quantity) || 0);
+
+        },
+        0
+    );
+
+    cartCountElement.textContent = totalItems;
+
+}
+
+
+/* ==========================================
+   CALCULATE TOTALS
+========================================== */
+
+function calculateCheckoutTotals() {
+
+    let subtotal = 0;
+
+    cart.forEach(item => {
+
+        const price =
+            Number(item.price) || 0;
+
+        const quantity =
+            Number(item.quantity) || 1;
+
+        subtotal += price * quantity;
+
+    });
+
+
+    // Coupon discount
+    const discount = 0;
+
+
+    // Delivery
+    let delivery = 0;
+
+    if (subtotal > 0 && subtotal < 1000) {
+        delivery = 120;
+    }
+
+
+    const total =
+        subtotal -
+        discount +
+        delivery;
+
+
+    /* SUBTOTAL */
+
+    if (subtotalElement) {
+
+        subtotalElement.textContent =
+            formatPrice(subtotal);
+
+    }
+
+
+    /* DISCOUNT */
+
+    if (discountElement) {
+
+        discountElement.textContent =
+            formatPrice(discount);
+
+    }
+
+
+    /* DELIVERY */
+
+    if (deliveryElement) {
+
+        if (delivery === 0) {
+
+            deliveryElement.textContent = "FREE";
+
+        } else {
+
+            deliveryElement.textContent =
+                formatPrice(delivery);
+
+        }
+
+    }
+
+
+    /* TOTAL */
+
+    if (totalElement) {
+
+        totalElement.textContent =
+            formatPrice(total);
+
+    }
+
+}
+
+
+/* ==========================================
+   DISPLAY CHECKOUT ITEMS
+========================================== */
+
+function displayCheckoutItems() {
+
+    if (!checkoutItems) return;
+
+
+    checkoutItems.innerHTML = "";
+
+
+    /* EMPTY CART */
+
+    if (cart.length === 0) {
+
+        checkoutItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <h3>Your cart is empty</h3>
+
+                <p>
+                    Add products before checking out.
+                </p>
+
+                <a
+                    href="shop.html"
+                    class="checkout-btn">
+
+                    Continue Shopping
+
+                </a>
+
+            </div>
+
+        `;
+
+        calculateCheckoutTotals();
+
+        updateCheckoutCartCount();
+
+        return;
+
+    }
+
+
+    /* DISPLAY PRODUCTS */
+
+    cart.forEach(item => {
+
+        const price =
+            Number(item.price) || 0;
+
+        const quantity =
+            Number(item.quantity) || 1;
+
+        const itemTotal =
+            price * quantity;
+
+
+        checkoutItems.innerHTML += `
+
+            <div class="checkout-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}">
+
+                <div class="checkout-item-info">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p>
+                        Quantity: ${quantity}
+                    </p>
+
+                    <small>
+                        ${formatPrice(price)} each
+                    </small>
+
+                </div>
+
+                <strong>
+                    ${formatPrice(itemTotal)}
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+
+    calculateCheckoutTotals();
+
+    updateCheckoutCartCount();
+
+}
+
+
+/* ==========================================
+   COUPON
+========================================== */
+
+const applyCoupon =
+    document.getElementById("applyCoupon");
+
+const couponCode =
+    document.getElementById("couponCode");
+
+
+if (applyCoupon) {
+
+    applyCoupon.addEventListener(
+        "click",
+        function () {
+
+            const code =
+                couponCode
+                    ? couponCode.value
+                        .trim()
+                        .toUpperCase()
+                    : "";
+
+
+            if (!code) {
+
+                alert(
+                    "Please enter a coupon code."
+                );
 
                 return;
 
             }
 
 
-            // Payment
+            /*
+                Coupon system can be expanded later.
+            */
 
-            const paymentMethod =
-                getPaymentMethod();
+            alert(
+                "Coupon code not recognised."
+            );
+
+        }
+    );
+
+}
 
 
-            if (!paymentMethod) {
+/* ==========================================
+   CHECKOUT FORM
+========================================== */
+
+const checkoutForm =
+    document.getElementById("checkoutForm");
+
+
+if (checkoutForm) {
+
+    checkoutForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            /* CHECK CART */
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty. Please add a product before checkout."
+                );
+
+                return;
+
+            }
+
+
+            /* CUSTOMER DETAILS */
+
+            const customerName =
+                document.getElementById(
+                    "customerName"
+                )?.value.trim();
+
+            const customerPhone =
+                document.getElementById(
+                    "customerPhone"
+                )?.value.trim();
+
+            const customerEmail =
+                document.getElementById(
+                    "customerEmail"
+                )?.value.trim();
+
+            const customerAddress =
+                document.getElementById(
+                    "customerAddress"
+                )?.value.trim();
+
+
+            if (
+                !customerName ||
+                !customerPhone ||
+                !customerAddress
+            ) {
+
+                alert(
+                    "Please complete all required customer information."
+                );
+
+                return;
+
+            }
+
+
+            /* PAYMENT */
+
+            const payment =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                );
+
+
+            if (!payment) {
 
                 alert(
                     "Please select a payment method."
@@ -763,62 +771,27 @@ if (checkoutForm) {
             }
 
 
-            // Totals
-
-            const totals =
-                calculateTotals();
-
-
-            console.log(
-                "Checkout totals:",
-                totals
-            );
-
-
-            // Show loading
-
-            showLoading();
-
-
-            // Cash
+            /* iKHOKHA */
 
             if (
-                paymentMethod ===
-                "Cash on Collection"
+                payment.value === "iKhokha"
             ) {
 
-                setTimeout(
-                    function() {
+                /*
+                    iKHOKHA INTEGRATION
+                    WILL BE CONNECTED HERE.
+                */
 
-                        processCashOrder(
-                            customer,
-                            totals
-                        );
-
-                    },
-                    800
-                );
+                startIKhokhaPayment();
 
                 return;
 
             }
 
 
-            // iKhokha
+            /* CASH ON COLLECTION */
 
-            if (
-                paymentMethod ===
-                "iKhokha"
-            ) {
-
-                processIKhokhaOrder(
-                    customer,
-                    totals
-                );
-
-                return;
-
-            }
+            processCashOrder();
 
         }
     );
@@ -826,15 +799,75 @@ if (checkoutForm) {
 }
 
 
-// ========================================
-// CONTINUE SHOPPING
-// ========================================
+/* ==========================================
+   iKHOKHA
+========================================== */
 
-if (continueShoppingButton) {
+function startIKhokhaPayment() {
 
-    continueShoppingButton.addEventListener(
+    /*
+        We will connect the real iKhokha
+        payment process here.
+
+        IMPORTANT:
+
+        The secret/API credentials must
+        NOT be placed inside this
+        JavaScript file.
+
+        They must be handled securely
+        through a backend/server.
+    */
+
+    alert(
+        "iKhokha payment is ready to be connected."
+    );
+
+}
+
+
+/* ==========================================
+   CASH ORDER
+========================================== */
+
+function processCashOrder() {
+
+    const successModal =
+        document.getElementById(
+            "successModal"
+        );
+
+
+    if (successModal) {
+
+        successModal.style.display = "flex";
+
+    } else {
+
+        alert(
+            "Your order has been received."
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   CONTINUE SHOPPING
+========================================== */
+
+const continueShopping =
+    document.getElementById(
+        "continueShopping"
+    );
+
+
+if (continueShopping) {
+
+    continueShopping.addEventListener(
         "click",
-        function() {
+        function () {
 
             window.location.href =
                 "shop.html";
@@ -845,9 +878,36 @@ if (continueShoppingButton) {
 }
 
 
-// ========================================
-// START CHECKOUT
-// ========================================
+/* ==========================================
+   INITIALISE
+========================================== */
 
-loadCheckout();
-calculateTotals();
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /*
+            Reload cart one more time when
+            the page is fully loaded.
+        */
+
+        cart = getCart();
+
+
+        /*
+            Migrate old cart if necessary.
+        */
+
+        if (cart.length > 0) {
+
+            saveCheckoutCart();
+
+        }
+
+
+        displayCheckoutItems();
+
+        updateCheckoutCartCount();
+
+    }
+);
