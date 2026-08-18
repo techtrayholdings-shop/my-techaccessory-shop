@@ -5,10 +5,6 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    /*==============================================
-        LOAD HTML COMPONENT
-    ==============================================*/
-
     async function loadFile(id, file) {
 
         const element = document.getElementById(id);
@@ -27,29 +23,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         } catch (error) {
 
-            console.error(`TechTray Include Error:`, error);
+            console.error(error);
 
         }
 
     }
 
 
-    /*==============================================
-        LOAD HEADER & FOOTER
-    ==============================================*/
+    /* ==========================================
+       LOAD HEADER
+    ========================================== */
 
     await loadFile("header", "header.html");
+
+
+    /* ==========================================
+       LOAD FOOTER
+    ========================================== */
 
     await loadFile("footer", "footer.html");
 
 
-    /*==============================================
-        INITIALISE NAVIGATION
-    ==============================================*/
+    /* ==========================================
+       INITIALISE NAVIGATION
+       AFTER HEADER HAS LOADED
+    ========================================== */
 
     if (typeof initialiseNavigation === "function") {
 
         initialiseNavigation();
+
+    } else {
+
+        console.error("initialiseNavigation() was not found.");
 
     }
 
