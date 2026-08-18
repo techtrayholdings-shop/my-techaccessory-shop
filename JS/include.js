@@ -1,4 +1,13 @@
+/*==================================================
+    TECHTRAY HOLDINGS
+    INCLUDE SYSTEM
+==================================================*/
+
 document.addEventListener("DOMContentLoaded", async () => {
+
+    /*==============================================
+        LOAD HTML COMPONENT
+    ==============================================*/
 
     async function loadFile(id, file) {
 
@@ -18,17 +27,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         } catch (error) {
 
-            console.error(error);
+            console.error(`TechTray Include Error:`, error);
 
         }
 
     }
 
+
+    /*==============================================
+        LOAD HEADER & FOOTER
+    ==============================================*/
+
     await loadFile("header", "header.html");
+
     await loadFile("footer", "footer.html");
 
+
+    /*==============================================
+        INITIALISE NAVIGATION
+    ==============================================*/
+
     if (typeof initialiseNavigation === "function") {
+
         initialiseNavigation();
+
     }
 
 });
