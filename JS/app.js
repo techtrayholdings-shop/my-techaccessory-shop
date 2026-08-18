@@ -1,321 +1,396 @@
 /* ==========================================
    TECHTRAY HOLDINGS
-   CART.JS
-   CENTRAL CART SYSTEM
+   APP.JS
 ========================================== */
 
-const CART_STORAGE_KEY = "techtray-cart";
-
 // ===============================
-// LOAD CART
+// DISPLAY PRODUCTS
 // ===============================
 
-let cart = JSON.parse(
-    localStorage.getItem(CART_STORAGE_KEY)
-) || [];
+const productList = document.getElementById("product-list");
+
+function displayProducts(productArray) {
+
+    if (!productList) return;
+
+    productList.innerHTML = "";
+
+    productArray.forEach(product => {
+
+        let badge = "";
+
+        if (product.badge === "NEW") {
+            badge = `<span class="badge new">NEW</span>`;
+        } else if (product.badge === "BEST") {
+            badge = `<span class="badge best">BEST SELLER</span>`;
+        } else if (product.badge === "HOT") {
+            badge = `<span class="badge hot">HOT</span>`;
+        }
+
+        productList.innerHTML += `
+
+<div class="product-card">
+
+    <div class="product-image">
+
+        ${badge}
+
+        <img src="${product.image}" alt="${product.name}">
+
+        <div class="product-overlay">
+
+    <button class="quick-view" onclick="quickView(${product.id})">
+        👁 Quick View
+    </button>
+
+</div>
+
+    </div>
+
+    <div class="product-info">
+
+        <div class="product-brand">
+            ${product.brand}
+        </div>
+
+        <h3>
+            <a href="product.html?id=${product.id}" class="product-title">
+                ${product.name}
+            </a>
+        </h3>
+
+        <div class="product-rating">
+            ⭐ ${product.rating}
+            <span>(${product.reviews} Reviews)</span>
+        </div>
+
+        <p class="product-description">
+            ${product.description}
+        </p>
+
+        <div class="price-box">
+
+            <span class="old-price">
+                R${product.oldPrice}
+            </span>
+
+            <span class="price">
+                R${product.price}
+            </span>
+
+        </div>
+
+        <div class="stock">
+            ${product.stock > 0 ? "✅ In Stock" : "❌ Out of Stock"}
+        </div>
+
+        <div class="product-buttons">
+
+            <a 
+    href="./product.html?id=${product.id}" 
+    class="view-btn"
+    aria-label="View details for ${product.name}">
+    👁 View Details
+</a>
+
+            <button class="cart-btn" onclick="addToCart(${product.id})">
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+        `;
+
+    });
+
+}
+
+// Load all products when the page opens
+displayProducts(products);// Load all products when the page opens
 
 // ===============================
-// CART ELEMENTS
+// SHOPPING CART
 // ===============================
 
-const cartItems = document.getElementById("cart-items");
-const cartTotal = document.getElementById("cart-total");
-
-// ===============================
-// SAVE CART
-// ===============================
+let cart = JSON.parse(localStorage.getItem("techtray-cart")) || [];
 
 function saveCart() {
-
-    localStorage.setItem(
-        CART_STORAGE_KEY,
-        JSON.stringify(cart)
-    );
-
+    localStorage.setItem("techtray-cart", JSON.stringify(cart));
     updateCartCount();
 }
 
-// ===============================
-// UPDATE CART COUNT
-// ===============================
+function addToCart(id) {
 
+    const product = products.find(item => item.id === id);
+
+    if (!product) return;
+
+    const existingItem = cart.find(item => item.id === id);
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({
+            ...product,
+            quantity: 1
+        });
+    }
+
+    saveCart();
+
+    showNotification(product.name + " added to cart.");
+
+}
 function updateCartCount() {
 
     const cartCount = document.getElementById("cart-count");
 
     if (!cartCount) return;
 
-    const totalItems = cart.reduce(
-        (total, item) => total + Number(item.quantity || 0),
-        0
-    );
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
     cartCount.textContent = totalItems;
 }
 
+// Update cart when page loads
+updateCartCount();
 // ===============================
-// DISPLAY CART
-// ===============================
-
-function displayCart() {
-
-    if (!cartItems) return;
-
-    cartItems.innerHTML = "";
-
-    // EMPTY CART
-    if (cart.length === 0) {
-
-        cartItems.innerHTML = `
-            <div class="empty-cart">
-
-                <h2>Your cart is empty.</h2>
-
-                <p>Add some products before checking out.</p>
-
-                <a
-                    href="shop.html"
-                    class="btn btn-primary">
-
-                    Continue Shopping
-
-                </a>
-
-            </div>
-        `;
-
-        if (cartTotal) {
-            cartTotal.textContent = "Total: R0.00";
-        }
-
-        updateCartCount();
-
-        return;
-    }
-
-    let total = 0;
-
-    cart.forEach(item => {
-
-        const price = Number(item.price) || 0;
-        const quantity = Number(item.quantity) || 1;
-
-        const itemTotal = price * quantity;
-
-        total += itemTotal;
-
-        cartItems.innerHTML += `
-
-            <div class="product cart-product">
-
-                <img
-                    src="${item.image}"
-                    alt="${item.name}">
-
-                <div class="product-info">
-
-                    <h3>
-                        ${item.name}
-                    </h3>
-
-                    <p>
-                        Price: R${price.toFixed(2)}
-                    </p>
-
-                    <p>
-                        Quantity: ${quantity}
-                    </p>
-
-                    <p>
-                        Item Total:
-                        <strong>
-                            R${itemTotal.toFixed(2)}
-                        </strong>
-                    </p>
-
-                    <div class="cart-actions">
-
-                        <button
-                            type="button"
-                            onclick="increaseQuantity(${item.id})">
-
-                            +
-
-                        </button>
-
-                        <button
-                            type="button"
-                            onclick="decreaseQuantity(${item.id})">
-
-                            −
-
-                        </button>
-
-                        <button
-                            type="button"
-                            onclick="removeItem(${item.id})">
-
-                            Remove
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        `;
-
-    });
-
-    if (cartTotal) {
-
-        cartTotal.textContent =
-            `Total: R${total.toFixed(2)}`;
-
-    }
-
-    updateCartCount();
-
-}
-
-// ===============================
-// INCREASE QUANTITY
+// SEARCH PRODUCTS
 // ===============================
 
-function increaseQuantity(id) {
+const searchInput = document.getElementById("search");
 
-    const item = cart.find(
-        product => product.id === id
-    );
+if (searchInput) {
 
-    if (!item) return;
+    searchInput.addEventListener("keyup", function () {
 
-    item.quantity++;
+        const keyword = this.value.toLowerCase();
 
-    saveCart();
-
-    displayCart();
-}
-
-// ===============================
-// DECREASE QUANTITY
-// ===============================
-
-function decreaseQuantity(id) {
-
-    const item = cart.find(
-        product => product.id === id
-    );
-
-    if (!item) return;
-
-    item.quantity--;
-
-    if (item.quantity <= 0) {
-
-        cart = cart.filter(
-            product => product.id !== id
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(keyword) ||
+            product.description.toLowerCase().includes(keyword) ||
+            product.category.toLowerCase().includes(keyword)
         );
 
-    }
-
-    saveCart();
-
-    displayCart();
-}
-
-// ===============================
-// REMOVE ITEM
-// ===============================
-
-function removeItem(id) {
-
-    cart = cart.filter(
-        item => item.id !== id
-    );
-
-    saveCart();
-
-    displayCart();
-}
-
-// ===============================
-// CLEAR CART
-// ===============================
-
-function clearCart() {
-
-    if (cart.length === 0) {
-
-        alert("Your cart is already empty.");
-
-        return;
-    }
-
-    const confirmed = confirm(
-        "Are you sure you want to clear your shopping cart?"
-    );
-
-    if (!confirmed) return;
-
-    cart = [];
-
-    saveCart();
-
-    displayCart();
-}
-
-// ===============================
-// WHATSAPP CHECKOUT
-// ===============================
-
-function checkoutWhatsApp() {
-
-    if (cart.length === 0) {
-
-        alert("Your cart is empty.");
-
-        return;
-    }
-
-    let message =
-        "Hello TechTray Holdings,%0A%0A" +
-        "I would like to place the following order:%0A%0A";
-
-    let total = 0;
-
-    cart.forEach(item => {
-
-        const price = Number(item.price) || 0;
-        const quantity = Number(item.quantity) || 1;
-
-        const itemTotal = price * quantity;
-
-        total += itemTotal;
-
-        message +=
-            `• ${item.name} x${quantity} - R${itemTotal.toFixed(2)}%0A`;
+        displayProducts(filteredProducts);
 
     });
 
-    message +=
-        `%0AOrder Total: R${total.toFixed(2)}`;
+}
+// ===============================
+// CATEGORY FILTERS
+// ===============================
 
-    message +=
-        `%0A%0APlease confirm availability and delivery details.`;
+const filterButtons = document.querySelectorAll(".filter-btn");
 
-    window.open(
-        `https://wa.me/27662653887?text=${message}`,
-        "_blank"
-    );
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+
+        // Add active class to clicked button
+        button.classList.add("active");
+
+        const category = button.dataset.category;
+
+        if (category === "All") {
+
+            displayProducts(products);
+
+        } else {
+
+            const filteredProducts = products.filter(product =>
+                product.category === category
+            );
+
+            displayProducts(filteredProducts);
+
+        }
+
+    });
+
+});
+/* ==========================================
+   NOTIFICATION
+========================================== */
+
+function showNotification(message){
+
+    const notification=document.createElement("div");
+
+    notification.className="notification";
+
+    notification.innerHTML=`
+        ✅ ${message}
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(()=>{
+
+        notification.classList.add("show");
+
+    },100);
+
+    setTimeout(()=>{
+
+        notification.classList.remove("show");
+
+        setTimeout(()=>{
+
+            notification.remove();
+
+        },400);
+
+    },2500);
+
 }
 
-// ===============================
-// INITIALIZE CART
-// ===============================
+/*==========================================
+        WISHLIST
+==========================================*/
 
-displayCart();
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-updateCartCount();
+function toggleWishlist(id){
+
+    const product = products.find(p => p.id === id);
+
+    const index = wishlist.findIndex(item => item.id === id);
+
+    if(index === -1){
+
+        wishlist.push(product);
+
+        showNotification(product.name + " added to Wishlist ❤️");
+
+    }else{
+
+        wishlist.splice(index,1);
+
+        showNotification(product.name + " removed from Wishlist");
+
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+}
+
+/*==========================================
+        QUICK VIEW
+==========================================*/
+
+const modal = document.getElementById("quick-view-modal");
+
+function quickView(id){
+
+    const product = products.find(p => p.id === id);
+
+    if(!product) return;
+
+    document.getElementById("quick-image").src = product.image;
+    document.getElementById("quick-name").textContent = product.name;
+    document.getElementById("quick-description").textContent = product.description;
+    document.getElementById("quick-price").textContent = "R" + product.price;
+
+    document.getElementById("quick-cart-btn").onclick = function () {
+    addToCart(product.id);
+};
+
+document.getElementById("quick-product-link").href =
+    "product.html?id=" + product.id;
+
+modal.style.display = "flex";
+
+}
+
+const closeModal = document.querySelector(".close-modal");
+
+if(closeModal){
+
+    closeModal.onclick = function(){
+        modal.style.display = "none";
+    };
+
+}
+
+window.addEventListener("click", function(e){
+
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+
+});
+
+/*==================================================
+    TECHTRAY NIGHT MODE
+==================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const themeToggle = document.getElementById("theme-toggle");
+
+    if (!themeToggle) return;
+
+
+    // ==========================================
+    // LOAD SAVED THEME
+    // ==========================================
+
+    const savedTheme = localStorage.getItem("techtray-theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        themeToggle.textContent = "☀️";
+        themeToggle.title = "Switch to Light Mode";
+
+    } else {
+
+        document.body.classList.remove("dark-mode");
+
+        themeToggle.textContent = "🌙";
+        themeToggle.title = "Switch to Night Mode";
+
+    }
+
+
+    // ==========================================
+    // TOGGLE THEME
+    // ==========================================
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+
+        // NIGHT MODE
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("techtray-theme", "dark");
+
+            themeToggle.textContent = "☀️";
+            themeToggle.title = "Switch to Light Mode";
+
+        }
+
+        // LIGHT MODE
+        else {
+
+            localStorage.setItem("techtray-theme", "light");
+
+            themeToggle.textContent = "🌙";
+            themeToggle.title = "Switch to Night Mode";
+
+        }
+
+    });
+
+});
