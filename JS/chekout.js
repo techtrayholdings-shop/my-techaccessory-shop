@@ -8,7 +8,7 @@
 // LOAD CART
 // ========================================
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("techtray-cart")) || [];
 
 
 // ========================================
