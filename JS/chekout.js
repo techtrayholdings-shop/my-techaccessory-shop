@@ -503,6 +503,28 @@ function processCashOrder(customerDetails) {
     );
 
 
+    /* ==========================================
+       CLEAR CART AFTER SUCCESSFUL ORDER
+    ========================================== */
+
+    checkoutCart = [];
+
+    localStorage.removeItem(CART_STORAGE_KEY);
+
+    /* Also remove any old cart system */
+
+    localStorage.removeItem("cart");
+
+
+    /* Update cart count */
+
+    updateCheckoutCartCount();
+
+
+    /* ==========================================
+       SHOW SUCCESS MESSAGE
+    ========================================== */
+
     if (successModal) {
 
         successModal.style.display = "flex";
@@ -516,7 +538,6 @@ function processCashOrder(customerDetails) {
     }
 
 }
-
 
 /* ==========================================
    CONTINUE SHOPPING
