@@ -4,28 +4,7 @@
    SINGLE CART SYSTEM
 ========================================== */
 
-const CART_STORAGE_KEY = "techtray-cart";
-
-/* ==========================================
-   LOAD CART
-========================================== */
-
-let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
-
-
-/* ==========================================
-   SAVE CART
-========================================== */
-
-function saveCart() {
-
-    localStorage.setItem(
-        CART_STORAGE_KEY,
-        JSON.stringify(cart)
-    );
-
-    updateCartCount();
-}
+localStorage
 
 
 /* ==========================================

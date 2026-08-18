@@ -5,9 +5,17 @@
 
 function initialiseNavigation() {
 
+    /* ==========================================
+       CURRENT PAGE
+    ========================================== */
+
     const currentPage =
         window.location.pathname.split("/").pop() || "index.html";
 
+
+    /* ==========================================
+       NAVIGATION LINKS
+    ========================================== */
 
     const navigationLinks =
         document.querySelectorAll("#navigation a");
@@ -29,7 +37,6 @@ function initialiseNavigation() {
 
     });
 
-}
 
     /* ==========================================
        MOBILE MENU
@@ -46,9 +53,15 @@ function initialiseNavigation() {
     console.log("Navigation:", navigation);
 
 
+    /* ==========================================
+       CHECK MOBILE MENU
+    ========================================== */
+
     if (!menuToggle || !navigation) {
 
-        console.error("Mobile navigation elements not found.");
+        console.warn(
+            "TechTray mobile navigation could not find menu-toggle or navigation."
+        );
 
         return;
 
@@ -75,7 +88,7 @@ function initialiseNavigation() {
        CLOSE MENU AFTER LINK CLICK
     ========================================== */
 
-    navigationLinks.forEach(link => {
+    navigationLinks.forEach(function (link) {
 
         link.onclick = function () {
 
@@ -86,3 +99,17 @@ function initialiseNavigation() {
     });
 
 }
+
+
+/* ==========================================
+   INITIALISE NAVIGATION
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        initialiseNavigation();
+
+    }
+);
