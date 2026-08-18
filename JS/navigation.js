@@ -5,25 +5,15 @@
 
 function initialiseNavigation() {
 
-    console.log("TechTray navigation initialized");
-
-    /* ==========================================
-       CURRENT PAGE
-    ========================================== */
-
     const currentPage =
         window.location.pathname.split("/").pop() || "index.html";
 
-
-    /* ==========================================
-       NAVIGATION LINKS
-    ========================================== */
 
     const navigationLinks =
         document.querySelectorAll("#navigation a");
 
 
-    navigationLinks.forEach(link => {
+    navigationLinks.forEach(function (link) {
 
         const href = link.getAttribute("href");
 
@@ -39,6 +29,7 @@ function initialiseNavigation() {
 
     });
 
+}
 
     /* ==========================================
        MOBILE MENU
