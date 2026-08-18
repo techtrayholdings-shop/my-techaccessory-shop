@@ -1403,7 +1403,7 @@ p{
 
 .featured-products{
     padding:100px 0;
-    background:#F8FAFC;
+    background:var(--light);
 }
 
 /*==================================================
@@ -1463,7 +1463,7 @@ p{
 
     align-items:center;
 
-    background:#F8FAFC;
+    background:var(--white);
 
     padding:25px;
 
@@ -1837,7 +1837,7 @@ p{
 
     padding:100px 0;
 
-    background:#F8FAFC;
+   background:var(--white);
 
 }
 
@@ -1863,7 +1863,7 @@ p{
 
 .testimonial-card{
 
-    background:#fff;
+   background:var(--white);
 
     border-radius:20px;
 
@@ -2009,7 +2009,7 @@ p{
 
 .review-box{
 
-    background:#fff;
+    background:var(--white);
 
     border-radius:18px;
 
@@ -2571,7 +2571,7 @@ p{
 
     width:55px;
 
-    background:#fff;
+    background:var(--white);
 
     padding:6px;
 
@@ -2965,7 +2965,7 @@ p{
 .tracking-card{
     max-width:700px;
     margin:auto;
-    background:#fff;
+   background:var(--white);
     padding:40px;
     border-radius:20px;
     box-shadow:0 15px 40px rgba(0,0,0,.08);
@@ -3087,7 +3087,7 @@ p{
 .tracking-help{
     padding:80px 20px;
     text-align:center;
-    background:#fff;
+    background:var(--white);
 }
 
 .tracking-help h2{
@@ -3198,7 +3198,7 @@ ORDER SUMMARY
 display:flex;
 gap:30px;
 align-items:center;
-background:#fff;
+background:var(--white);
 padding:25px;
 border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
@@ -3291,7 +3291,7 @@ height:150px;
 }
 
 .contact-card{
-    background:#fff;
+    background:var(--white);
     padding:30px;
     margin-bottom:25px;
     border-radius:18px;
@@ -3322,7 +3322,7 @@ height:150px;
 }
 
 .contact-form{
-    background:#fff;
+    background:var(--white);
     padding:40px;
     border-radius:20px;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
@@ -3490,7 +3490,7 @@ height:150px;
 }
 
 .product-card{
-    background:#fff;
+    background:var(--white);
     border-radius:18px;
     overflow:hidden;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
@@ -3540,7 +3540,7 @@ height:150px;
 
 .quick-view,
 .wishlist-btn{
-    background:#fff;
+    background:var(--white);
     color:#081b4b;
     border:none;
     border-radius:50px;
@@ -3708,7 +3708,7 @@ height:150px;
 .quick-view-content{
     width:100%;
     max-width:950px;
-    background:#fff;
+    background:var(--white);
     border-radius:20px;
     overflow:hidden;
     position:relative;
