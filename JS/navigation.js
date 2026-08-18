@@ -1,20 +1,29 @@
-/*==================================================
-    TECHTRAY HOLDINGS
-    NAVIGATION SYSTEM
-==================================================*/
+/* ==========================================
+   TECHTRAY HOLDINGS
+   NAVIGATION.JS
+========================================== */
 
 function initialiseNavigation() {
 
+    console.log("TechTray navigation initialized");
 
-    /*==============================================
-        ACTIVE PAGE
-    ==============================================*/
+    /* ==========================================
+       CURRENT PAGE
+    ========================================== */
 
     const currentPage =
         window.location.pathname.split("/").pop() || "index.html";
 
 
-    document.querySelectorAll(".navigation a").forEach(link => {
+    /* ==========================================
+       NAVIGATION LINKS
+    ========================================== */
+
+    const navigationLinks =
+        document.querySelectorAll("#navigation a");
+
+
+    navigationLinks.forEach(link => {
 
         const href = link.getAttribute("href");
 
@@ -31,9 +40,9 @@ function initialiseNavigation() {
     });
 
 
-    /*==============================================
-        MOBILE MENU
-    ==============================================*/
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
 
     const menuToggle =
         document.getElementById("menu-toggle");
@@ -42,42 +51,46 @@ function initialiseNavigation() {
         document.getElementById("navigation");
 
 
-    if (!menuToggle || !navigation) return;
+    console.log("Menu button:", menuToggle);
+    console.log("Navigation:", navigation);
 
 
-    menuToggle.addEventListener("click", () => {
+    if (!menuToggle || !navigation) {
+
+        console.error("Mobile navigation elements not found.");
+
+        return;
+
+    }
+
+
+    /* ==========================================
+       MOBILE MENU TOGGLE
+    ========================================== */
+
+    menuToggle.onclick = function () {
 
         navigation.classList.toggle("show");
 
-
-        const menuIsOpen =
-            navigation.classList.contains("show");
-
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            menuIsOpen
+        console.log(
+            "Menu status:",
+            navigation.classList.contains("show")
         );
 
-    });
+    };
 
 
-    /*==============================================
-        CLOSE MENU WHEN LINK IS CLICKED
-    ==============================================*/
+    /* ==========================================
+       CLOSE MENU AFTER LINK CLICK
+    ========================================== */
 
-    navigation.querySelectorAll("a").forEach(link => {
+    navigationLinks.forEach(link => {
 
-        link.addEventListener("click", () => {
+        link.onclick = function () {
 
             navigation.classList.remove("show");
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        });
+        };
 
     });
 
