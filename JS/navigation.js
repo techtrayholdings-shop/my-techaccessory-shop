@@ -5,12 +5,14 @@
 
 function initialiseNavigation() {
 
+
     /*==============================================
         ACTIVE PAGE
     ==============================================*/
 
     const currentPage =
         window.location.pathname.split("/").pop() || "index.html";
+
 
     document.querySelectorAll(".navigation a").forEach(link => {
 
@@ -39,6 +41,7 @@ function initialiseNavigation() {
     const navigation =
         document.getElementById("navigation");
 
+
     if (!menuToggle || !navigation) return;
 
 
@@ -46,19 +49,21 @@ function initialiseNavigation() {
 
         navigation.classList.toggle("show");
 
-        const isOpen =
+
+        const menuIsOpen =
             navigation.classList.contains("show");
+
 
         menuToggle.setAttribute(
             "aria-expanded",
-            isOpen
+            menuIsOpen
         );
 
     });
 
 
     /*==============================================
-        CLOSE MENU AFTER CLICKING A LINK
+        CLOSE MENU WHEN LINK IS CLICKED
     ==============================================*/
 
     navigation.querySelectorAll("a").forEach(link => {
