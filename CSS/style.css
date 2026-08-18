@@ -72,48 +72,775 @@
     --container:1300px;
 }
 
-/*==================================================
-  TECHTRAY NIGHT MODE VARIABLES
-==================================================*/
+/* =========================================================
+   TECHTRAY HOLDINGS
+   NIGHT MODE
+   FINAL CLEAN VERSION
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 body.dark-mode {
-
-    --white: #111D2E;
-    --light: #111827;
-    --background: #08111F;
-    --border: #26364D;
-
-    --text: #F5F7FA;
-    --text-light: #B8C2D0;
-
-    --primary-dark: #FFFFFF;
-
-    --shadow-sm: 0 5px 15px rgba(0,0,0,.25);
-    --shadow: 0 10px 30px rgba(0,0,0,.30);
-    --shadow-lg: 0 20px 50px rgba(0,0,0,.40);
+    background: #0B0B0B !important;
+    color: #F5F5F5 !important;
 }
 
-/*==================================================
-  TECHTRAY NIGHT MODE VARIABLES
-==================================================*/
-
-body.dark-mode {
-
-    --white: #111D2E;
-    --light: #111827;
-    --background: #08111F;
-    --border: #26364D;
-
-    --text: #F5F7FA;
-    --text-light: #B8C2D0;
-
-    --primary-dark: #FFFFFF;
-
-    --shadow-sm: 0 5px 15px rgba(0,0,0,.25);
-    --shadow: 0 10px 30px rgba(0,0,0,.30);
-    --shadow-lg: 0 20px 50px rgba(0,0,0,.40);
+body.dark-mode main {
+    background: #0B0B0B !important;
 }
-/*==================================================
+
+body.dark-mode section {
+    background: #0B0B0B !important;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+body.dark-mode .header,
+body.dark-mode header {
+    background: #101010 !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .header-container {
+    background: transparent !important;
+}
+
+body.dark-mode .logo-text h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .logo-text span {
+    color: #19A8E6 !important;
+}
+
+body.dark-mode .navigation {
+    background: #101010 !important;
+}
+
+body.dark-mode .navigation a {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .navigation a:hover,
+body.dark-mode .navigation a.active {
+    color: #19A8E6 !important;
+}
+
+body.dark-mode .menu-toggle {
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   HEADER BUTTONS
+   ========================================================= */
+
+body.dark-mode .wishlist-button,
+body.dark-mode .cart-button {
+    background: #1B1B1B !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .wishlist-button:hover,
+body.dark-mode .cart-button:hover {
+    background: #19A8E6 !important;
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+body.dark-mode .search-box input {
+    background: #151515 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #2A2A2A !important;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #888888 !important;
+}
+
+body.dark-mode .search-box input:focus {
+    border-color: #19A8E6 !important;
+    box-shadow: 0 0 15px rgba(25,168,230,.2);
+}
+
+
+/* =========================================================
+   GENERAL TEXT
+   ========================================================= */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode p {
+    color: #B8B8B8 !important;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+body.dark-mode .section-title h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .section-title p {
+    color: #B8B8B8 !important;
+}
+
+body.dark-mode .section-title span {
+    color: #FDB913 !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(25,168,230,.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050505 0%,
+            #0B0B0B 55%,
+            #101820 100%
+        ) !important;
+}
+
+body.dark-mode .hero-content h1 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .hero-content p {
+    color: #E5E5E5 !important;
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+body.dark-mode .categories {
+    background: #0B0B0B !important;
+}
+
+body.dark-mode .category-card {
+    background: #151515 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+body.dark-mode .category-card:hover {
+    background: #181818 !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.65);
+}
+
+body.dark-mode .category-card h3 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .category-card p {
+    color: #B8B8B8 !important;
+}
+
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+body.dark-mode .featured-products {
+    background: #0B0B0B !important;
+}
+
+body.dark-mode .product-card,
+body.dark-mode .product {
+    background: #151515 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+body.dark-mode .product-card:hover,
+body.dark-mode .product:hover {
+    background: #181818 !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,.7);
+}
+
+body.dark-mode .product-image {
+    background: #101010 !important;
+}
+
+body.dark-mode .product-info {
+    background: #151515 !important;
+}
+
+body.dark-mode .product-title,
+body.dark-mode .product-info h3,
+body.dark-mode .product-card h3,
+body.dark-mode .product-card h4 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .product-description {
+    color: #AFAFAF !important;
+}
+
+body.dark-mode .product-brand {
+    color: #19A8E6 !important;
+}
+
+body.dark-mode .price {
+    color: #19A8E6 !important;
+}
+
+body.dark-mode .current-price {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .quick-price {
+    color: #FDB913 !important;
+}
+
+body.dark-mode .old-price {
+    color: #888888 !important;
+}
+
+body.dark-mode .product-rating {
+    color: #FDB913 !important;
+}
+
+body.dark-mode .stock {
+    color: #22C55E !important;
+}
+
+
+/* =========================================================
+   PRODUCT BUTTONS
+   ========================================================= */
+
+body.dark-mode .cart-btn {
+    background: #19A8E6 !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .cart-btn:hover {
+    background: #FDB913 !important;
+    color: #081B4B !important;
+}
+
+body.dark-mode .view-btn {
+    background: #1B1B1B !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .view-btn:hover {
+    background: #FDB913 !important;
+    color: #081B4B !important;
+}
+
+
+/* =========================================================
+   FILTER SIDEBAR
+   ========================================================= */
+
+body.dark-mode .shop-sidebar {
+    background: #151515 !important;
+    border: 1px solid #2A2A2A !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+body.dark-mode .shop-sidebar h3 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .filter-btn {
+    background: #1B1B1B !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .filter-btn:hover {
+    background: #19A8E6 !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .filter-btn.active {
+    background: #FDB913 !important;
+    color: #081B4B !important;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+body.dark-mode .feature-box {
+    background: #151515 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .feature-box h3 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .feature-box p {
+    color: #B8B8B8 !important;
+}
+
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+
+body.dark-mode .testimonials {
+    background: #0B0B0B !important;
+}
+
+body.dark-mode .testimonial-card {
+    background: #151515 !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .testimonial-text {
+    color: #B8B8B8 !important;
+}
+
+body.dark-mode .customer-info h4 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .customer-info span {
+    color: #999999 !important;
+}
+
+body.dark-mode .review-stars {
+    color: #FDB913 !important;
+}
+
+body.dark-mode .review-box {
+    background: #151515 !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .review-box h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .review-box p {
+    color: #B8B8B8 !important;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
+
+body.dark-mode .newsletter {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(25,168,230,.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #101010
+        ) !important;
+}
+
+body.dark-mode .newsletter-content h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .newsletter-content p {
+    color: #D0D0D0 !important;
+}
+
+body.dark-mode .newsletter-form input {
+    background: #151515 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .newsletter-form input::placeholder {
+    color: #888888 !important;
+}
+
+body.dark-mode .newsletter-form button {
+    background: #FDB913 !important;
+    color: #081B4B !important;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+body.dark-mode .footer,
+body.dark-mode footer {
+    background: #050505 !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .footer h2,
+body.dark-mode .footer h3 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .footer-about,
+body.dark-mode .footer-links a {
+    color: #B8B8B8 !important;
+}
+
+body.dark-mode .footer-links a:hover {
+    color: #FDB913 !important;
+}
+
+body.dark-mode .footer-contact i {
+    color: #FDB913 !important;
+}
+
+body.dark-mode .footer-social a {
+    background: #151515 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .footer-social a:hover {
+    background: #FDB913 !important;
+    color: #081B4B !important;
+}
+
+body.dark-mode .footer-bottom {
+    border-top: 1px solid #2A2A2A !important;
+    color: #888888 !important;
+}
+
+
+/* =========================================================
+   TRACK ORDER
+   ========================================================= */
+
+body.dark-mode .tracking-section {
+    background: #0B0B0B !important;
+}
+
+body.dark-mode .tracking-card {
+    background: #151515 !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .tracking-card h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode #trackingForm input {
+    background: #101010 !important;
+    color: #FFFFFF !important;
+    border-color: #2A2A2A !important;
+}
+
+body.dark-mode #trackingForm input::placeholder {
+    color: #888888 !important;
+}
+
+body.dark-mode .timeline {
+    border-left-color: #333333;
+}
+
+body.dark-mode .timeline-item p {
+    color: #D5D5D5 !important;
+}
+
+body.dark-mode .tracking-help {
+    background: #101010 !important;
+}
+
+body.dark-mode .tracking-help h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .tracking-help p {
+    color: #B8B8B8 !important;
+}
+
+body.dark-mode .order-summary {
+    background: #151515 !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .order-image {
+    background: #101010 !important;
+}
+
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+body.dark-mode .contact-section {
+    background: #0B0B0B !important;
+}
+
+body.dark-mode .contact-card,
+body.dark-mode .contact-form {
+    background: #151515 !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .contact-card h3,
+body.dark-mode .contact-form h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .contact-card p {
+    color: #B8B8B8 !important;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background: #101010 !important;
+    color: #FFFFFF !important;
+    border-color: #2A2A2A !important;
+}
+
+body.dark-mode .contact-form input::placeholder,
+body.dark-mode .contact-form textarea::placeholder {
+    color: #888888 !important;
+}
+
+body.dark-mode .contact-cta {
+    background: #050505 !important;
+}
+
+body.dark-mode .contact-cta h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .contact-cta p {
+    color: #B8B8B8 !important;
+}
+
+
+/* =========================================================
+   QUICK VIEW
+   ========================================================= */
+
+body.dark-mode .quick-view-modal {
+    background: rgba(0,0,0,.85) !important;
+}
+
+body.dark-mode .quick-view-content {
+    background: #151515 !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .quick-view-image {
+    background: #101010 !important;
+}
+
+body.dark-mode .quick-view-details {
+    background: #151515 !important;
+}
+
+body.dark-mode .quick-view-details h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .quick-view-details p {
+    color: #B8B8B8 !important;
+}
+
+body.dark-mode .close-modal {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .close-modal:hover {
+    color: #19A8E6 !important;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+body.dark-mode .btn-primary {
+    background: #19A8E6 !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .btn-primary:hover {
+    background: #FDB913 !important;
+    color: #081B4B !important;
+}
+
+body.dark-mode .btn-secondary {
+    background: transparent !important;
+    color: #FFFFFF !important;
+    border-color: #19A8E6 !important;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: #19A8E6 !important;
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   SCROLL TO TOP
+   ========================================================= */
+
+body.dark-mode .scroll-top {
+    background: #19A8E6 !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .scroll-top:hover {
+    background: #FDB913 !important;
+    color: #081B4B !important;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 21px;
+    padding: 8px;
+    line-height: 1;
+    transition: transform .25s ease;
+}
+
+body.dark-mode .theme-toggle {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .theme-toggle:hover {
+    color: #19A8E6 !important;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.15);
+}
+
+
+/* =========================================================
+   GLOBAL TRANSITIONS
+   ========================================================= */
+
+body,
+header,
+section,
+main,
+.category-card,
+.product,
+.product-card,
+.feature-box,
+.testimonial-card,
+.review-box,
+.newsletter,
+.footer,
+.contact-card,
+.contact-form,
+.tracking-card,
+.order-summary,
+.shop-sidebar,
+.search-box input,
+.filter-btn {
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:768px){
+
+    body.dark-mode,
+    body.dark-mode main,
+    body.dark-mode section {
+        background:#0B0B0B !important;
+    }
+
+    body.dark-mode .header {
+        background:#101010 !important;
+    }
+
+    body.dark-mode .navigation {
+        background:#101010 !important;
+    }
+
+    body.dark-mode .navigation a {
+        color:#FFFFFF !important;
+    }
+
+    body.dark-mode .category-card,
+    body.dark-mode .product-card,
+    body.dark-mode .testimonial-card,
+    body.dark-mode .review-box,
+    body.dark-mode .contact-card,
+    body.dark-mode .contact-form,
+    body.dark-mode .tracking-card,
+    body.dark-mode .order-summary {
+        background:#151515 !important;
+    }
+}
+
+
+/* =========================================================
+   REMOVE HEADER / HERO GAP
+   ========================================================= */
+
+header {
+    margin-bottom:0 !important;
+}
+
+.site-header {
+    margin-bottom:0 !important;
+}
+
+main {
+    margin-top:0 !important;
+}
+
+.hero,
+.hero-section {
+    margin-top:0 !important;
+}/*==================================================
 2. RESET
 ==================================================*/
 
