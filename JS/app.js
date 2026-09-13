@@ -1,7 +1,9 @@
+```javascript
 /* ==========================================
    TECHTRAY HOLDINGS
    APP.JS
 ========================================== */
+
 
 // ===============================
 // DISPLAY PRODUCTS
@@ -15,17 +17,43 @@ function displayProducts(productArray) {
 
     productList.innerHTML = "";
 
+    if (!productArray || productArray.length === 0) {
+
+        productList.innerHTML = `
+            <div class="no-products">
+                <div class="no-products-icon">🔎</div>
+
+                <h3>No products found</h3>
+
+                <p>
+                    We couldn't find products matching your selection.
+                    Try another category or search term.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+
     productArray.forEach(product => {
 
         let badge = "";
 
         if (product.badge === "NEW") {
+
             badge = `<span class="badge new">NEW</span>`;
+
         } else if (product.badge === "BEST") {
+
             badge = `<span class="badge best">BEST SELLER</span>`;
+
         } else if (product.badge === "HOT") {
+
             badge = `<span class="badge hot">HOT</span>`;
+
         }
+
 
         productList.innerHTML += `
 
@@ -35,17 +63,25 @@ function displayProducts(productArray) {
 
         ${badge}
 
-        <img src="${product.image}" alt="${product.name}">
+        <img
+            src="${product.image}"
+            alt="${product.name}"
+            loading="lazy">
 
         <div class="product-overlay">
 
-    <button class="quick-view" onclick="quickView(${product.id})">
-        👁 Quick View
-    </button>
+            <button
+                class="quick-view"
+                onclick="quickView(${product.id})">
 
-</div>
+                👁 Quick View
+
+            </button>
+
+        </div>
 
     </div>
+
 
     <div class="product-info">
 
@@ -53,20 +89,35 @@ function displayProducts(productArray) {
             ${product.brand}
         </div>
 
+
         <h3>
-            <a href="product.html?id=${product.id}" class="product-title">
+
+            <a
+                href="product.html?id=${product.id}"
+                class="product-title">
+
                 ${product.name}
+
             </a>
+
         </h3>
 
+
         <div class="product-rating">
+
             ⭐ ${product.rating}
-            <span>(${product.reviews} Reviews)</span>
+
+            <span>
+                (${product.reviews} Reviews)
+            </span>
+
         </div>
+
 
         <p class="product-description">
             ${product.description}
         </p>
+
 
         <div class="price-box">
 
@@ -80,21 +131,36 @@ function displayProducts(productArray) {
 
         </div>
 
+
         <div class="stock">
-            ${product.stock > 0 ? "✅ In Stock" : "❌ Out of Stock"}
+
+            ${
+                product.stock > 0
+                ? "✅ In Stock"
+                : "❌ Out of Stock"
+            }
+
         </div>
+
 
         <div class="product-buttons">
 
-            <a 
-    href="./product.html?id=${product.id}" 
-    class="view-btn"
-    aria-label="View details for ${product.name}">
-    👁 View Details
-</a>
+            <a
+                href="./product.html?id=${product.id}"
+                class="view-btn"
+                aria-label="View details for ${product.name}">
 
-            <button class="cart-btn" onclick="addToCart(${product.id})">
+                👁 View Details
+
+            </a>
+
+
+            <button
+                class="cart-btn"
+                onclick="addToCart(${product.id})">
+
                 🛒 Add to Cart
+
             </button>
 
         </div>
@@ -109,288 +175,900 @@ function displayProducts(productArray) {
 
 }
 
-// Load all products when the page opens
-displayProducts(products);// Load all products when the page opens
+
+// ===============================
+// CATEGORY FILTER SYSTEM
+// ===============================
+
+let currentCategory = "All";
+let currentSearch = "";
+
+
+// Convert URL-friendly category names
+// into the category names used by products.js
+
+function formatCategory(category) {
+
+    if (!category) return "All";
+
+
+    const categoryMap = {
+
+        "all": "All",
+
+        "audio": "Audio",
+
+        "power": "Power Banks",
+        "power-banks": "Power Banks",
+
+        "chargers": "Chargers",
+
+        "cables": "Cables",
+
+        "phone": "Phone Accessories",
+        "phone-accessories": "Phone Accessories",
+
+        "phone-cases": "Phone Cases",
+
+        "screen-protectors": "Screen Protectors",
+
+        "smart-watches": "Smart Watches",
+        "smart-watches": "Smart Watches",
+
+        "computer-accessories": "Computer Accessories",
+
+        "keyboards-mice": "Keyboards & Mice",
+
+        "laptop-accessories": "Laptop Accessories",
+
+        "gaming": "Gaming Accessories",
+        "gaming-accessories": "Gaming Accessories",
+
+        "bluetooth-speakers": "Bluetooth Speakers",
+
+        "storage-devices": "Storage Devices",
+
+        "networking": "Networking",
+
+        "car-accessories": "Car Accessories",
+
+        "electric-razors": "Electric Razors",
+
+        "hair-dryers": "Hair Dryers",
+
+        "security-cameras": "Security Cameras",
+
+        "computer-tablets": "Computer Tablets",
+
+        "deals": "Deals & Specials",
+        "deals-specials": "Deals & Specials"
+
+    };
+
+
+    const normalized = category
+        .toLowerCase()
+        .trim();
+
+    return categoryMap[normalized] || category;
+}
+
+
+// ===============================
+// APPLY FILTERS
+// ===============================
+
+function applyFilters() {
+
+    if (typeof products === "undefined") return;
+
+
+    let filteredProducts = [...products];
+
+
+    // CATEGORY FILTER
+
+    if (currentCategory !== "All") {
+
+        if (currentCategory === "Deals & Specials") {
+
+            filteredProducts = filteredProducts.filter(product =>
+
+                Number(product.oldPrice) > Number(product.price)
+
+                || product.badge === "HOT"
+
+                || product.badge === "BEST"
+
+            );
+
+        } else {
+
+            filteredProducts = filteredProducts.filter(product =>
+
+                product.category &&
+                product.category.toLowerCase().trim() ===
+                currentCategory.toLowerCase().trim()
+
+            );
+
+        }
+
+    }
+
+
+    // SEARCH FILTER
+
+    if (currentSearch !== "") {
+
+        filteredProducts = filteredProducts.filter(product => {
+
+            const name =
+                product.name?.toLowerCase() || "";
+
+            const description =
+                product.description?.toLowerCase() || "";
+
+            const category =
+                product.category?.toLowerCase() || "";
+
+            const brand =
+                product.brand?.toLowerCase() || "";
+
+
+            return (
+
+                name.includes(currentSearch) ||
+
+                description.includes(currentSearch) ||
+
+                category.includes(currentSearch) ||
+
+                brand.includes(currentSearch)
+
+            );
+
+        });
+
+    }
+
+
+    displayProducts(filteredProducts);
+
+    updateCategoryState();
+
+}
+
+
+// ===============================
+// UPDATE ACTIVE CATEGORY
+// ===============================
+
+function updateCategoryState() {
+
+    const categoryButtons =
+        document.querySelectorAll(".category-card");
+
+
+    categoryButtons.forEach(button => {
+
+        const buttonCategory =
+            button.dataset.category;
+
+
+        if (
+            buttonCategory &&
+            buttonCategory.toLowerCase() ===
+            currentCategory.toLowerCase()
+        ) {
+
+            button.classList.add("active");
+
+        } else {
+
+            button.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+
+// ===============================
+// CATEGORY BUTTONS
+// ===============================
+
+const categoryButtons =
+    document.querySelectorAll(".category-card");
+
+
+categoryButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const selectedCategory =
+            this.dataset.category;
+
+
+        currentCategory =
+            selectedCategory || "All";
+
+
+        // Update URL
+
+        const url =
+            new URL(window.location.href);
+
+
+        if (currentCategory === "All") {
+
+            url.searchParams.delete("category");
+
+        } else {
+
+            const slug =
+                currentCategory
+                    .toLowerCase()
+                    .replace(/&/g, "and")
+                    .replace(/\s+/g, "-");
+
+
+            url.searchParams.set(
+                "category",
+                slug
+            );
+
+        }
+
+
+        window.history.pushState(
+            {},
+            "",
+            url
+        );
+
+
+        applyFilters();
+
+    });
+
+});
+
+
+// ===============================
+// HOMEPAGE / URL CATEGORY
+// ===============================
+
+function loadCategoryFromURL() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const categoryParam =
+        params.get("category");
+
+
+    if (!categoryParam) {
+
+        currentCategory = "All";
+
+        return;
+
+    }
+
+
+    currentCategory =
+        formatCategory(categoryParam);
+
+
+    applyFilters();
+
+}
+
+
+// ===============================
+// SEARCH PRODUCTS
+// ===============================
+
+const searchInput =
+    document.getElementById("search");
+
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            currentSearch =
+                this.value
+                    .toLowerCase()
+                    .trim();
+
+
+            applyFilters();
+
+        }
+    );
+
+}
+
+
+// ===============================
+// SORT PRODUCTS
+// ===============================
+
+const sortSelect =
+    document.getElementById("sort-products");
+
+
+if (sortSelect) {
+
+    sortSelect.addEventListener(
+        "change",
+        function () {
+
+            if (typeof products === "undefined") return;
+
+
+            let sortedProducts =
+                [...products];
+
+
+            // Apply category
+
+            if (currentCategory !== "All") {
+
+                if (
+                    currentCategory ===
+                    "Deals & Specials"
+                ) {
+
+                    sortedProducts =
+                        sortedProducts.filter(product =>
+
+                            Number(product.oldPrice) >
+                            Number(product.price)
+
+                            || product.badge === "HOT"
+
+                            || product.badge === "BEST"
+
+                        );
+
+                } else {
+
+                    sortedProducts =
+                        sortedProducts.filter(product =>
+
+                            product.category &&
+                            product.category.toLowerCase().trim() ===
+                            currentCategory.toLowerCase().trim()
+
+                        );
+
+                }
+
+            }
+
+
+            // Apply search
+
+            if (currentSearch !== "") {
+
+                sortedProducts =
+                    sortedProducts.filter(product => {
+
+                        const name =
+                            product.name?.toLowerCase() || "";
+
+                        const description =
+                            product.description?.toLowerCase() || "";
+
+                        const category =
+                            product.category?.toLowerCase() || "";
+
+                        const brand =
+                            product.brand?.toLowerCase() || "";
+
+
+                        return (
+
+                            name.includes(currentSearch) ||
+
+                            description.includes(currentSearch) ||
+
+                            category.includes(currentSearch) ||
+
+                            brand.includes(currentSearch)
+
+                        );
+
+                    });
+
+            }
+
+
+            // SORT
+
+            switch (this.value) {
+
+                case "low-high":
+
+                    sortedProducts.sort(
+                        (a, b) =>
+                            Number(a.price) -
+                            Number(b.price)
+                    );
+
+                    break;
+
+
+                case "high-low":
+
+                    sortedProducts.sort(
+                        (a, b) =>
+                            Number(b.price) -
+                            Number(a.price)
+                    );
+
+                    break;
+
+
+                case "az":
+
+                    sortedProducts.sort(
+                        (a, b) =>
+                            a.name.localeCompare(b.name)
+                    );
+
+                    break;
+
+
+                case "za":
+
+                    sortedProducts.sort(
+                        (a, b) =>
+                            b.name.localeCompare(a.name)
+                    );
+
+                    break;
+
+            }
+
+
+            displayProducts(sortedProducts);
+
+        }
+    );
+
+}
+
+
+// ===============================
+// LOAD PRODUCTS
+// ===============================
+
+if (typeof products !== "undefined") {
+
+    displayProducts(products);
+
+    loadCategoryFromURL();
+
+}
+
 
 // ===============================
 // SHOPPING CART
 // ===============================
 
-let cart = JSON.parse(localStorage.getItem("techtray-cart")) || [];
+let cart =
+    JSON.parse(
+        localStorage.getItem("techtray-cart")
+    ) || [];
+
 
 function saveCart() {
-    localStorage.setItem("techtray-cart", JSON.stringify(cart));
+
+    localStorage.setItem(
+        "techtray-cart",
+        JSON.stringify(cart)
+    );
+
     updateCartCount();
+
 }
+
 
 function addToCart(id) {
 
-    const product = products.find(item => item.id === id);
+    const product =
+        products.find(
+            item => item.id === id
+        );
+
 
     if (!product) return;
 
-    const existingItem = cart.find(item => item.id === id);
+
+    const existingItem =
+        cart.find(
+            item => item.id === id
+        );
+
 
     if (existingItem) {
+
         existingItem.quantity++;
+
     } else {
+
         cart.push({
+
             ...product,
+
             quantity: 1
+
         });
+
     }
+
 
     saveCart();
 
-    showNotification(product.name + " added to cart.");
+
+    showNotification(
+        product.name +
+        " added to cart."
+    );
 
 }
+
+
 function updateCartCount() {
 
-    const cartCount = document.getElementById("cart-count");
+    const cartCount =
+        document.getElementById("cart-count");
+
 
     if (!cartCount) return;
 
-    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
-    cartCount.textContent = totalItems;
-}
-
-// Update cart when page loads
-updateCartCount();
-// ===============================
-// SEARCH PRODUCTS
-// ===============================
-
-const searchInput = document.getElementById("search");
-
-if (searchInput) {
-
-    searchInput.addEventListener("keyup", function () {
-
-        const keyword = this.value.toLowerCase();
-
-        const filteredProducts = products.filter(product =>
-            product.name.toLowerCase().includes(keyword) ||
-            product.description.toLowerCase().includes(keyword) ||
-            product.category.toLowerCase().includes(keyword)
+    const totalItems =
+        cart.reduce(
+            (total, item) =>
+                total + item.quantity,
+            0
         );
 
-        displayProducts(filteredProducts);
 
-    });
+    cartCount.textContent =
+        totalItems;
 
 }
+
+
+updateCartCount();
+
+
 // ===============================
-// CATEGORY FILTERS
+// NOTIFICATION
 // ===============================
 
-const filterButtons = document.querySelectorAll(".filter-btn");
+function showNotification(message) {
 
-filterButtons.forEach(button => {
+    const notification =
+        document.createElement("div");
 
-    button.addEventListener("click", () => {
 
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove("active"));
+    notification.className =
+        "notification";
 
-        // Add active class to clicked button
-        button.classList.add("active");
 
-        const category = button.dataset.category;
-
-        if (category === "All") {
-
-            displayProducts(products);
-
-        } else {
-
-            const filteredProducts = products.filter(product =>
-                product.category === category
-            );
-
-            displayProducts(filteredProducts);
-
-        }
-
-    });
-
-});
-/* ==========================================
-   NOTIFICATION
-========================================== */
-
-function showNotification(message){
-
-    const notification=document.createElement("div");
-
-    notification.className="notification";
-
-    notification.innerHTML=`
+    notification.innerHTML = `
         ✅ ${message}
     `;
 
-    document.body.appendChild(notification);
 
-    setTimeout(()=>{
+    document.body.appendChild(
+        notification
+    );
 
-        notification.classList.add("show");
 
-    },100);
+    setTimeout(() => {
 
-    setTimeout(()=>{
+        notification.classList.add(
+            "show"
+        );
 
-        notification.classList.remove("show");
+    }, 100);
 
-        setTimeout(()=>{
+
+    setTimeout(() => {
+
+        notification.classList.remove(
+            "show"
+        );
+
+
+        setTimeout(() => {
 
             notification.remove();
 
-        },400);
+        }, 400);
 
-    },2500);
+    }, 2500);
 
 }
 
-/*==========================================
-        WISHLIST
-==========================================*/
 
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+// ===============================
+// WISHLIST
+// ===============================
 
-function toggleWishlist(id){
+let wishlist =
+    JSON.parse(
+        localStorage.getItem("wishlist")
+    ) || [];
 
-    const product = products.find(p => p.id === id);
 
-    const index = wishlist.findIndex(item => item.id === id);
+function toggleWishlist(id) {
 
-    if(index === -1){
+    const product =
+        products.find(
+            p => p.id === id
+        );
+
+
+    if (!product) return;
+
+
+    const index =
+        wishlist.findIndex(
+            item => item.id === id
+        );
+
+
+    if (index === -1) {
 
         wishlist.push(product);
 
-        showNotification(product.name + " added to Wishlist ❤️");
 
-    }else{
+        showNotification(
+            product.name +
+            " added to Wishlist ❤️"
+        );
 
-        wishlist.splice(index,1);
+    } else {
 
-        showNotification(product.name + " removed from Wishlist");
+        wishlist.splice(
+            index,
+            1
+        );
+
+
+        showNotification(
+            product.name +
+            " removed from Wishlist"
+        );
 
     }
 
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
 
 }
 
-/*==========================================
-        QUICK VIEW
-==========================================*/
 
-const modal = document.getElementById("quick-view-modal");
+// ===============================
+// QUICK VIEW
+// ===============================
 
-function quickView(id){
+const modal =
+    document.getElementById(
+        "quick-view-modal"
+    );
 
-    const product = products.find(p => p.id === id);
 
-    if(!product) return;
+function quickView(id) {
 
-    document.getElementById("quick-image").src = product.image;
-    document.getElementById("quick-name").textContent = product.name;
-    document.getElementById("quick-description").textContent = product.description;
-    document.getElementById("quick-price").textContent = "R" + product.price;
+    const product =
+        products.find(
+            p => p.id === id
+        );
 
-    document.getElementById("quick-cart-btn").onclick = function () {
-    addToCart(product.id);
-};
 
-document.getElementById("quick-product-link").href =
-    "product.html?id=" + product.id;
+    if (!product) return;
 
-modal.style.display = "flex";
+
+    document.getElementById(
+        "quick-image"
+    ).src = product.image;
+
+
+    document.getElementById(
+        "quick-name"
+    ).textContent = product.name;
+
+
+    document.getElementById(
+        "quick-description"
+    ).textContent =
+        product.description;
+
+
+    document.getElementById(
+        "quick-price"
+    ).textContent =
+        "R" + product.price;
+
+
+    document.getElementById(
+        "quick-cart-btn"
+    ).onclick = function () {
+
+        addToCart(product.id);
+
+    };
+
+
+    document.getElementById(
+        "quick-product-link"
+    ).href =
+        "product.html?id=" +
+        product.id;
+
+
+    modal.style.display = "flex";
 
 }
 
-const closeModal = document.querySelector(".close-modal");
 
-if(closeModal){
+const closeModal =
+    document.querySelector(
+        ".close-modal"
+    );
 
-    closeModal.onclick = function(){
-        modal.style.display = "none";
+
+if (closeModal) {
+
+    closeModal.onclick = function () {
+
+        modal.style.display =
+            "none";
+
     };
 
 }
 
-window.addEventListener("click", function(e){
 
-    if(e.target === modal){
-        modal.style.display = "none";
-    }
+window.addEventListener(
+    "click",
+    function (e) {
 
-});
+        if (e.target === modal) {
 
-/*==================================================
-    TECHTRAY NIGHT MODE
-==================================================*/
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const themeToggle = document.getElementById("theme-toggle");
-
-    if (!themeToggle) return;
-
-
-    // ==========================================
-    // LOAD SAVED THEME
-    // ==========================================
-
-    const savedTheme = localStorage.getItem("techtray-theme");
-
-    if (savedTheme === "dark") {
-
-        document.body.classList.add("dark-mode");
-
-        themeToggle.textContent = "☀️";
-        themeToggle.title = "Switch to Light Mode";
-
-    } else {
-
-        document.body.classList.remove("dark-mode");
-
-        themeToggle.textContent = "🌙";
-        themeToggle.title = "Switch to Night Mode";
-
-    }
-
-
-    // ==========================================
-    // TOGGLE THEME
-    // ==========================================
-
-    themeToggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-
-        // NIGHT MODE
-        if (document.body.classList.contains("dark-mode")) {
-
-            localStorage.setItem("techtray-theme", "dark");
-
-            themeToggle.textContent = "☀️";
-            themeToggle.title = "Switch to Light Mode";
+            modal.style.display =
+                "none";
 
         }
 
-        // LIGHT MODE
-        else {
+    }
+);
 
-            localStorage.setItem("techtray-theme", "light");
 
-            themeToggle.textContent = "🌙";
-            themeToggle.title = "Switch to Night Mode";
+// ===============================
+// TECHTRAY NIGHT MODE
+// ===============================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const themeToggle =
+            document.getElementById(
+                "theme-toggle"
+            );
+
+
+        if (!themeToggle) return;
+
+
+        // LOAD SAVED THEME
+
+        const savedTheme =
+            localStorage.getItem(
+                "techtray-theme"
+            );
+
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+
+            themeToggle.textContent =
+                "☀️";
+
+
+            themeToggle.title =
+                "Switch to Light Mode";
+
+        } else {
+
+            document.body.classList.remove(
+                "dark-mode"
+            );
+
+
+            themeToggle.textContent =
+                "🌙";
+
+
+            themeToggle.title =
+                "Switch to Night Mode";
 
         }
 
-    });
 
-});
+        // TOGGLE THEME
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "dark-mode"
+                );
+
+
+                if (
+                    document.body.classList.contains(
+                        "dark-mode"
+                    )
+                ) {
+
+                    localStorage.setItem(
+                        "techtray-theme",
+                        "dark"
+                    );
+
+
+                    themeToggle.textContent =
+                        "☀️";
+
+
+                    themeToggle.title =
+                        "Switch to Light Mode";
+
+                } else {
+
+                    localStorage.setItem(
+                        "techtray-theme",
+                        "light"
+                    );
+
+
+                    themeToggle.textContent =
+                        "🌙";
+
+
+                    themeToggle.title =
+                        "Switch to Night Mode";
+
+                }
+
+            }
+        );
+
+    }
+);
