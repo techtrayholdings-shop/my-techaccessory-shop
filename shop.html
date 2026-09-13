@@ -26,18 +26,19 @@
 
     <div class="container">
 
-        <h1>TechTray Shop</h1>
+        <span class="shop-eyebrow">TECHTRAY MARKETPLACE</span>
+
+        <h1>Shop Technology. Shop Smarter.</h1>
 
         <p>
-
-            Browse our premium collection of electronics,
-            accessories and smart technology.
-
+            Explore electronics, accessories and smart technology
+            designed to keep you connected.
         </p>
 
     </div>
 
 </section>
+
 
 <!-- SHOP CONTENT -->
 
@@ -45,158 +46,504 @@
 
 <div class="container shop-container">
 
-<!-- LEFT SIDEBAR -->
 
-<aside class="shop-sidebar">
+    <!-- MODERN CATEGORY NAVIGATION -->
 
-    <div class="shop-category-header">
+    <div class="shop-category-section">
 
-    <h3>Shop Categories</h3>
+        <div class="shop-category-heading">
 
-    <p>Select a category to browse our products.</p>
+            <div>
+                <span class="section-eyebrow">EXPLORE</span>
 
-</div>
+                <h2>Shop by Category</h2>
 
-<div class="category-scroll">
-
-    <button class="filter-btn active" data-category="All">
-        ⭐ All Products
-    </button>
-
-    <button class="filter-btn" data-category="Audio">
-        🎧 Headphones & Earphones
-    </button>
-
-    <button class="filter-btn" data-category="Chargers">
-        ⚡ Chargers
-    </button>
-
-    <button class="filter-btn" data-category="Cables">
-        🔌 Charging Cables
-    </button>
-
-    <button class="filter-btn" data-category="Power Banks">
-        🔋 Power Banks
-    </button>
-
-    <button class="filter-btn" data-category="Car Accessories">
-        🚗 Vehicle Accessories
-    </button>
-
-    <button class="filter-btn" data-category="Gaming">
-        🎮 Gaming Accessories
-    </button>
-
-    <button class="filter-btn" data-category="Smart Watches">
-        ⌚ Smart Watches
-    </button>
-
-    <button class="filter-btn" data-category="Computer Accessories">
-        💻 Computer Accessories
-    </button>
-
-    <button class="filter-btn" data-category="Smart Home">
-        🏠 Smart Home
-    </button>
-
-    <button class="filter-btn" data-category="Phone Accessories">
-        📱 Phone Accessories
-    </button>
-
-</div>
-
-<!-- PRODUCTS -->
-
-<div class="shop-products">
-
-<div class="shop-toolbar">
-
-<input
-id="search"
-type="text"
-placeholder="Search products...">
-
-<select id="sort-products">
-
-<option value="default">Sort Products</option>
-
-<option value="low-high">Price: Low to High</option>
-
-<option value="high-low">Price: High to Low</option>
-
-<option value="az">A - Z</option>
-
-<option value="za">Z - A</option>
-
-</select>
-
-</div>
-
-<div id="product-list" class="products-grid"></div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ==========================================
-     QUICK VIEW MODAL
-========================================== -->
-
-<div id="quick-view-modal" class="quick-view-modal">
-
-    <div class="quick-view-content">
-
-        <span class="close-modal">&times;</span>
-
-        <div class="quick-view-grid">
-
-            <div class="quick-view-image">
-
-                <img
-                    id="quick-image"
-                    src=""
-                    alt="Product">
-
+                <p>
+                    Find exactly what you need from our growing range
+                    of technology and accessories.
+                </p>
             </div>
 
-            <div class="quick-view-details">
+        </div>
 
-                <h2 id="quick-name"></h2>
 
-                <p id="quick-description"></p>
+        <!-- POPULAR -->
 
-                <div class="quick-price">
+        <div class="category-group">
 
-                    <strong id="quick-price"></strong>
+            <h3>Popular Categories</h3>
 
-                </div>
+            <div class="category-grid">
 
-                <button
-                    id="quick-cart-btn"
-                    class="cart-btn">
+                <button class="category-card active"
+                        data-category="All">
 
-                    🛒 Add to Cart
+                    <span class="category-icon">⭐</span>
+
+                    <span class="category-name">
+                        All Products
+                    </span>
+
+                    <span class="category-description">
+                        Explore everything
+                    </span>
 
                 </button>
 
-                <a
-                    id="quick-product-link"
-                    href="#"
-                    class="view-btn">
 
-                    View Full Product
+                <button class="category-card"
+                        data-category="Audio">
 
-                </a>
+                    <span class="category-icon">🎧</span>
+
+                    <span class="category-name">
+                        Audio
+                    </span>
+
+                    <span class="category-description">
+                        Earbuds, Headphones & Speakers
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Power Banks">
+
+                    <span class="category-icon">🔋</span>
+
+                    <span class="category-name">
+                        Power Banks
+                    </span>
+
+                    <span class="category-description">
+                        Portable Charging
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Chargers">
+
+                    <span class="category-icon">⚡</span>
+
+                    <span class="category-name">
+                        Chargers
+                    </span>
+
+                    <span class="category-description">
+                        Fast Charging Solutions
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Cables">
+
+                    <span class="category-icon">🔌</span>
+
+                    <span class="category-name">
+                        Cables
+                    </span>
+
+                    <span class="category-description">
+                        USB-C, Lightning & More
+                    </span>
+
+                </button>
 
             </div>
 
         </div>
 
+
+        <!-- MOBILE -->
+
+        <div class="category-group">
+
+            <h3>Mobile & Wearables</h3>
+
+            <div class="category-grid">
+
+                <button class="category-card"
+                        data-category="Phone Accessories">
+
+                    <span class="category-icon">📱</span>
+
+                    <span class="category-name">
+                        Phone Accessories
+                    </span>
+
+                    <span class="category-description">
+                        Everything for Your Phone
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Phone Cases">
+
+                    <span class="category-icon">📲</span>
+
+                    <span class="category-name">
+                        Phone Cases
+                    </span>
+
+                    <span class="category-description">
+                        Protection & Style
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Screen Protectors">
+
+                    <span class="category-icon">🛡️</span>
+
+                    <span class="category-name">
+                        Screen Protectors
+                    </span>
+
+                    <span class="category-description">
+                        Keep Your Screen Safe
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Smart Watches">
+
+                    <span class="category-icon">⌚</span>
+
+                    <span class="category-name">
+                        Smart Watches
+                    </span>
+
+                    <span class="category-description">
+                        Wearable Technology
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPUTING -->
+
+        <div class="category-group">
+
+            <h3>Computing & Gaming</h3>
+
+            <div class="category-grid">
+
+                <button class="category-card"
+                        data-category="Computer Accessories">
+
+                    <span class="category-icon">💻</span>
+
+                    <span class="category-name">
+                        Computer Accessories
+                    </span>
+
+                    <span class="category-description">
+                        Boost Productivity
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Keyboards & Mice">
+
+                    <span class="category-icon">⌨️</span>
+
+                    <span class="category-name">
+                        Keyboards & Mice
+                    </span>
+
+                    <span class="category-description">
+                        Office & Gaming
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Laptop Accessories">
+
+                    <span class="category-icon">🖥️</span>
+
+                    <span class="category-name">
+                        Laptop Accessories
+                    </span>
+
+                    <span class="category-description">
+                        Bags, Cooling & More
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Gaming Accessories">
+
+                    <span class="category-icon">🎮</span>
+
+                    <span class="category-name">
+                        Gaming Accessories
+                    </span>
+
+                    <span class="category-description">
+                        Controllers & Gaming Gear
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Storage Devices">
+
+                    <span class="category-icon">💾</span>
+
+                    <span class="category-name">
+                        Storage Devices
+                    </span>
+
+                    <span class="category-description">
+                        Flash Drives & Memory Cards
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Computer Tablets">
+
+                    <span class="category-icon">📱</span>
+
+                    <span class="category-name">
+                        Computer Tablets
+                    </span>
+
+                    <span class="category-description">
+                        Android & Windows Tablets
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONNECTIVITY -->
+
+        <div class="category-group">
+
+            <h3>Connectivity & Entertainment</h3>
+
+            <div class="category-grid">
+
+                <button class="category-card"
+                        data-category="Bluetooth Speakers">
+
+                    <span class="category-icon">🔊</span>
+
+                    <span class="category-name">
+                        Bluetooth Speakers
+                    </span>
+
+                    <span class="category-description">
+                        Portable Audio
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Networking">
+
+                    <span class="category-icon">🌐</span>
+
+                    <span class="category-name">
+                        Networking
+                    </span>
+
+                    <span class="category-description">
+                        Routers & Wi-Fi Equipment
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Security Cameras">
+
+                    <span class="category-icon">📹</span>
+
+                    <span class="category-name">
+                        Security Cameras
+                    </span>
+
+                    <span class="category-description">
+                        Home & Office Protection
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- LIFESTYLE -->
+
+        <div class="category-group">
+
+            <h3>Lifestyle & Automotive</h3>
+
+            <div class="category-grid">
+
+                <button class="category-card"
+                        data-category="Car Accessories">
+
+                    <span class="category-icon">🚗</span>
+
+                    <span class="category-name">
+                        Car Accessories
+                    </span>
+
+                    <span class="category-description">
+                        Chargers & Vehicle Gadgets
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Electric Razors">
+
+                    <span class="category-icon">🪒</span>
+
+                    <span class="category-name">
+                        Electric Razors
+                    </span>
+
+                    <span class="category-description">
+                        Shavers & Grooming
+                    </span>
+
+                </button>
+
+
+                <button class="category-card"
+                        data-category="Hair Dryers">
+
+                    <span class="category-icon">💨</span>
+
+                    <span class="category-name">
+                        Hair Dryers
+                    </span>
+
+                    <span class="category-description">
+                        Professional Hair Care
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- DEALS -->
+
+        <div class="category-group deals-category-group">
+
+            <button class="category-card deals-card"
+                    data-category="Deals & Specials">
+
+                <span class="category-icon">🔥</span>
+
+                <span class="category-name">
+                    Deals & Specials
+                </span>
+
+                <span class="category-description">
+                    Save on Top Products
+                </span>
+
+                <span class="deals-arrow">→</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div class="shop-products">
+
+        <div class="shop-toolbar">
+
+            <div class="shop-search">
+
+                <input
+                    id="search"
+                    type="text"
+                    placeholder="Search products...">
+
+            </div>
+
+
+            <div class="shop-sort">
+
+                <select id="sort-products">
+
+                    <option value="default">
+                        Sort Products
+                    </option>
+
+                    <option value="low-high">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high-low">
+                        Price: High to Low
+                    </option>
+
+                    <option value="az">
+                        A - Z
+                    </option>
+
+                    <option value="za">
+                        Z - A
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div id="product-list"
+             class="products-grid"></div>
+
     </div>
 
 </div>
+
+</section>
 
 <div id="footer"></div>
 
