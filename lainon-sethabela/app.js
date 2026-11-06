@@ -40,3 +40,19 @@ document.querySelector('#enquiry-form').addEventListener('submit',event=>{
   const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';document.body.appendChild(link);link.click();link.remove();
   feedback.textContent='Your message is ready in WhatsApp. Review it there, then send when you’re ready.';
 });
+
+const forecourtViewer=document.querySelector('#forecourt-viewer');
+if(forecourtViewer){
+ let forecourtTrigger;
+ document.querySelectorAll('.forecourt-image-link').forEach(link=>link.addEventListener('click',event=>{
+  event.preventDefault();forecourtTrigger=link;
+  const image=link.querySelector('img');
+  forecourtViewer.querySelector('img').src=link.href;
+  forecourtViewer.querySelector('img').alt=image.alt;
+  forecourtViewer.querySelector('p').textContent=image.alt;
+  forecourtViewer.showModal();document.body.classList.add('modal-open');
+ }));
+ forecourtViewer.querySelector('button').addEventListener('click',()=>forecourtViewer.close());
+ forecourtViewer.addEventListener('click',event=>{if(event.target===forecourtViewer)forecourtViewer.close();});
+ forecourtViewer.addEventListener('close',()=>{document.body.classList.remove('modal-open');forecourtTrigger?.focus();});
+}
