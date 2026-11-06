@@ -1,0 +1,1 @@
+Extract the ZIP. Upload index.html and styles.css into the existing lainon-sethabela folder, replacing the current versions. Upload the four workstation images into lainon-sethabela/assets. Keep all other existing files. Commit the changes to main. The section appears under Workstations in the navigation. No app.js replacement is needed.
